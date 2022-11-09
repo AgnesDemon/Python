@@ -2,6 +2,7 @@
 #Rounding
 number = 105.65
 print(round(number, 0))
+print(round(number, 2))
 
 #exit() is a function that stops a function.
 
@@ -22,3 +23,7 @@ except:
 
 #11-8-2022
 print("Hello.")
+#git status - shows what files have changed
+#git add [file name] - adds files to be committed
+#git commit -m "whatever comments you want to make" - will be visible in the respository
+#git push - sends to the remote respository
