@@ -22,13 +22,17 @@ loop until user is satisfied
 
 from random import randint
 
+'''originalPowersList = ["1: Strength +15", "2: Resistance to All Elements +20%", "3: Critial Hit Chance +12%"]
+for power in originalPowersList:
+    print(power)
 
-properties = { 1 : "Intelligence +30%)", 2 : "Fire Resistance +12%", 3 : "Critical Hit Damage +5%", 4 : "Critical Hit Chance +15%", 5 : "Strength +11"}
+properties = { 1 : "Intelligence +30%", 2 : "Fire Resistance +12%", 3 : "Critical Hit Damage +5%", 4 : "Critical Hit Chance +15%", 5 : "Strength +11"}
 
-print("Change Property")
+print("Which power would you like to change?")
 changeProperty = input()
 randomProperty = randint(1,5)
-print(properties[randomProperty])
+print("Here is your new power: " + properties[randomProperty])'''
+
 
 
 
