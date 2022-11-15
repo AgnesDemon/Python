@@ -32,6 +32,33 @@ print("Which power would you like to change?")
 changeProperty = input()
 randomProperty = randint(1,5)
 print("Here is your new power: " + properties[randomProperty])'''
+#Basic version, works, but does not contain certain tasks
+
+
+
+
+'''originalPowersList = {1 : "Strength", 2 : "Resistance to All Elements", 3 : "Critical Hit Chance"}
+for power in originalPowersList:
+    print(power)'''
+
+
+originalPowersList = {1 : "Strength", 2 : "Resistance to All Elements", 3 : "Critical Hit Chance"}
+def oP():
+    for power in originalPowersList:
+        print(power, originalPowersList[power])
+
+
+properties = {1 : "Intelligence", 2 : "Fire Resistance", 3 : "Critical Hit Damage", 4 : "Critical Hit Chance", 5 : "Strength"}
+def powerChange ():
+    print("Which power would you like to change?")
+    changeProperty = input()
+    randomProperty = randint(1,5)
+    print("Here is your new power: " + properties[randomProperty])
+    originalPowersList [changeProperty] = properties[randomProperty]
+
+oP()
+powerChange()
+
 
 
 
