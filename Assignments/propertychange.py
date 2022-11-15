@@ -54,10 +54,11 @@ def powerChange ():
     changeProperty = input()
     randomProperty = randint(1,5)
     print("Here is your new power: " + properties[randomProperty])
-    originalPowersList [changeProperty] = properties[randomProperty]
+    originalPowersList [int(changeProperty)] = properties[randomProperty]
 
 oP()
 powerChange()
+oP()
 
 
 
