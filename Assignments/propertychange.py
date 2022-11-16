@@ -42,13 +42,13 @@ for power in originalPowersList:
     print(power)'''
 
 
-originalPowersList = {1 : "Strength", 2 : "Resistance to All Elements", 3 : "Critical Hit Chance"}
+originalPowersList = {1 : "Strength +15", 2 : "Resistance to All Elements +20%", 3 : "Critical Hit Chance +12%"}
 def oP():
     for power in originalPowersList:
         print(power, originalPowersList[power])
 
 
-properties = {1 : "Intelligence", 2 : "Fire Resistance", 3 : "Critical Hit Damage", 4 : "Critical Hit Chance", 5 : "Strength"}
+properties = {1 : "Intelligence +30%", 2 : "Fire Resistance +12", 3 : "Critical Hit Damage +5%", 4 : "Critical Hit Chance +15%", 5 : "Strength +11"}
 def powerChange ():
     print("Which power would you like to change?")
     changeProperty = input()
