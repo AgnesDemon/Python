@@ -141,4 +141,9 @@ f.read()
 f.close()
 
 
+#Assignment: File.py
+#Allow user to pick the file name
+#Check if the file exists and add to it
+#If it doesn't exist, create it
+#Use a loop and write some numbers to the file
 
