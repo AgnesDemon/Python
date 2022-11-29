@@ -8,7 +8,6 @@ clear = lambda: os.system('cls')
 
 def fileExists(filename):
     try:
-        print(filename)
         f = open(filename, "r")
         f.close()
         return True
