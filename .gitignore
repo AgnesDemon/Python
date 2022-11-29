@@ -1,0 +1,6 @@
+# Bytw-compiled / optimized / DLL files
+__pycache__/
+
+#Test files
+test*.*
+
