@@ -2,18 +2,33 @@ from random import randint
 #loop 25 times
 #write information and put enter at the end
 
-randomBillNumber = randint(50,1000)
+#randomBillNumber = randint(50,1000)
 
-print("phone: ", ",", randomBillNumber)
+#print("phone: ", ",", randomBillNumber)
 
 names = ["Denji", "Aki", "Power", "Angel", "Makima", 
     "Pochita", "Himeno", "Kobeni", "Meowy", "Hirokazu", 
-    "Sawatari", "Beam", "Reze", "Violence", "Dororo",
-    "Midoriya", "Bakugo", "Ochaco", "All Might", "Yoh",
-    "Hao", "Ren", "Opacho", "Anna", "Kishibe"]
+    "Sawatari", "Beam", "Reze", "Violence", "Quanxi",
+    "The Puppeteer", "Tolka", "Master", "Kishibe", "Yoh",
+    "Hao", "Ren", "Opacho", "Anna", "Amidamaru"]
 #print(names)
+
+f = open("test.csv", 'w')
 for name in names:
     print(name)
+    f.write(name + ", ")
+    f.write(str(randint(100, 500)) + ",")
+    f.write(str(randint(100, 1000)) + ",")
+    f.write(str(randint(100, 500)) + ",")
+    f.write(str(randint(50, 200)) + ",")
+    f.write(str(randint(100, 400)) + "\n")
+f.close()
+
+
+
+#print(name, ",", randomPhoneBill, ",", randomHouseBill, ",", randomElectricBill,
+# ",", randomWaterBill, ",", randomFoodBill)
+
 
 #row = 25
 #while row < 25:
