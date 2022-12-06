@@ -50,9 +50,11 @@ randomFoodBill = randint(100, 400)
 #print(randomWaterBill)
 #print(randomFoodBill)
 
-#print(name, ",", randomPhoneBill, ",", randomHouseBill, ",", randomElectricBill, ",", randomWaterBill, ",", randomFoodBill)
+#print(name, ",", randomPhoneBill, ",", randomHouseBill, ",", 
+# randomElectricBill, ",", randomWaterBill, ",", randomFoodBill)
 def Bills():
-    print(name, ",", randomPhoneBill, ",", randomHouseBill, ",", randomElectricBill, ",", randomWaterBill, ",", randomFoodBill)
+    print(name, ",", randomPhoneBill, ",", randomHouseBill, ",",
+     randomElectricBill, ",", randomWaterBill, ",", randomFoodBill)
 
 Bills()
 
