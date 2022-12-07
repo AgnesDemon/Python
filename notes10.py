@@ -7,7 +7,8 @@ class House:
     AttachedGarage = 'y'
     Basement = 'n'
 
-    def __init__(this, sqFeet, bedrooms, bathrooms, stories, garage = 'y', basement = 'n'):
+    def __init__(this, owner, sqFeet, bedrooms, bathrooms, stories, garage = 'y', basement = 'n'):
+        this.Owner = owner
         this.SquareFootage = sqFeet
         this.Bedrooms = bedrooms
         this.Bathrooms = bathrooms
