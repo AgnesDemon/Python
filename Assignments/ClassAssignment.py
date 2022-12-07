@@ -33,6 +33,8 @@ for project in crochetProjects:
         print(project.Project, "uses a lot of yarn.")
 
 
+#Homework
+#create a class that helps you calculate something
 
 
 
