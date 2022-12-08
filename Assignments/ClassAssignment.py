@@ -8,9 +8,9 @@ class Crochet:
     CrochetTools = 0
     Eyes = 0
     Hours = 0
-    Pattern = 'y'
+    Pattern = 0
 
-    def __init__(this, project, yarn, tools, eyes, hours, patterns = 'y'):
+    def __init__(this, project, yarn, tools, eyes, hours, patterns):
         this.Project = project
         this.Yarn = yarn
         this.CrochetTools = tools
@@ -18,11 +18,11 @@ class Crochet:
         this.Hours = hours
         this.Pattern = patterns
 
-crochetBag = Crochet('Bag', 4, 30, 1, 6, 'y')
+crochetBag = Crochet('Bag', 4, 30, 1, 6, 0)
 #print("Crochet Bag yarn costs: ", crochetBag.Yarn)
-crochetSchnauzer = Crochet('Schnauzer', 4, 30, 1, 7, 'y')
-crochetFrog = Crochet('Frog', 2, 30, 1, 6, 'y')
-crochetDoll = Crochet('Doll', 8, 30, 0, 10, 'y')
+crochetSchnauzer = Crochet('Schnauzer', 4, 30, 1, 7, 6)
+crochetFrog = Crochet('Frog', 2, 30, 1, 6, 0)
+crochetDoll = Crochet('Doll', 8, 30, 0, 10, 0)
 
 crochetProjects = [crochetBag, crochetSchnauzer, crochetFrog, crochetDoll]
 
