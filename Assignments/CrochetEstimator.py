@@ -25,9 +25,10 @@ class Crochet:
 crochetBag = Crochet(5, 30, 1, 0, 8)
 hourlyCost = crochetBag.HourlyCost()
 supplyCost = crochetBag.SupplyCost()
+totalCost1 = hourlyCost + supplyCost
 #total = crochetBag.HourlyCost + crochetBag.SupplyCost()
 
-print("Bag:", hourlyCost, ",", supplyCost, ",", hourlyCost + supplyCost)
+print("Bag:", totalCost1)
 #print(hourlyCost)
 #print(supplyCost)
 #print(hourlyCost + supplyCost)
@@ -35,8 +36,12 @@ print("Bag:", hourlyCost, ",", supplyCost, ",", hourlyCost + supplyCost)
 crochetSchnauzer = Crochet(4, 30, 1, 6, 7)
 hourlyCost = crochetSchnauzer.HourlyCost()
 supplyCost = crochetSchnauzer.SupplyCost()
+totalCost2 = hourlyCost + supplyCost
 
-print("Schnauzer:", hourlyCost, ",", supplyCost, ",", hourlyCost + supplyCost)
+print("Schnauzer:", totalCost2)
 #print(hourlyCost)
 #print(supplyCost)
 #print(hourlyCost + supplyCost)
+
+print()
+print("Total Earnings:", totalCost1 + totalCost2)
