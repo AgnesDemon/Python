@@ -17,14 +17,44 @@
 #Need to figure out a way to add Players' points
 import os
 clear = lambda: os.system('cls')
+from random import randint
 
-def Playername():
-    name = input()
-    print(name)
+clear()
+#Players
+numberPlayers = 2
 
-Playername()
+names = []
 
-class Points:
-    WinPoint = 2
-    TiePoint = 1
-    Loss = 0
+def playerName():
+    print("Enter Player Name:")
+    PlayerName = input()
+    if (len(PlayerName) <= 0):
+        print("No Manches! That's not a name. Please try again")
+        playerName()
+    else:
+        names.append(PlayerName)
+    
+def numberOfPlayers():
+    while len(names) < numberPlayers:
+        playerName()
+    print(names)
+
+numberOfPlayers()
+
+rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
+
+def randomGenerator():
+    randomNumber = randint(1,3)
+    print(rps[randomNumber])
+
+def randomPlayerObjects():
+    clear()
+    for name in names:
+        print(name)
+        randomGenerator()
+
+randomPlayerObjects()
+
+
+
+
