@@ -19,13 +19,71 @@
     #First name
     #Last name
     #Address
-    #City
+    #Zip code
     #State
-    #Zip
+    #City
     #Email
     #Phone
 
 #Adding would save the record in some fashion, maybe CSV
 
 #Example: Isabel, Aguillon, 14114 Wetmore Bend, San Antonio, TX, 78247, chavelina0105@gmail.com, 210-725-0262
+
+
+#Need to use input to allow the user to type in the contact.
+#Need to save the input
+#Maybe use a loop as the user types the information and allows them to just press enter if they don't know certain information.
+
+
+import os
+clear = lambda: os.system('cls')
+
+class Contacts:
+    name = None
+    lastname = None
+    address = None
+    zipcode = None
+    city = None
+    state = None
+    email = None
+    phonenumber = None
+
+    def __init__(this, Name, Last_Name, Address, Zip_Code, City, State, Email, Phone_Number):
+        this.name = Name
+        this.lastname = Last_Name
+        this.address = Address
+        this.zipcode = Zip_Code
+        this.city = City
+        this.state = State
+        this.email = Email
+        this.phonenumber = Phone_Number
+
+    def intro():
+        clear()
+        print("Welcome to Contacts! What would you like to do?")
+        choice = input()
+        if choice == "Find contact":
+            print("Let's go!")
+            
+        elif choice == "Create new contact":
+            print("Let's do this!")
+
+        elif choice == "Delete contact":
+            print("Ok, let's go")
+
+    intro()
+
+    contact_list = []
+
+    def create_contact():
+        clear()
+        print("Name:")
+        name = input()
+        return name
+
+    create_contact()
+
+
+
+
 
