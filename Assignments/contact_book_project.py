@@ -61,27 +61,43 @@ class Contacts:
     def intro():
         clear()
         print("Welcome to Contacts! What would you like to do?")
+        print("[Find contact]")
+        print("[Create new contact]")
+        print("[Delete contact]")
+        print("[See contact list]")
         choice = input()
         if choice == "Find contact":
             print("Let's go!")
             
         elif choice == "Create new contact":
-            print("Let's do this!")
+            def create_contact():
+                clear()
+                print("Let's do this!")
+                print("Name:")
+                name = input()
+                return name
+            create_contact()
 
         elif choice == "Delete contact":
             print("Ok, let's go")
+        
+        elif choice == "See contact list":
+            print("Let's see your contacts!")
+            def see_contact_list():
+                f = open("contact.csv", "r")
+                lines = f.readlines()
+                print(lines)
+                
+            see_contact_list()
+
 
     intro()
 
     contact_list = []
 
-    def create_contact():
-        clear()
-        print("Name:")
-        name = input()
-        return name
 
-    create_contact()
+#numberLines = len(f.readlines())
+    
 
 
 
