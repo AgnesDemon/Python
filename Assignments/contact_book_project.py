@@ -34,7 +34,7 @@
 #Need to save the input
 #Maybe use a loop as the user types the information and allows them to just press enter if they don't know certain information.
 
-
+import csv
 import os
 clear = lambda: os.system('cls')
 
@@ -58,6 +58,16 @@ class Contacts:
         this.email = Email
         this.phonenumber = Phone_Number
 
+    contact_list = []
+
+    def save_contact(this):
+        filename = 'contact.csv'
+        f = open(filename, 'a')
+        f.write(this.name, ",", this.lastname, ",", this.address, ",", 
+        this.zipcode, ",", this.city, ",", this.state, ",", this.email, ",", this.phonenumber)
+        f.close()
+
+
     def intro():
         clear()
         print("Welcome to Contacts! What would you like to do?")
@@ -75,30 +85,55 @@ class Contacts:
                 print("Let's do this!")
                 print("Name:")
                 name = input()
-                return name
+                print("Last name:")
+                last_name = input()
+                print("Address:")
+                address = input()
+                print("Zip Code:")
+                zip_code = input()
+                print("City:")
+                city = input()
+                print("State:")
+                state = input()
+                print("Email:")
+                email = input()
+                print("Phone Number:")
+                phone_number = input()
+                print(name, ",", last_name, ",", address, ",", zip_code, ",", 
+                city, ",", state, ",", email, ",", phone_number)
+
             create_contact()
 
         elif choice == "Delete contact":
             print("Ok, let's go")
         
         elif choice == "See contact list":
-            print("Let's see your contacts!")
             def see_contact_list():
-                f = open("contact.csv", "r")
-                lines = f.readlines()
-                print(lines)
+                clear()
+                print("Let's see your contacts!")
+                print()
+                with open("contact.csv") as f:
+                    reader = csv.reader(f)
+                    for row in reader:
+                        print(" ".join(row))
+                #f = open("contact.csv", "r")
+                #lines = f.readlines()
+                #print(lines)
                 
             see_contact_list()
 
 
     intro()
 
-    contact_list = []
+    
 
 
 #numberLines = len(f.readlines())
-    
 
+#This works:   
+#f = open("contact.csv", "r")
+#lines = f.readlines()
+#print(lines)
 
 
 
