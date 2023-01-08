@@ -58,16 +58,6 @@ class Contacts:
         this.email = Email
         this.phonenumber = Phone_Number
 
-    contact_list = []
-
-    def save_contact(this):
-        filename = 'contact.csv'
-        f = open(filename, 'a')
-        f.write(this.name, ",", this.lastname, ",", this.address, ",", 
-        this.zipcode, ",", this.city, ",", this.state, ",", this.email, ",", this.phonenumber)
-        f.close()
-
-
     def intro():
         clear()
         print("Welcome to Contacts! What would you like to do?")
@@ -75,6 +65,7 @@ class Contacts:
         print("[Create new contact]")
         print("[Delete contact]")
         print("[See contact list]")
+        print("[Exit]")
         choice = input()
         if choice == "Find contact":
             print("Let's go!")
@@ -83,6 +74,7 @@ class Contacts:
             def create_contact():
                 clear()
                 print("Let's do this!")
+                print()
                 print("Name:")
                 name = input()
                 print("Last name:")
@@ -101,6 +93,23 @@ class Contacts:
                 phone_number = input()
                 print(name, ",", last_name, ",", address, ",", zip_code, ",", 
                 city, ",", state, ",", email, ",", phone_number)
+                print()
+                print("Save new contact? yes/no")
+                response = input()
+                if response == "Yes":
+                    print("Ok then!")
+                    f = open("contact.csv", "a")
+                    f.write(name + ", ")
+                    f.write(last_name + ", ")
+                    f.write(address + ", ")
+                    f.write(zip_code + ", ")
+                    f.write(city + ", ")
+                    f.write(state + ", ")
+                    f.write(email + ", ")
+                    f.write(phone_number + "\n")
+                    f.close()
+                elif response == "No":
+                    print("Contact was not saved")
 
             create_contact()
 
@@ -121,7 +130,11 @@ class Contacts:
                 #print(lines)
                 
             see_contact_list()
-
+        
+        #elif choice == "Exit":
+            #clear()
+            #print("Thank you, goodbye!")
+            #exit()
 
     intro()
 
