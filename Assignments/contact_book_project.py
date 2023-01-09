@@ -75,38 +75,23 @@ class Contacts:
                 clear()
                 print("Let's do this!")
                 print()
-                print("Name:")
-                name = input()
-                print("Last name:")
-                last_name = input()
-                print("Address:")
-                address = input()
-                print("Zip Code:")
-                zip_code = input()
-                print("City:")
-                city = input()
-                print("State:")
-                state = input()
-                print("Email:")
-                email = input()
-                print("Phone Number:")
-                phone_number = input()
+                name = input("Name: ")
+                last_name = input("Last name: ")
+                address = input("Address: ")
+                zip_code = input("Zip code: ")
+                city = input("City: ")
+                state = input("State: ")
+                email = input("Email: ")
+                phone_number = input("Phone number: ")
                 print(name, ",", last_name, ",", address, ",", zip_code, ",", 
                 city, ",", state, ",", email, ",", phone_number)
                 print()
                 print("Save new contact? yes/no")
                 response = input()
                 if response == "Yes":
-                    print("Ok then!")
+                    print("Contact has been saved!")
                     f = open("contact.csv", "a")
-                    f.write(name + ", ")
-                    f.write(last_name + ", ")
-                    f.write(address + ", ")
-                    f.write(zip_code + ", ")
-                    f.write(city + ", ")
-                    f.write(state + ", ")
-                    f.write(email + ", ")
-                    f.write(phone_number + "\n")
+                    f.write(f"{name},{last_name},{address},{zip_code},{city},{state},{email},{phone_number}\n")
                     f.close()
                 elif response == "No":
                     print("Contact was not saved")
@@ -131,10 +116,13 @@ class Contacts:
                 
             see_contact_list()
         
-        #elif choice == "Exit":
-            #clear()
-            #print("Thank you, goodbye!")
-            #exit()
+        elif choice == "Exit":
+            print("Thank you, goodbye!")
+            exit()
+
+
+
+        
 
     intro()
 
