@@ -21,39 +21,39 @@ from random import randint
 
 clear()
 #Players
-numberPlayers = 2
+number_players = 2
 
 names = []
 
-def playerName():
+def player_name():
     print("Enter Player Name:")
-    PlayerName = input()
-    if (len(PlayerName) <= 0):
+    Player_Name = input()
+    if (len(Player_Name) <= 0):
         print("No Manches! That's not a name. Please try again")
-        playerName()
+        player_name()
     else:
-        names.append(PlayerName)
+        names.append(Player_Name)
     
-def numberOfPlayers():
-    while len(names) < numberPlayers:
-        playerName()
+def number_of_players():
+    while len(names) < number_players:
+        player_name()
     print(names)
 
-numberOfPlayers()
+number_of_players()
 
 rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
 
-def randomGenerator():
-    randomNumber = randint(1,3)
-    print(rps[randomNumber])
+def random_generator():
+    random_number = randint(1,3)
+    print(rps[random_number])
 
-def randomPlayerObjects():
+def random_player_objects():
     clear()
     for name in names:
         print(name)
-        randomGenerator()
+        random_generator()
 
-randomPlayerObjects()
+random_player_objects()
 
 
 
