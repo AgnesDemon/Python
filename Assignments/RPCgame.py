@@ -21,11 +21,29 @@ from random import randint
 
 clear()
 #Players
-number_players = 2
 
-names = []
+class Player:
+    name = None
+    score = 0
 
-def player_name():
+    def __init__(this, player_one):
+        this.name = player_one
+    
+    def get_player_names():
+        name = input("Enter Player 1 Name: ")
+        if (len(name) <= 0):
+            print("Sorry, that is not a valid name.")
+            Player.get_player_names()
+
+    get_player_names()
+
+
+
+#number_players = 2
+
+#names = []
+
+'''def player_name():
     print("Enter Player Name:")
     Player_Name = input()
     if (len(Player_Name) <= 0):
@@ -53,7 +71,8 @@ def random_player_objects():
         print(name)
         random_generator()
 
-random_player_objects()
+random_player_objects()'''
+
 
 
 
