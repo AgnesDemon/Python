@@ -29,13 +29,40 @@ class Player:
     def __init__(this, player_one):
         this.name = player_one
     
-    def get_player_names():
-        name = input("Enter Player 1 Name: ")
+    def get_player_name():
+        clear()
+        name = ""
+        while (len(name) <= 0):
+            name = input("Enter Player 1 Name: ")
+        if len(name) > 0:
+            input("Welcome! Press enter to continue...")
+            return name
+        else:
+            clear()
+            input("Sorry, that is not a valid name.")
+
+    get_player_name()
+
+class Player2:
+    name_two = None
+    score_two = 0
+
+    def __init__(this, player_two):
+        this.name_two = player_two
+
+    def get_player_two_name():
+        clear()
+        name = input("Enter Player 2 Name: ")
         if (len(name) <= 0):
             print("Sorry, that is not a valid name.")
-            Player.get_player_names()
+            Player2.get_player_two_name()
+        else:
+            clear()
 
-    get_player_names()
+            input("Welcome! Press enter to continue...")
+    
+    get_player_two_name()
+    
 
 
 
