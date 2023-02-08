@@ -19,54 +19,83 @@ import os
 clear = lambda: os.system('cls')
 from random import randint
 
-clear()
 #Players
 
 class Player:
     name = None
     score = 0
 
-    def __init__(this, player_one):
-        this.name = player_one
+    def __init__(this, player_name):
+        this.name = player_name
     
     def get_player_name():
         clear()
         name = ""
         while (len(name) <= 0):
-            name = input("Enter Player 1 Name: ")
-        if len(name) > 0:
-            input("Welcome! Press enter to continue...")
-            return name
-        else:
             clear()
-            input("Sorry, that is not a valid name.")
+            name = input("Enter Player Name: ")
+            if len(name) > 0:
+                clear()
+                input("Welcome! Press enter to continue...")
+                return name
+            else:
+                clear()
+                input("Sorry, that is not a valid name.")
 
-    get_player_name()
+number_players = 2
+players: list [Player] = []
 
-class Player2:
-    name_two = None
-    score_two = 0
+def get_players():
+    while len(players) < number_players:
+        name = Player.get_player_name()
+        player = Player(name)
+        players.append(player)
 
-    def __init__(this, player_two):
-        this.name_two = player_two
+get_players()
 
-    def get_player_two_name():
-        clear()
-        name = input("Enter Player 2 Name: ")
-        if (len(name) <= 0):
-            print("Sorry, that is not a valid name.")
-            Player2.get_player_two_name()
-        else:
-            clear()
+rounds = 3
 
-            input("Welcome! Press enter to continue...")
-    
-    get_player_two_name()
-    
+rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
+
+def rps_generator():
+    random_object = randint(1,3)
+    #print(rps[random_object])
+    return rps[random_object]
+
+#rps_generator()
+
+def player_objects():
+    for player in players:
+        name = player.name
+        object = rps_generator()
+        print(name, object)
+    input("Press Enter for the next round...")
+
+player_objects()
+
+#Need to work on getting the player_objects() into a round, so it goes 3 times before closing
 
 
 
-#number_players = 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #names = []
 
@@ -86,7 +115,7 @@ def number_of_players():
 
 number_of_players()
 
-rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
+
 
 def random_generator():
     random_number = randint(1,3)
