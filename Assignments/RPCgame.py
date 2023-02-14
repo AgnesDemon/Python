@@ -53,8 +53,6 @@ def get_players():
 
 get_players()
 
-rounds = 3
-
 rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
 
 def rps_generator():
@@ -71,63 +69,75 @@ def player_objects():
         print(name, object)
     input("Press Enter for the next round...")
 
-player_objects()
+#player_objects()
 
-#Need to work on getting the player_objects() into a round, so it goes 3 times before closing
+rounds = 3
+round = []
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#names = []
-
-'''def player_name():
-    print("Enter Player Name:")
-    Player_Name = input()
-    if (len(Player_Name) <= 0):
-        print("No Manches! That's not a name. Please try again")
-        player_name()
+def game_rounds():
+    while len(round) < rounds:
+        rnd = player_objects()
+        round.append(rnd)
     else:
-        names.append(Player_Name)
+        exit()
+
+game_rounds()
     
-def number_of_players():
-    while len(names) < number_players:
-        player_name()
-    print(names)
-
-number_of_players()
 
 
 
-def random_generator():
-    random_number = randint(1,3)
-    print(rps[random_number])
 
-def random_player_objects():
-    clear()
-    for name in names:
-        print(name)
-        random_generator()
 
-random_player_objects()'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #for round in rounds:
+        #round = player_objects()
+    #while round < 3:
+#Didn't finish it, but sure that it won't work.
+
+    #for round in rounds:
+        #return round
+    #while round < 3:
+        #player_objects()
+#Could only run first round, but had trouble running second one
+
+    #while len(round) < rounds:
+        #player_objects()
+    #else:
+        #exit()
+#Keeps going infinitely, but works
+
+    #for round in rounds:
+        #return round
+    #while round < rounds:
+        #player_objects()
+#Couldn't even run one round
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
