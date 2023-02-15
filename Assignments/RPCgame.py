@@ -62,11 +62,20 @@ def rps_generator():
 
 #rps_generator()
 
-def player_objects():
+def get_winner(round_data):
+    print(round_data)
+    
+
+    return winner
+
+def run_round():
+    round_data = {}
     for player in players:
         name = player.name
         object = rps_generator()
+        round_data[name] = object
         print(name, object)
+    get_winner(round_data)
     input("Press Enter for the next round...")
 
 #player_objects()
@@ -76,18 +85,13 @@ round = []
 
 def game_rounds():
     while len(round) < rounds:
-        rnd = player_objects()
+        rnd = run_round()
         round.append(rnd)
     else:
         exit()
 
 game_rounds()
     
-
-
-
-
-
 
 
 
