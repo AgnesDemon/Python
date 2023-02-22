@@ -22,12 +22,53 @@ from random import randint
 #Players
 
 class Player:
+    id = 0
     name = None
     score = 0
 
-    def __init__(this, player_name):
+    def __init__(this, player_name, id):
         this.name = player_name
+        this.id = id
     
+
+
+
+
+
+
+
+
+'''
+
+
+#rps_generator()
+
+
+    
+
+    return winner'''
+
+
+
+#player_objects()
+
+
+    
+
+class Game:
+    number_players = 2
+    players: list [Player] = []
+    rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
+    rounds = 3
+    round = []
+
+    def get_players(this):
+        while len(this.players) < this.number_players:
+            player_id = len(this.players) +1
+            name = Game.get_player_name()
+            player = Player(name, player_id)
+            this.players.append(player)
+
     def get_player_name():
         clear()
         name = ""
@@ -42,58 +83,65 @@ class Player:
                 clear()
                 input("Sorry, that is not a valid name.")
 
-number_players = 2
-players: list [Player] = []
+    def rps_generator(this):
+        random_object = randint(1,3)
+        #print(rps[random_object])
+        return this.rps[random_object]
 
-def get_players():
-    while len(players) < number_players:
-        name = Player.get_player_name()
-        player = Player(name)
-        players.append(player)
 
-get_players()
-
-rps = {1 : "Rock", 2 : "Paper", 3 : "Scissors"}
-
-def rps_generator():
-    random_object = randint(1,3)
-    #print(rps[random_object])
-    return rps[random_object]
-
-#rps_generator()
-
-def get_winner(round_data):
-    print(round_data)
+    def run_round(this):
+        round_data= {}
+        for player in this.players:
+            name = player.name
+            object = this.rps_generator()
+            round_data[player.id] = object
+            print(name, object)
+        this.get_winner(round_data)
+        input("Press Enter for the next round...")
+        return round_data
     
+    def get_winner(this, round_data):
+        player_1_object = round_data[1]
+        player_2_object = round_data[2]
+        if player_1_object == "Rock":
+            if player_2_object == "Scissors":
+                return 1
+            if player_2_object == "Paper":
+                return 2
+        if player_1_object == "Scissors":
+            if player_2_object == "Paper":
+                return 1
+            if player_2_object =="Rock":
+                return 2
+        if player_1_object == "Paper":
+            if player_2_object == "Rock":
+                return 1
+            if player_2_object == "Scissors":
+                return 2
 
-    return winner
 
-def run_round():
-    round_data = {}
-    for player in players:
-        name = player.name
-        object = rps_generator()
-        round_data[name] = object
-        print(name, object)
-    get_winner(round_data)
-    input("Press Enter for the next round...")
 
-#player_objects()
 
-rounds = 3
-round = []
 
-def game_rounds():
-    while len(round) < rounds:
-        rnd = run_round()
-        round.append(rnd)
-    else:
-        exit()
 
-game_rounds()
+    def game_rounds(this):
+        while len(this.round) < this.rounds:
+            rnd = this.run_round()
+            this.round.append(rnd)
+        else:
+            exit()
     
+    def run(this):
+        #get players
+        this.get_players()
+
+        #run a round
+        this.game_rounds()
+        #display results
 
 
+game = Game()
+game.run()
 
 
 
