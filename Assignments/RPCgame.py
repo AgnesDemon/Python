@@ -32,27 +32,6 @@ class Player:
     
 
 
-
-
-
-
-
-
-'''
-
-
-#rps_generator()
-
-
-    
-
-    return winner'''
-
-
-
-#player_objects()
-
-
     
 
 class Game:
@@ -64,7 +43,7 @@ class Game:
 
     def get_players(this):
         while len(this.players) < this.number_players:
-            player_id = len(this.players) +1
+            player_id = len(this.players) + 1
             name = Game.get_player_name()
             player = Player(name, player_id)
             this.players.append(player)
@@ -100,28 +79,41 @@ class Game:
         input("Press Enter for the next round...")
         return round_data
     
+    def name_and_id(this):
+        for player in this.players:
+            
+
+    
     def get_winner(this, round_data):
         player_1_object = round_data[1]
         player_2_object = round_data[2]
         if player_1_object == "Rock":
             if player_2_object == "Scissors":
+                print("Player 1 wins!")
                 return 1
             if player_2_object == "Paper":
+                print("Player 2 wins!")
                 return 2
+            if player_2_object == "Rock":
+                print("Tie!")
         if player_1_object == "Scissors":
             if player_2_object == "Paper":
+                print("Player 1 wins!")
                 return 1
-            if player_2_object =="Rock":
+            if player_2_object == "Rock":
+                print("Player 2 wins!")
                 return 2
+            if player_2_object == "Scissors":
+                print("Tie!")
         if player_1_object == "Paper":
             if player_2_object == "Rock":
+                print("Player 1 wins!")
                 return 1
             if player_2_object == "Scissors":
+                print("Player 2 wins!")
                 return 2
-
-
-
-
+            if player_2_object == "Paper":
+                print("Tie!")
 
 
     def game_rounds(this):
@@ -178,20 +170,4 @@ game.run()
     #while round < rounds:
         #player_objects()
 #Couldn't even run one round
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
