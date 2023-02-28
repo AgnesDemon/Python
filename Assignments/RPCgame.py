@@ -67,54 +67,68 @@ class Game:
         #print(rps[random_object])
         return this.rps[random_object]
 
-
     def run_round(this):
         round_data= {}
+        clear()
         for player in this.players:
             name = player.name
             object = this.rps_generator()
             round_data[player.id] = object
             print(name, object)
-        this.get_winner(round_data)
-        input("Press Enter for the next round...")
+        winner_id = this.get_winner(round_data)
+        player = this.get_player(winner_id)
+        if player == None:
+            print("Tie!")
+        else:
+            print(player.name, " wins!")
+        input("Press enter to continue...")
         return round_data
     
-    def name_and_id(this):
+    def get_player(this, player_id):
         for player in this.players:
+            if player_id == player.id:
+                return player
+        return None
             
-
+#Create function to get player
+#Send in player id
+#Start for loop
+#If id == player.id, then return player
+#
     
     def get_winner(this, round_data):
         player_1_object = round_data[1]
         player_2_object = round_data[2]
         if player_1_object == "Rock":
             if player_2_object == "Scissors":
-                print("Player 1 wins!")
+                #print("Player 1 wins!")
                 return 1
             if player_2_object == "Paper":
-                print("Player 2 wins!")
+                #print("Player 2 wins!")
                 return 2
             if player_2_object == "Rock":
-                print("Tie!")
+                #print("Tie!")
+                return 0
         if player_1_object == "Scissors":
             if player_2_object == "Paper":
-                print("Player 1 wins!")
+                #print("Player 1 wins!")
                 return 1
             if player_2_object == "Rock":
-                print("Player 2 wins!")
+                #print("Player 2 wins!")
                 return 2
             if player_2_object == "Scissors":
-                print("Tie!")
+                #print("Tie!")
+                return 0
         if player_1_object == "Paper":
             if player_2_object == "Rock":
-                print("Player 1 wins!")
+                #print("Player 1 wins!")
                 return 1
             if player_2_object == "Scissors":
-                print("Player 2 wins!")
+                #print("Player 2 wins!")
                 return 2
             if player_2_object == "Paper":
-                print("Tie!")
-
+                #print("Tie!")
+                return 0
 
     def game_rounds(this):
         while len(this.round) < this.rounds:
