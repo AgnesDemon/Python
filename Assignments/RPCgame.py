@@ -67,6 +67,12 @@ class Game:
         #print(rps[random_object])
         return this.rps[random_object]
 
+    def save(this):
+        filename = 'names_and_scores.csv'
+        f = open(filename, "a")
+        f.write(Player.name + ", Points: ")
+        f.close()
+
     def run_round(this):
         round_data= {}
         clear()
@@ -90,12 +96,6 @@ class Game:
                 return player
         return None
             
-#Create function to get player
-#Send in player id
-#Start for loop
-#If id == player.id, then return player
-#
-    
     def get_winner(this, round_data):
         player_1_object = round_data[1]
         player_2_object = round_data[2]
@@ -140,7 +140,6 @@ class Game:
     def run(this):
         #get players
         this.get_players()
-
         #run a round
         this.game_rounds()
         #display results
