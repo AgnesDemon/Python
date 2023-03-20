@@ -1,47 +1,39 @@
-class Crochet:
-    Yarn = 0
-    CrochetTools = 0
-    Eyes = 0
-    Pattern = 0
+#Important things for crochet:
+    #Yarn
+    #Number of hours
+    #Whether or not I used a paid pattern
 
-    Hours = 0
+#I need to calculate the cost of the yarn, the hourly rate, and the pattern cost
+#Need to note that I use more than one color or type of yarn
+#Hourly rate is most likely going to be at least $12
+#I can make it to where I can type in my own hourly rate
+#Should probably allow a pattern to equal $0, since not all patterns are costly
+#Should also probably consider that I may use more than one pattern
 
-    def __init__(this, yarn, tools, eyes, pattern, hours):
-        this.Yarn = yarn
-        this.CrochetTools = tools
-        this.Eyes = eyes
-        this.Pattern = pattern
-        this.Hours = hours
-    
-    def SupplyCost(this):
-        cost = this.Yarn + this.CrochetTools + this.Eyes + this.Pattern
-        return cost
-    
-    def HourlyCost(this):
-        hourcost = this.Hours * 12
-        return hourcost
-    
 
-crochetBag = Crochet(5, 30, 1, 0, 8)
-hourlyCost = crochetBag.HourlyCost()
-supplyCost = crochetBag.SupplyCost()
-totalCost1 = hourlyCost + supplyCost
-#total = crochetBag.HourlyCost + crochetBag.SupplyCost()
 
-print("Bag:", totalCost1)
-#print(hourlyCost)
-#print(supplyCost)
-#print(hourlyCost + supplyCost)
 
-crochetSchnauzer = Crochet(4, 30, 1, 6, 7)
-hourlyCost = crochetSchnauzer.HourlyCost()
-supplyCost = crochetSchnauzer.SupplyCost()
-totalCost2 = hourlyCost + supplyCost
+import os
+clear = lambda: os.system('cls')
 
-print("Schnauzer:", totalCost2)
-#print(hourlyCost)
-#print(supplyCost)
-#print(hourlyCost + supplyCost)
+class Amount:
+    patterns = 0
+    yarn_skeins = 0
+    number_of_hours = 0
 
-print()
-print("Total Earnings:", totalCost1 + totalCost2)
+    def __init__(this, Patterns, Yarn_Skeins, Hours):
+        this.patterns = Patterns
+        this.yarn_skeins = Yarn_Skeins
+        this.hours = Hours
+
+
+class Cost:
+    pattern = 0
+    yarn = 0
+    hourly_rate = 0
+
+    def __init__(this, Pattern, Yarn, Hourly_Rate):
+        this.pattern = Pattern
+        this.yarn = Yarn
+        this.hourly_rate = Hourly_Rate
+

@@ -30,10 +30,6 @@ class Player:
         this.name = player_name
         this.id = id
     
-
-
-    
-
 class Game:
     number_players = 2
     players: list [Player] = []
@@ -42,6 +38,7 @@ class Game:
     round = []
 
     def get_players(this):
+        #This determines the number of players and saves their names and IDs
         while len(this.players) < this.number_players:
             player_id = len(this.players) + 1
             name = Game.get_player_name()
@@ -49,6 +46,7 @@ class Game:
             this.players.append(player)
 
     def get_player_name():
+        #This gets the players' names
         clear()
         name = ""
         while (len(name) <= 0):
@@ -63,6 +61,7 @@ class Game:
                 input("Sorry, that is not a valid name.")
 
     def rps_generator(this):
+        #This randomly picks rock, paper, or scissors
         random_object = randint(1,3)
         #print(rps[random_object])
         return this.rps[random_object]
@@ -74,6 +73,7 @@ class Game:
         f.close()
 
     def run_round(this):
+        #As name depicts, this runs the round
         round_data= {}
         clear()
         for player in this.players:
@@ -91,14 +91,17 @@ class Game:
         return round_data
     
     def get_player(this, player_id):
+        #This determines which name and ID is which player
         for player in this.players:
             if player_id == player.id:
                 return player
         return None
             
     def get_winner(this, round_data):
+        #This differentiates the players
         player_1_object = round_data[1]
         player_2_object = round_data[2]
+        #This determines how the players win
         if player_1_object == "Rock":
             if player_2_object == "Scissors":
                 #print("Player 1 wins!")
@@ -130,7 +133,11 @@ class Game:
                 #print("Tie!")
                 return 0
 
+    def get_points(this):
+        
+
     def game_rounds(this):
+        #This runs the round for however many rounds
         while len(this.round) < this.rounds:
             rnd = this.run_round()
             this.round.append(rnd)
