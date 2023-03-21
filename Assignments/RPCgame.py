@@ -29,6 +29,7 @@ class Player:
     def __init__(this, player_name, id):
         this.name = player_name
         this.id = id
+        this.score = 0
     
 class Game:
     number_players = 2
@@ -66,11 +67,7 @@ class Game:
         #print(rps[random_object])
         return this.rps[random_object]
 
-    def save(this):
-        filename = 'names_and_scores.csv'
-        f = open(filename, "a")
-        f.write(Player.name + ", Points: ")
-        f.close()
+
 
     def run_round(this):
         #As name depicts, this runs the round
@@ -87,6 +84,7 @@ class Game:
             print("Tie!")
         else:
             print(player.name, " wins!")
+            player.score += 1
         input("Press enter to continue...")
         return round_data
     
@@ -133,7 +131,7 @@ class Game:
                 #print("Tie!")
                 return 0
 
-    def get_points(this):
+
         
 
     def game_rounds(this):
@@ -141,9 +139,36 @@ class Game:
         while len(this.round) < this.rounds:
             rnd = this.run_round()
             this.round.append(rnd)
-        else:
-            exit()
+        
+
+        for player in this.players:
+            print(player.name, player.score)
+            this.save(player)
+
+        
+        exit()
     
+    def save(this, player):
+        filename = 'names_and_scores.csv'
+
+        f = open(filename, "r")
+        lines = f.readlines()
+        scores = {}
+        for line in lines:
+            line = line.strip()
+            pieces = line.split(",")
+            scores[pieces[0]] = pieces[1]
+        # Updating score data
+        for key in scores:
+            if key.lower() == player.name.lower():
+                updated_score = int(scores[key]) + player.score
+                scores[key] = updated_score
+
+        f = open(filename, "w")
+        for key in scores:
+            f.write(key + "," + str(scores[key]) + "\n")
+        f.close()
+
     def run(this):
         #get players
         this.get_players()

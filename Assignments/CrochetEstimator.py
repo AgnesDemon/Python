@@ -7,10 +7,14 @@
 #Need to note that I use more than one color or type of yarn
 #Hourly rate is most likely going to be at least $12
 #I can make it to where I can type in my own hourly rate
+#Hourly rate, yarn cost, amount of yarn, amount of hours, and number of hours cannot equal 0
 #Should probably allow a pattern to equal $0, since not all patterns are costly
-#Should also probably consider that I may use more than one pattern
+#Should probably consider that I may use more than one pattern
 
-
+#Patterns = $pattern1 + $pattern 2 + ... $patternx
+#Yarn skeins = $yarn1 + $yarn2 + ... $yarn x
+#Hours = number of hours * hourly rate.
+#Patterns + Yarn skeins + Hours = Total Cost
 
 
 import os
