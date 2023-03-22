@@ -15,8 +15,6 @@
 #Yarn skeins = $yarn1 + $yarn2 + ... $yarn x
 #Hours = number of hours * hourly rate.
 #Patterns + Yarn skeins + Hours = Total Cost
-
-
 import os
 clear = lambda: os.system('cls')
 
@@ -30,6 +28,17 @@ class Amount:
         this.yarn_skeins = Yarn_Skeins
         this.hours = Hours
 
+    def get_amount():
+        patterns = input("How many patterns were used for this project? ")
+        return patterns
+    
+    def get_yarn_amount():
+        yarn_skeins = input("How many skeins were used for this project? ")
+        return yarn_skeins
+    
+    def get_hours():
+        hours = input("How many hours did it take to make this project? Round to the nearest tenth if necessary. ")
+        return hours
 
 class Cost:
     pattern = 0
@@ -40,4 +49,8 @@ class Cost:
         this.pattern = Pattern
         this.yarn = Yarn
         this.hourly_rate = Hourly_Rate
+    
+    
+    
+
 
