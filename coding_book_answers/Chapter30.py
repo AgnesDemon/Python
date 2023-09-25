@@ -12,10 +12,10 @@ name = "Steve"
     print("Good morning, Steve")'''
 
 #Count from 7 to 11 by twos 3 times
-'''for i in range(3):
+for i in range(3):
     for n in range(7, 12, 2):
         print(n)
-    print("\n")'''
+    print("\n")
 
 #Count to 5 over and over again forever
 '''while True:
@@ -31,5 +31,5 @@ for i in range(5):
     print(i + 1)
 
 #print "hello, friend" forever
-while True:
-    print("hello, friend")
+'''while True:
+    print("hello, friend")'''

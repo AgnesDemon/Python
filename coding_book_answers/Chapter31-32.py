@@ -20,9 +20,9 @@ else:
     print("green")
 
 fact = not(5 == 4)
-print(fact)'''
+print(fact)
 
-'''answer1 = input("Do you want to watch a Harry Potter movie?  ")
+answer1 = input("Do you want to watch a Harry Potter movie?  ")
 if answer1 == "no":
     print("Ok then")
 elif answer1 == "yes":
@@ -30,9 +30,9 @@ elif answer1 == "yes":
     if answer2 == "younger":
         print("I would recommend watching movies 1 and 2")
     elif answer2 == "older":
-        print("I would recommend watching movies 3 to 7")'''
+        print("I would recommend watching movies 3 to 7")
 
-'''likes_hats = input("Do you like hats?  ")
+likes_hats = input("Do you like hats?  ")
 if likes_hats == "no":
     print("Then you should try out visors!")
 elif likes_hats == "yes":
@@ -40,9 +40,9 @@ elif likes_hats == "yes":
     if likes_plain_hats == "no":
         print("Then you should try top hats!")
     elif likes_plain_hats == "yes":
-        print("Then you should try baseball caps!")'''
+        print("Then you should try baseball caps!")
 
-'''likes_to_be_bored = input("Do you like to be bored?  ")
+likes_to_be_bored = input("Do you like to be bored?  ")
 if likes_to_be_bored == "yes":
     print("Then do nothing")
 elif likes_to_be_bored == "no":
@@ -54,9 +54,9 @@ elif likes_to_be_bored == "no":
         if reads_often == "yes":
             print("Then you should read a novel!")
         elif reads_often == "no":
-            print("Then you should read a magazine!")'''
+            print("Then you should read a magazine!")
 
-'''size = input("Is size large?  ")
+size = input("Is size large?  ")
 if size == "no":
     color1 = input("Is color orange?  ")
     if color1 == "no":
@@ -72,27 +72,31 @@ elif size == "yes":
 
 name = "Max"
 def hello_you(person):
-    sentence = "Hello" + person
+    sentence = "Hello " + person
     return sentence
-hello_you("Max")
 #Return value is: Hello Max
+greeting = hello_you("Max")
+print(greeting)
 
 def plotter (x, y):
-    instructions = "Plot a course through" + str(x) + " and " + str(y)
+    instructions = "Plot a course through " + str(x) + " and " + str(y)
     return instructions
-plotter(3, 5)
 #Return value is: Plot a course through 3 and 5
+course = plotter(3, 5)
+print(course)
 
 def absolute_value(num):
     if num >= 0:
         return num
     else:
         return num * -1
-absolute_value(-4)
 #Return value is: -4 * -1, which equals 4
+number = absolute_value(-4)
+print(number)
 
 def favorite(category, thing):
-    sentence = "My favorite " + category + "is the" + thing
+    sentence = "My favorite " + category + " is the " + thing
     return sentence
-favorite("snake", "Python")
 #Return value is: My favorite snake is the Python
+sentence = favorite("snake", "Python")
+print(sentence)
