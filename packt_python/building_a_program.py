@@ -14,15 +14,16 @@ def sentence_maker(phrase):
     else:
         return "{}.".format(capitalized)
     
-#print(sentence_maker("how are you")) was used to test sentence_maker
+#print(sentence_maker("how are you")) -- was used to test sentence_maker
 
-results = []
+results = [] #empty list
 while True:
-    user_input = input("Say something: ")
+    user_input = input("Say something: ") #user types in input
     if user_input == "\end":
-        break
+        break #function ends
     else:
         results.append(sentence_maker(user_input)) #sentence_maker funtion is called here
+        #.append is adding user_input to the results list
 
 print(" ".join(results)) #prints the list without the brackets
 #"".join will join the strings without the brackets
