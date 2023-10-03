@@ -57,6 +57,8 @@ with open("vegetables.txt", "a") as myfile:
 with open("vegetables.txt", "a+") as myfile:
     myfile.write("\nEggplant")
     myfile.seek(0) #sets the cursor to 0
+    #if you don't set the cursor to 0, you will print an empty string
     content = myfile.read()
 
 print(content)
+#file is now able to be read
