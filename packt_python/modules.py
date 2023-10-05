@@ -42,13 +42,43 @@ import time
 #to prevent an error from occuring when a while doesn't exist:
 import os
 
-while True:
+'''while True:
     if os.path.exists("vegetables.txt"):
         with open("vegetables.txt") as file:
             print(file.read())
     else:
         print("File does not exist")
-    time.sleep(10)
+    time.sleep(10)'''
 
 #you always have to import modules
+
+#THIRD PARTY MODULES/ INSTALLING PANDAS
+#pip is a library that comes installed by default with Python
+#pip is used to install other third party libraries
+#the pip command may vary depending on the operating systems and Python installations
+#in this case, I am using Python version 3.10, so I would have to type pip3.10 for the command
+#type "pip3.10 install pandas" in the terminal
+#this should install pandas
+#once they are installed, type in import pandas into code
+#in the interactive python shell, type "import sys"
+#next, type in "sys.prefix"
+#this command should give you another directory
+#copy the directory without the quotes
+#in the terminal, type "start" and paste the directory after it
+#press enter and it should open up Windows Explorer again
+#go to lib, then python (not sure if python3.10 for me), go to the side packages folder
+#inside, you should see that pandas is installed because it will have its own folder
+
+#HOW TO USE PANDAS IN SCRIPT
+#make sure you import pandas
+import pandas
+
+while True:
+    if os.path.exists("contact.csv"):
+        data = pandas.read_csv("contact.csv")
+        print(data)
+    else:
+        print("File does not exist.")
+    time.sleep(5)
+
 
