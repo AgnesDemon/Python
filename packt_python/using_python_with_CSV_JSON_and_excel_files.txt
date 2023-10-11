@@ -1,0 +1,75 @@
+USING JUPYTER
+To get into Jupyter Notebook, go to the terminal and type 'jupyter notebook'
+This should open a new tab on the browser for jupyter
+To create a new file, click on the New button and click on Notebook
+This should create a new notebook that you can name and use
+You can write lines of code in this notebook
+Press Enter to get a new line in the cell (where the code is written)
+To execute the code, press Ctrl + Enter, which should give you the output
+To create a new cell, press Alt + Enter, which will allow you to write another block of code
+To delete a cell, press Esc, then press DD (D twice)
+Shift + Enter will automatically run a cell and take you to a new one
+There are two modes:
+Command mode - the box surrounding the cell is gray
+Edit mode - the box is green and you are able to create, code, execute, delete, etc
+To access more keyboard functions, click on Help, then navigate to Keyboard Shortcuts
+This will show you other keyboard functions that you can use
+
+TYPES OF FILES
+CSV - comma separated values (file.csv)
+TXT - text file (file.txt)
+EXCEL or XLSX - Excel file that uses rows and columns (file.xslx)
+JSON - Json file that looks like a dictionary (file.json)
+
+LOADING CSV FILES
+In Jupyter, type 'import os'
+On the next line in the same cell, type os.listdir()
+'os.listdir()' command allows you to see your files
+Execute this and it should give you a list of your files and their names
+In another cell, type 'import pandas'
+In another cell, type 'df1=pandas.read_csv("csv file name")'
+In a new line in the same cell, type 'df1'
+Execute the code and it should give you your CSV file
+
+LOADING JSON FILES
+Just like CSV files, make sure os and pandas are imported
+In a new cell, type 'df2=pandas.read_json("json file name")'
+In the next line, type 'df2.set_index("ID")'
+Execute the code and you should see your Json file
+
+LOADING XLSX FILES
+Make sure os and pandas are imported
+Type 'df3=pandas.read_excel("xslx file name", sheet_name=0)'
+'sheet_name=0' sets the sheet to 0
+Finally, type 'df3' and execute the code to get the file
+
+LOADING TXT FILES SEPARATED WITH COMMAS
+Make sure os and pandas are imported
+Type 'df4=pandas.read_csv("file name.txt")'
+Type 'df4' in the next line
+Execute the code and you should get the file
+Since the commas are used as separators of the data, you don't have to pass any separator parameters
+
+LOADING TXT FILES SEPARATED WITH SEMI-COLONS
+Make sure os and pandas are imported
+Type 'df5=pandas.read_csv("filename.txt", sep=";")'
+'sep=";"' sets the separator to a semi-colon, since it is a comma by default
+Type 'df5' in the next line and execute the code
+You should now see your file
+
+If you run into any errors while trying to load a csv file, type 'pandas.read_csv?'
+This should give you a list of what you may need to change to fix your code
+
+Headers - give names to the columns in a file
+If you have a file that does not have a header for the data, do this:
+In a new cell, type 'df6=pandas.reac_csv("filename.csv", header=None)'
+This should prevent the first set of data from acting like the header
+Instead of the data or words being the header, the header will be numbers, like the rows
+
+GIVING NON-NAMED COLUMNS NAMES
+*Using my df3 example
+Type 'df3.columns = ["Name", "Water", "Electric", "Phone", "Rent", "Car"]'
+In the next line, type 'df3' and execute the code
+This should give you headings (or column names) for your data
+Make sure that there are the same amount of column names as columns, or an error will occur
+
