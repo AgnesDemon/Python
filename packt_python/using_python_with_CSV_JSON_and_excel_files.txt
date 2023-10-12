@@ -73,3 +73,31 @@ In the next line, type 'df3' and execute the code
 This should give you headings (or column names) for your data
 Make sure that there are the same amount of column names as columns, or an error will occur
 
+FINDING SECTIONS OF DATA USING COORDINATES
+*Using my df3 example
+Type 'df3.set_index("Whatever you want to set as your index") in a new cell
+In this case, I used name
+*Note: make sure headers are in place
+Make sure which ever column name you use is the same as what ever you set as your index
+If you execute the code the way it is, it will work
+However, if you put df3 in the next line, it will not work
+To get it to save, you will need to create another variable to save it in
+So, type 'df4 = df3.set_index("set index")'
+Type 'df4' in the next line, then run the code
+It should work now
+Another way to do this is:
+Type 'df3.set_index("set index", inplace=True)'
+It will work when you run it
+However, if you type something else as an index, the first column will disappear
+My example:
+Say I set Name as my first index
+If I try to set Water (the next column) as my new index, the Name column will disappear
+You can type 'df3.set_index("set index", inplace=True, drop=False) so it can keep the newly named index column
+
+LABEL INDEXING
+Type 'df3.loc["Row Name", "Column name"]
+#This would be for a specific piece of data
+To gather a group of data:
+Type 'df3.loc["Row Name":"Row Name", "Column Name":"Column Name"]
+
+
