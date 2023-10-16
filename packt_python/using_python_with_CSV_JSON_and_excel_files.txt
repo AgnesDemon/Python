@@ -95,18 +95,16 @@ If I try to set Water (the next column) as my new index, the Name column will di
 You can type 'df3.set_index("set index", inplace=True, drop=False) so it can keep the newly named index column
 
 LABEL INDEXING
-Type 'df3.loc["Row Name", "Column name"]
-#This would be for a specific piece of data
 To gather a group of data:
 Type 'df3.loc["Row Name":"Row Name", "Column Name":"Column Name"]
-If you want to print a whole column, type 'df3.loc[:, "Column Name"]
-You can also print it like a list with 'list(df3.loc[:, "Column Name"])
+If you want to print a whole column, type 'df3.loc[:, "Column Name"] *works
+You can also print it like a list with 'list(df3.loc[:, "Column Name"]) *works
 
-df.iloc[1:3,1:3]
+df.iloc[1:3,1:3] *works
 Sets coordinates for rows and columns that you want to print
-df.iloc[:, 1:3]
+df.iloc[:, 1:3] *works
 Prints out all the rows and the range of columns
-df.iloc[3, 1:3]
+df.iloc[3, 1:3] *works, prints out differently
 Prints out a single row and the range of columns
 
 DELETING COLUMNS AND ROWS
