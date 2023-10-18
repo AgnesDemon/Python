@@ -1,0 +1,27 @@
+Programs use numbers to store images
+Images can be represented as lists
+NumPy is a library that provides a multi-dimensional array object
+Use pip to install NumPy
+
+One-dimensional array: n=numpy.arange(27)
+Prints: 'array([0, 1, 2, 3, 4, 5, 6, 7, 8, ... 25, 26])'
+
+Two-dimensional array: n.reshape(3, 9)
+Prints: 'array([[0, 1, 2, 3, 4, 5, 6, 7, 8],
+                [9, 10, 11, 12, 13, 14, 15, 16, 17],
+                [18, 19, 20, 21, 22, 23, 24, 25, 26]])'
+
+Three-dimensional array: n.reshape(3, 3, 3)
+Prints: 'array([[[0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8]],
+                
+                [[9, 10, 11],
+                [12, 13, 14],
+                [15, 16, 17]],
+                
+                [[18, 19, 20],
+                [21, 22, 23],
+                [24, 25, 26]]])'
+
+NumPy arrays and Python lists are similar, but not the same
