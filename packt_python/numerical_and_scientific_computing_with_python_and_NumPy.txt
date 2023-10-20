@@ -50,3 +50,25 @@ To create a copy of the pixel image:
 Type 'cv2.imwrite("newimage.png", im_g)'
 If you run this, and your output it True, then the copy should have been created
 
+If you try to run this code (ims=numpy.hstack(m,m)) you will receive an error that two arguments were given instead of one
+numpy.hstack() can only take one argument
+The 'h' in '.hstack' stands for 'horizontal'
+To allow two or more arguments, use a tuple
+'ims=numpy.hstack((m,m))'
+Type 'ims' in the next line and run the code
+You should get both 'm' cubes printed next to each other
+To print out the cubes vertically instead of horizontally, use '.vstack'
+
+Say you have 3x5 cubes
+If you try to run this function (lst=numpy.hsplit(m,3)), you will get an error
+'hsplit' stands for horizontal split
+The reason for the error is because 5 cannot be divided 3 times
+However, 5 is divisible by 5, so if you were to replace '3' with '5', there should be no more error
+Type 'lst' in the next line and run the code
+You should get 5 NumPy arrays, which is 1 array for each column
+In this case, if you wanted to do a vertical split, you would have to change two things
+1: you would need to turn 'hsplit' to 'vsplit'
+2: you would need to change 5 to 3.
+Remember, this is a 3x5 cube, and 3 is only divisible by 3
+Run the code and it should give you 3 arrays
+
