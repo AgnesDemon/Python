@@ -1,7 +1,7 @@
 #to change directory, type cd and the address of where you want to go
 #in my case, I typed cd .\packt_python\ to run this file
 
-myfile = open("fruits.txt")
+'''myfile = open("fruits.txt")
 print(myfile.read()) #note: this will not allow next set of code to work
 #prints the output of the .txt file in the terminal
 #if you were to execute print(myfile.read()) twice, the file will not be read twice
@@ -13,10 +13,10 @@ print(content)
 print(content)
 #This allows the file to be read more than once
 
-'''myfile = open("fruits.txt")
+myfile = open("fruits.txt")
 content = myfile.read()
 myfile.close()
-print(content)'''
+print(content)
 #this will open the file, read the content, print the content, and close the file
 
 with open("fruits.txt") as myfile:
@@ -50,7 +50,7 @@ with open("vegetables.txt", "w") as myfile:
 
 #what if you want to add to something, not rewrite it completely?
 with open("vegetables.txt", "a") as myfile:
-    myfile.write("\nOkra")
+    myfile.write("\nOkra")'''
     #file is not readable at this point
 
 #to make file readable:
