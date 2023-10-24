@@ -13,7 +13,7 @@ import os
 print(manga_file.read())
 print("\n")'''
 
-#This opens, appends, resets the cursor, closes, and prints the file
+#This opens, appends, resets the cursor, closes, and prints the text file
 with open("all_manga.txt", "a+") as manga_file:
     manga_file.write("\nAttack On Titan")
     manga_file.seek(0)
