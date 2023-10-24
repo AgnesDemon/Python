@@ -12,7 +12,7 @@
 #'map = folium.Map(location=[80, -100])' sets coordinates on a map
 #Be sure to save this with 'map.save("Map1.html")'
 #A file should be created as a result of saving and running the map.save called 'Map1.html'
-#THIS IS WHERE THE ERROR IS OCCURING WHERE I CAN'T OPEN THE MAP WEBPAGE
+#To access the map on this computer, go to files, go to This PC, go into OS, go into the Coding folder, go to Python and open the Map
 #You can override the map with the same code but different coordinates
 #You can use Google Maps to find coordinates of specific places
 #You can also zoom in the map with 'map = folium.Map(location=[80, -100], zoom_start=6)'
@@ -30,8 +30,8 @@ fg.add_child(folium.Marker(location=[38.7, 99.1], popup="Location2", icon=folium
 #You can write this expression multiple times, just with different coordinates, to have multiple markers
 
 #You can create a for loop to make multiple markers without having to constantly type them down
-for coordinates in [[38.2, -99.1], [39.2, -97.1]]:
-    fg.add_child(folium.Marker(location=coordinates, popup="Location", icon=folium.Icon(color='green')))
+'''for coordinates in [[38.2, -99.1], [39.2, -97.1]]:
+    fg.add_child(folium.Marker(location=coordinates, popup="Location", icon=folium.Icon(color='green')))'''
 
 map.add_child(fg)
 #or map.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
