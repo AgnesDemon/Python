@@ -1,6 +1,0 @@
-Name,State,Height,Latitude,Longitude
-Mt Saint Augustine, Alaska, 1252m, 29.90, -81.31
-Red Mountain, Arizona, 2428m, 35.52, -111.87
-Lassen Peak, California, 3189m, 40.50, -121.42
-La Garita Caldera, Colorado, 4274m, 37.75, -106.93
-Hualalai, Hawaii, 2521m, 19.69, -155.87

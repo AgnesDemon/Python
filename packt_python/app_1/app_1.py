@@ -21,8 +21,14 @@
 import folium
 import pandas
 
-data = pandas.read_csv("volcanoes.txt")
+data = pandas.read_csv("volcanoes.csv")
 print(data)
+print("\n")
+print(data["NAME"])
+print("\n")
+
+lat = list(data["LATITUDE"])
+lon = list(data["LONGITUDE"])
 
 map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="Stamen Terrain")
 
@@ -32,13 +38,17 @@ fg.add_child(folium.Marker(location=[38.7, 99.1], popup="Location2", icon=folium
 #You can write this expression multiple times, just with different coordinates, to have multiple markers
 
 #You can create a for loop to make multiple markers without having to constantly type them down
-for coordinates in [[38.2, -99.1], [39.2, -97.1]]:
-    fg.add_child(folium.Marker(location=coordinates, popup="Location", icon=folium.Icon(color='green')))
+'''for coordinates in [[38.2, -99.1], [39.2, -97.1]]:
+    fg.add_child(folium.Marker(location=coordinates, popup="Location", icon=folium.Icon(color='green')))'''
+
+#You can use a txt or csv file that holds the data of lat and lon to make locations on the map
+for lt, ln in zip(lat, lon):
+    fg.add_child(folium.Marker(location=[lt, ln], popup="Location", icon=folium.Icon(color='green')))
 
 map.add_child(fg)
 #or map.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
 
 map.save("Map1.html")
-#hello
+
 
 
