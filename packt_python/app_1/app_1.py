@@ -29,19 +29,19 @@ print("\n")
 
 lat = list(data["LATITUDE"])
 lon = list(data["LONGITUDE"])
-name = list(data["NAME"])
+#name = list(data["NAME"])
 elev = list(data["HEIGHT"])
 
 def color_producer(elevation):
+    #return 'red'
     if elevation < 1000:
         return 'green'
-    #elif 1000 <= elevation < 3000:
-        #return 'orange'
-    #else:
-        #return 'red'
+    elif 1000 <= elevation < 3000:
+        return 'orange'
+    else:
+        return 'red'
 
-
-map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="Stamen Terrain")
+map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="OpenStreetMap")
 
 fg = folium.FeatureGroup(name="My Map")
 '''fg.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
@@ -54,7 +54,7 @@ fg.add_child(folium.Marker(location=[38.7, 99.1], popup="Location2", icon=folium
 
 #You can use a txt or csv file that holds the data of lat and lon to make locations on the map
 for lt, ln, el in zip(lat, lon, elev):
-    fg.add_child(folium.Marker(location=[lt, ln], popup=str(el), icon=folium.Icon(color=color_producer(el))))
+    fg.add_child(folium.Marker(location=[lt, ln], popup=str(el)+"m", icon=folium.Icon(color=color_producer(int(el)))))
 #If your popup=(parameter) is an integer, type str(parameter) to fix the error
 
 map.add_child(fg)
