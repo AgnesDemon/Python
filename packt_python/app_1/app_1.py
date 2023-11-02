@@ -54,8 +54,14 @@ fg.add_child(folium.Marker(location=[38.7, 99.1], popup="Location2", icon=folium
 
 #You can use a txt or csv file that holds the data of lat and lon to make locations on the map
 for lt, ln, el in zip(lat, lon, elev):
-    fg.add_child(folium.Marker(location=[lt, ln], popup=str(el)+"m", icon=folium.Icon(color=color_producer(int(el)))))
+    #both examples work
+    #folium.Marker example (upside down teardrops)
+    #fg.add_child(folium.Marker(location=[lt, ln], popup=str(el)+"m", icon=folium.Icon(color=color_producer(int(el)))))
+    #folium.CircleMarker example (shows locations of volcanoes as circles instead of upside down teardrops)
+    fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=str(el)+"m", fill_color = color_producer(el), color = 'grey', fill_opacity=0.7))
 #If your popup=(parameter) is an integer, type str(parameter) to fix the error
+
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='cp1252'))))
 
 map.add_child(fg)
 #or map.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
