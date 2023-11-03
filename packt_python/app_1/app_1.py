@@ -61,7 +61,9 @@ for lt, ln, el in zip(lat, lon, elev):
     fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=str(el)+"m", fill_color = color_producer(el), color = 'grey', fill_opacity=0.7))
 #If your popup=(parameter) is an integer, type str(parameter) to fix the error
 
-fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='cp1252'))))
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read())))
+#Polygons should be displayed on the map
+#I think when he says 'polygons,' I think he means the lines traced along the countries
 
 map.add_child(fg)
 #or map.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
