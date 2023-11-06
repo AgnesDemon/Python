@@ -43,7 +43,7 @@ def color_producer(elevation):
 
 map = folium.Map(location=[38.58, -99.09], zoom_start=6, tiles="OpenStreetMap")
 
-fg = folium.FeatureGroup(name="My Map")
+fgv = folium.FeatureGroup(name="Volcanoes")
 '''fg.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
 fg.add_child(folium.Marker(location=[38.7, 99.1], popup="Location2", icon=folium.Icon(color='green')))'''
 #You can write this expression multiple times, just with different coordinates, to have multiple markers
@@ -58,15 +58,20 @@ for lt, ln, el in zip(lat, lon, elev):
     #folium.Marker example (upside down teardrops)
     #fg.add_child(folium.Marker(location=[lt, ln], popup=str(el)+"m", icon=folium.Icon(color=color_producer(int(el)))))
     #folium.CircleMarker example (shows locations of volcanoes as circles instead of upside down teardrops)
-    fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=str(el)+"m", fill_color = color_producer(el), color = 'grey', fill_opacity=0.7))
+    fgv.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=str(el)+"m", fill_color = color_producer(el), color = 'grey', fill_opacity=0.7))
 #If your popup=(parameter) is an integer, type str(parameter) to fix the error
 
-fg.add_child(folium.GeoJson(data=(open('world.json', 'r', encoding='utf-8-sig').read())))
+fgp = folium.FeatureGroup(name="Population")
+
+fgp.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(), style_function=lambda x: {'fillColor': 'yellow' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 2000000 else 'red'}))
 #Polygons should be displayed on the map
 #I think when he says 'polygons,' I think he means the lines traced along the countries
 
-map.add_child(fg)
+map.add_child(fgv)
+map.add_child(fgp)
 #or map.add_child(folium.Marker(location=[38.2, -99.1], popup="Location1", icon=folium.Icon(color='green')))
+
+map.add_child(folium.LayerControl())
 
 map.save("Map1.html")
 
