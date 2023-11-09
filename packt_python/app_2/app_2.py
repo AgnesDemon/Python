@@ -22,8 +22,10 @@
     #"get_close_matches("rainn", data.keys())" will give you a list of words similar to "rainn"
     #"get_close_matches("rainn", data.keys(), n = 5)" will give you more similar words in a list. In this case, 5 words
     #"get_close_matches("rainn", data.keys())[0]" gives you the first similar word in the list, or the closest matching word
+    #"get_close_matches("rainn", data.keys(), cutoff = 0.8)" gives you a list of similar words with the cutoff of 0.8, or percentage of similarity
 
 import json
+from difflib import get_close_matches
 
 data = json.load(open("data.json")) #opens the data.json file
 
@@ -31,13 +33,26 @@ data = json.load(open("data.json")) #opens the data.json file
 def translate(w):
     w = w.lower() #allows you to type capital letters and it won't cause an error
     if w in data:
-        return data[w]
+        return data[w] #if word exists in the data.json file, return the definition
+    elif len(get_close_matches(w, data.keys())) > 0:
+        yn = input("Did you mean %s instead? Enter y for yes or n for no: " % get_close_matches(w, data.keys())[0]) #get_close_matches() gives you the most similar word to what you typed
+        if yn == "y":
+            return data[get_close_matches(w, data.keys())[0]]
+        elif yn == "n":
+            return "The word does not exist. Please double check it."
+        else:
+            return "We didn't understand your answer."
     else:
         #print("This word does not exist. Please double check it.") #prints phrase in terminal but also "None" underneath it
         return "The word doesn't exist. Please double check it." #prints phrase in terminal without "None" underneath it
 
 word = input("Enter your word: ") #allows user to type in their word
 
-print(translate(word)) #runs def translate and uses the user input in the word variable
+output = translate(word) #assigns the function to a variable
 
+if type(output) == list:
+    for item in output:
+        print(item) #if the output is a list, print the items in the list
+else:
+    print(output) #prints the output that isn't a list
 
