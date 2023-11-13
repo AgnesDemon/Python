@@ -1,0 +1,53 @@
+Errors are bugs in programs that make the program to function incorrectly.
+There are two types of errors in Python: Syntax Errors and Exceptions
+The terminal will usually show you the location of the error.
+The terminal can also explain what kind of error is in the code.
+
+
+SYNTAX ERRORS:
+Example: int 9
+The error: parenthesis are missing
+How to fix it: add parenthesis to the sides of 9 - int(9)
+
+Example: a = [1,2,3)
+The error: both ends need to have brackets, not parenthesis.
+            It also cannot have two different ends, such as start bracket and end parenthesis
+How to fix it: change the end parenthesis to an end bracket - a = [1,2,3]
+
+EXCEPTIONS:
+Example:
+    a = 1
+    b = "2"
+    print(int(2.5)
+    print(a + b)
+Error 1:
+    The error will show itself as a syntax error, which can be confusing.
+    This is because the previous line is missing a parenthesis.
+    The error continues on into the next line.
+How to fix it: add another parenthesis - print(int(2.5))
+
+Error 2:
+    The second error has to do with the variables a and b.
+    a has an integer while b has a string.
+    The print statement in line 4 wants to add the integer and string together, but it won't work.
+How to fix it: add a float statement to variable b to change it into an integer:
+    print(a + float(b))
+    #Note: this will print 3.00 in the terminal
+Or: add a string statement to the variable a:
+    print(str(a) + b)
+    #Note: this will print 12 in the terminal because it is not actually adding the values together
+These are known as type errors.
+
+Example:
+    a = 3
+    b = 4
+    print(c)
+The error: c is not defined.
+This is also known as a name error.
+How to fix it: add a new variable, c, and give it a value
+
+Example:
+    c = 5
+    print(c/0)
+The error: you cannot divide anything by zero. This is a zero division error.
+How to fix it: don't divide anything by zero.
