@@ -51,3 +51,34 @@ Example:
     print(c/0)
 The error: you cannot divide anything by zero. This is a zero division error.
 How to fix it: don't divide anything by zero.
+
+You can find ways to fix errors that you do not understand by searching them up on the internet.
+
+How to ask a good programming question:
+-include the error message/name of the error.
+-explain the problem you are having with your code and what you want to occur.
+-put in your code where the error is occuring.
+-put in your error traceback.
+*It is best to have a clear format for your code.
+Example: if you are able to make the code text appear like code, do it.
+This is so that people can have a bit better of an understanding.
+*There may be a button that looks like two curly brackets that will allow you to do this.
+
+HANDLING ERRORS:
+Example:
+    def divide(a,b):
+        return a/be
+
+    print(divide(1,0))
+To avoid the program from crashing, you can use the try except function to run the expression
+    def divide(a,b):
+        try:
+            return(a/b)
+        except ZeroDivisionError:
+            return "Zero division is meaningless"
+
+    print(divide(1/0))
+    print("End of program")
+
+The program should try to divide 1 by 0, return "Zero division is meaningless", and print "End of program".
+
