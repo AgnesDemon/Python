@@ -7,6 +7,7 @@
 
 import cv2
 import glob
+import time
 #glob is a library that finds path names of files
 
 '''#img = cv2.imread("galaxy.jpg", 0) #0 makes the image black, gray, and white.
@@ -37,7 +38,8 @@ for image in images:
     cv2.imwrite("resized_" + image, re) #renames image to resized_(image name).
     #Example: resized_galaxy.jpg.'''
 
-face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+#Allows you to map out face in an image with a square/rectangle.
+'''face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 img = cv2.imread("photo.jpg")
 gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -60,5 +62,43 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 #In cases with images with more than one face or unclear faces, you can adjust the scaleFactor to better find the faces.
-#However, it won't be perfect. There will be some faces that the program just won't be able to detect.
+#However, it won't be perfect. There will be some faces that the program just won't be able to detect.'''
+
+#Captures the first image in a video, opens the image and shows the numpy array of the image.
+'''video = cv2.VideoCapture() #You can put 0 for 1 webcam, 1 for two webcams, etc.
+#if you are putting in a video upload, type in the name of the video and make sure it is accessible.
+
+check, frame = video.read()
+
+print(check) #check is a boolean value and should print True in the terminal.
+print(frame) #frame is a numpy array and should print out a 3-dimensional array because the video is colored.
+#The numpy array that frame prints out is also the first image the video captures.
+
+#gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#Switch frame in line 80 with gray and a window will open with a gray version of the first image of the video.
+time.sleep(3) #this will wait 3 seconds before releasing the camera.
+cv2.imshow("Capturing", frame) #Creates a window that shows the first frame, or the image.
+
+cv2.waitKey(0)
+video.release()
+cv2.destroyAllWindows()
+#Line 68 will turn on and access the camera.
+#video.release() will release the camera, or stop accessing it.'''
+
+#To show video:
+video = cv2.VideoCapture(0) #Starts video
+while True:
+    check, frame = video.read()
+    print(check)
+    print(frame)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cv2.imshow("Capturing", gray)
+    key = cv2.waitKey(1000)
+    #If you reduce the number in the waitKey(), the video will look like it's running smoother.
+    if key == ord("q"):
+        break #When you press q the while loop will stop.
+ #Cool fact! If you block the camera and make it dark, the numpy array values will all turn to 0.
+video.release()
+cv2.destroyAllWindows()
+
 
