@@ -87,13 +87,14 @@ cv2.destroyAllWindows()
 
 #To show video:
 video = cv2.VideoCapture(0) #Starts video
+#If using a video: cv2.VideoCapture("video_name.mp4").
 while True:
     check, frame = video.read()
-    print(check)
-    print(frame)
+    print(check) #boolean value
+    print(frame) #numpy array
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    cv2.imshow("Capturing", gray)
-    key = cv2.waitKey(1000)
+    cv2.imshow("Capturing", gray) #shows you the image
+    key = cv2.waitKey(100)
     #If you reduce the number in the waitKey(), the video will look like it's running smoother.
     if key == ord("q"):
         break #When you press q the while loop will stop.
