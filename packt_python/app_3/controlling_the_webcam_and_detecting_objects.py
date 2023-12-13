@@ -1,5 +1,4 @@
 import cv2
-import time
 from datetime import datetime
 import pandas
 
@@ -22,9 +21,13 @@ while True:
 
     delta_frame = cv2.absdiff(first_frame, gray)
     thresh_frame = cv2.threshold(delta_frame, 30, 255, cv2.THRESH_BINARY)[1]
-    thresh_frame = cv2.dilate(thresh_frame, None, iterations = 2)
+    thresh_frame = cv2.dilate(thresh_frame, None, iterations=2)
 
-    (_,cnts,_) = cv2.findContours(thresh_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    #print(thresh_frame)
+    #print(cv2.RETR_EXTERNAL)
+    #print(cv2.CHAIN_APPROX_SIMPLE)
+
+    (cnts,_) = cv2.findContours(thresh_frame.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     for contour in cnts:
         if cv2.contourArea(contour) < 10000:
