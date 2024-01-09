@@ -1,5 +1,8 @@
 #To open Jupyter Notebook from terminal, type "jupyter notebook".
 #To run something in Jupyter, press Shift + Enter.
+#To delete a box, click out of the box so it isn't highlighted anymore. Then press "d" twice.
+#Don't forget about assignments! You can access them by going to the "Resources" folder and finding the folder for the chapter you are on.
+
 
 #making a basic bokeh line graph
     #from bokeh.plotting import figure
