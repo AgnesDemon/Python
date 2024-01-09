@@ -17,7 +17,13 @@
     #show(f)
 #This will take the data from the two lists - x and y - and create a line plot with the data in another window.
 
-
+#For the sake of this example, say the data.csv file had this data:
+    #x,y
+    #1,6
+    #2,7
+    #3,8
+    #4,9
+    #5,10
 #making a basic bokeh line graph
     #from bokeh.plotting import figure
     #from bokeh.io import output_file, show
