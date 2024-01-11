@@ -45,3 +45,16 @@
     #show(f)
 #This takes in data from a csv file and uses that data to make a plot line.
 
+#Making a time series graph.
+    #from bokeh.plotting import figure, output_file, show
+    #import pandas
+
+    #df = pandas.read_csv("link", parse_dates = ["Date"])
+    #p = figure(width=500, height=250, x_axis_type="datetime", responsive=True)
+    #p.line(df["Date"], df["Close"], color="Orange", alpha=0.5)
+#alpha controls transparency
+    #output_file("Timeseries.html")
+    #show(p)
+
+#link 1: http://www.google.com/finance/historical?q=NASDAQ:ADBE&startdate=Jan+01%2C+2009&enddate=Aug+2%2C+2012&output=csv
+#link 2(assignment): https://pythonizing.github.io/data/bachelors.csv
