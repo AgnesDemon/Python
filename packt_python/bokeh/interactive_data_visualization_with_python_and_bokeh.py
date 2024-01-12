@@ -57,15 +57,19 @@
     #show(p)
 
 #link 1: http://www.google.com/finance/historical?q=NASDAQ:ADBE&startdate=Jan+01%2C+2009&enddate=Aug+2%2C+2012&output=csv
-#link 2(assignment): https://pythonizing.github.io/data/bachelors.csv
+#link 2 (assignment): https://pythonizing.github.io/data/bachelors.csv
 #link 3: bokeh.pydata.org
+#link 4 (assignment): https://github.com/pythonizing/data/raw/master/verlegenhuken.xlsx
 
 #This isn't working either
     #from bokeh.plotting import figure, output_file, show
     #import pandas
 
     #p = figure(plot_width=500, plot_height=400, tools='pan', logo=None) #This line seems to be the problem
-
+#Switch previous line to:
+    #p = figure(width=500, height=400, tools='pan')
+    #p.toolbar.logo = None
+#This will allow code to work again
     #p.title.text = "Cool Data"
     #p.title.text_color = "Gray"
     #p.title.text_font = "times"
