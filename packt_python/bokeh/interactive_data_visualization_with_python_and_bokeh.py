@@ -49,8 +49,10 @@
     #from bokeh.plotting import figure, output_file, show
     #import pandas
 
-    #df = pandas.read_csv("link", parse_dates = ["Date"]) #This is where the error occurs
-    #p = figure(width=500, height=250, x_axis_type="datetime", responsive=True)
+    #df = pandas.read_csv("link", parse_dates = ["Date"]) 
+    #p = figure(width=500, height=250, x_axis_type="datetime", responsive=True) #This is where the error occurs
+#To fix the error, change "responsive=True" to sizing_mode="scale_width"
+#responsive=True is outdated and no longer in pandas
     #p.line(df["Date"], df["Close"], color="Orange", alpha=0.5)
 #alpha controls transparency
     #output_file("Timeseries.html")
