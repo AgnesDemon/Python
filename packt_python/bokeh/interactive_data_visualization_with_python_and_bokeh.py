@@ -60,7 +60,7 @@
 
 #link 1: http://www.google.com/finance/historical?q=NASDAQ:ADBE&startdate=Jan+01%2C+2009&enddate=Aug+2%2C+2012&output=csv
 #link 2 (assignment): https://pythonizing.github.io/data/bachelors.csv
-#link 3: bokeh.pydata.org
+#link 3: bokeh.pydata.org/en/latest/docs/user_guide/plotting.html (Page no longer exists. Just go to bokeh.pydata.org)
 #link 4 (assignment): https://github.com/pythonizing/data/raw/master/verlegenhuken.xlsx
 
 #This isn't working either
