@@ -42,9 +42,12 @@ while True:
 
     status_list = status_list[-2:]
 
+    print("status list: ", status_list)
     if status_list [-1] == 1 and status_list [-2] == 0:
+        print("status list is [1,0]")
         times.append(datetime.now())
     if status_list [-1] == 0 and status_list [-2] == 1:
+        print("status list is [0,1]")
         times.append(datetime.now())
 
     cv2.imshow("Gray Frame", gray) #Shows gray scale frame.
@@ -64,14 +67,17 @@ while True:
             times.append(datetime.now())
         break
 
-print(status_list)
-print(times)
+# print("status list", status_list)
+# print(times)
 
 #Error occurs here
 for i in range(0, len(times), 2):
+    print("times", times)
+    print(times[i])
     #df = df.append({"Start": times[i], "End": times[i + 1]}, ignore_index = True)
     df_new_row = pandas.DataFrame({"Start": times[i], "End": times[i + 1]}, index = [0])
     df = pandas.concat([df, df_new_row], ignore_index = True)
+    print("dataframe", df)
 
 df.to_csv("Times.csv")
 
