@@ -83,3 +83,4 @@ df.to_csv("Times.csv")
 
 video.release()
 cv2.destroyAllWindows()
+#BE SURE TO TURN ON LIGHT BEFORE RUNNING, AS AN ERROR WILL OCCUR BECAUSE IT CANNOT DETECT MOVEMENT
