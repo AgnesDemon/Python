@@ -10,10 +10,13 @@ df["End_string"] = df["End"].dt.strftime("%Y-%m-%d %H:%M:%S") #The datetime valu
 cds = ColumnDataSource(df) #This converts the df into a format that can be used by Bokeh for plotting.
 
 p = figure(x_axis_type = 'datetime', height = 100, width = 500, sizing_mode = "scale_width", title = "Motion Graph")
-p.yaxis.minor_tick_line_color = None
-p.ygrid[0].ticker.desired_num_ticks = 1
+p.yaxis.minor_tick_line_color = None #This is used to hide the minor tick marks on the y-axis of the Bokeh plot.
+p.ygrid[0].ticker.desired_num_ticks = 1 #Sets amount of ticks in y-axis to 1, and is usually used for grids.
+#If you want to set the amount of ticks to 1 on a single y-axis, use: p.ygrid.ticker = [0,1].
+#Or: p.yaxis.ticker.desired_num_ticks = 1.
 
 hover = HoverTool(tooltips = [("Start", "@Start_string"), ("End", "@End_string")])
+#tooltips parameter has two tuples: ("Start", "@Start_string") and ("End", "@End_string").
 p.add_tools(hover)
 
 q = p.quad(left = "Start", right = "End", bottom = 0, top = 1, color = "green", source = cds)
