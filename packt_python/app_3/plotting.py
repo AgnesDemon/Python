@@ -5,15 +5,18 @@ from bokeh.models import HoverTool, ColumnDataSource
 import pandas
 
 df = pandas.read_csv("Times.csv")
-#print(df)
-df["Start_string"] = df["Start"].dt.strftime("%Y-%m-%d %H:%M:%S")
-df["End_string"] = df["End"].dt.strftime("%Y-%m-%d %H:%M:%S")
+print(df)
+#df["Start_string"] = df["Start"].dt.strftime("%Y-%m-%d %H:%M:%S")
+#df["End_string"] = df["End"].dt.strftime("%Y-%m-%d %H:%M:%S")
+df["Start"] = pandas.to_datetime(df["Start"], format= "%Y-%m-%d %H:%M:%S", errors= "coerce", utc= True)
+df["End"] = pandas.to_datetime(df["End"], format= "%Y-%m-%d %H:%M:%S", errors= "coerce", utc= True)
 
 cds = ColumnDataSource(df)
 
 p = figure(width=500, height=100, x_axis_type = 'datetime', sizing_mode = 'scale_width', title = "Motion Graph")
 p.yaxis.minor_tick_line_color = None
-p.ygrid[0].ticker.desired_num_ticks = 1
+p.yaxis.ticker.desired_num_ticks = 1
+
 hover = HoverTool(tooltips = [("Start", "@Start_string"), ("End", "@End_string")])
 p.add_tools(hover)
 
@@ -28,7 +31,7 @@ show(p)
 
 
 #Original code from video:
-df["Start_string"] = df["Start"].dt.strftime("%Y-%m-%d %H:%M:%S") #The datetime values are converted to strings.
+'''df["Start_string"] = df["Start"].dt.strftime("%Y-%m-%d %H:%M:%S") #The datetime values are converted to strings.
 #Those strings are then put in the df["Start"] column.
 df["End_string"] = df["End"].dt.strftime("%Y-%m-%d %H:%M:%S") #The datetime values are converted into strings and then placed in the df["End"] column.
 
@@ -48,4 +51,4 @@ q = p.quad(left = "Start", right = "End", bottom = 0, top = 1, color = "green", 
 
 output_file("Start_time_graph.html")
 print("plotting.py data")
-show(p)
+show(p)'''
