@@ -12,3 +12,17 @@
 #NOTE: BE SURE TO PUT A SPACE BETWEEN THE #S WHEN YOU CREATE A MARKDOWN CELL, OTHERWISE IT WILL NOT CREATE A TITLE.
 #Series represent single columns.
 #Dataframes represent more than one column.
+#To undo, type Ctrl + Z.
+
+
+#data["Day"] = data["Timestamp"].dt.date
+#data.head()
+#day_average = data.groupby(["Timestamp"])
+#day_average.head()
+#Prints out chart, but groupby seems to mess up on printing only the head
+
+#data['Day'] = data['Timestamp'].dt.date
+#day_avg = data.groupby(["Course Name"]).mean()
+#day_avg
+#Constantly has an error due to groupby, no matter which column name I put
+
