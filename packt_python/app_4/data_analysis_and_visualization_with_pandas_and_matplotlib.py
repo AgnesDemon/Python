@@ -26,4 +26,17 @@
 #day_avg
 #Constantly has an error due to groupby, no matter which column name I put
 
-#56 is the line I left off of in reviews.csv
+#data["Day"] = data["Timestamp"].dt.date creates a new column that shows the date in this format: Y-M-D
+#You can also create a Month and Year column with the same code.
+#Just switch "Day" with "Week" or "Month".
+#Also, switch .date for .strftime("%-%").
+#For Week, put either ("%Y-%U") or ("%m-%U") - the first one is for more data, while the second one is for less data.
+#For Month, put ("%Y-%m").
+
+#To make the rest of the code work, the columns Course Name, Comment, and Timestamp need to be removed, or "dropped".
+#This will not only allow the code to work, but it will create a chart with just Rating and Day, just like the instructor's.
+#Therefore, in order for day_average = data.groupby(["Day"]).mean() to work, the other columns need to be dropped.
+#The Timestamp column can work as well, but the instructor only wanted the Rating and Day columns
+
+
+#132 is the line I left off of in reviews.csv
