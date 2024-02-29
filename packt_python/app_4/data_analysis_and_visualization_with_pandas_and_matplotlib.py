@@ -36,7 +36,20 @@
 #To make the rest of the code work, the columns Course Name, Comment, and Timestamp need to be removed, or "dropped".
 #This will not only allow the code to work, but it will create a chart with just Rating and Day, just like the instructor's.
 #Therefore, in order for day_average = data.groupby(["Day"]).mean() to work, the other columns need to be dropped.
-#The Timestamp column can work as well, but the instructor only wanted the Rating and Day columns
+#The Timestamp column can work as well, but the instructor only wanted the Rating and Day columns.
+#You can drop more than one column by doing this: data.drop(["Column A", "Column B"], axis=1)
 
 
 #132 is the line I left off of in reviews.csv
+
+#i AM TYRPING THIS DOWN HERE BECAUSE i KNOW THAT IT WILL NOT WORK IN JUPYTER NOTEBOOK
+#I WILL TRY TO MIMIC IT IN MY OWN WAY, EVEN IF IT TAKES LONGER
+#What day are people the happiest?
+    #data - SHOWS DATA FROM reviews.csv
+    #data["Weekday"] = data["Timestamp"].dt.strftime("%A") - CREATES A NEW COLUMN WITH THE DAYS OF THE WEEK (SUN-SAT)
+    #data["Daynumber"] = data["Timestamp"].dt.strftime("%w") - CREATES A NEW COLUMN WITH THE DAYS OF THE WEEK AS NUMNERS (MON = 1, TUE = 2, ETC)
+    #data - SHOWS THE UPDATED DATA WITH NEW COLUMN
+    #weekday_average = data.groupby(["Weekday"]).mean() - GROUPS THE RATING AND WEEKDAY COLUMNS TOGETHER AND THEIR AVERAGE
+    #plt.plot(weekday_average.index, weekday_average["Rating"]) - CREATES A GRAPH WITH THE DAYS OF THE WEEK AS THE X-AXIS AND THE RATING AS THE Y-AXIS
+
+
