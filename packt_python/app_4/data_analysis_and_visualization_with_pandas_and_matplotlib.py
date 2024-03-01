@@ -42,7 +42,7 @@
 
 #132 is the line I left off of in reviews.csv
 
-#i AM TYRPING THIS DOWN HERE BECAUSE i KNOW THAT IT WILL NOT WORK IN JUPYTER NOTEBOOK
+#I AM TYRPING THIS DOWN HERE BECAUSE I KNOW THAT IT WILL NOT WORK IN JUPYTER NOTEBOOK
 #I WILL TRY TO MIMIC IT IN MY OWN WAY, EVEN IF IT TAKES LONGER
 #What day are people the happiest?
     #data - SHOWS DATA FROM reviews.csv
@@ -50,6 +50,25 @@
     #data["Daynumber"] = data["Timestamp"].dt.strftime("%w") - CREATES A NEW COLUMN WITH THE DAYS OF THE WEEK AS NUMNERS (MON = 1, TUE = 2, ETC)
     #data - SHOWS THE UPDATED DATA WITH NEW COLUMN
     #weekday_average = data.groupby(["Weekday"]).mean() - GROUPS THE RATING AND WEEKDAY COLUMNS TOGETHER AND THEIR AVERAGE
+    #HOWEVER, THERE IS A PROBLEM WITH THIS LINE - IT PRINTS THE DAYS OF THE WEEK IN ALPHABETICAL ORDER, SO LIKE THIS: FRI, MON, SAT, SUN, THURS, TUES, WED
+    #weekday_average = weekday_average.sort_values("Weekday") - SUPPOSED TO ORGANIZE THE WEEKDAYS IN THEIR ORIGINAL ORDER, BUT STILL IN ALPHABETICAL ORDER
+    #TO FIX THIS, USE THIS CODE:
+        #weekday_average = data.groupby(["Weekday", "Daynumber"]).mean()
+        #weekday_average = weekday_average.sort_values("Daynumber")
+    #plt.figure(figsize = [15, 3]) - SETS THE SIZE OF THE GRAPH
     #plt.plot(weekday_average.index, weekday_average["Rating"]) - CREATES A GRAPH WITH THE DAYS OF THE WEEK AS THE X-AXIS AND THE RATING AS THE Y-AXIS
+    #HOWEVER, ANOTHER ERROR OCCURS BECAUSE A TUPLE IS GIVEN INSTEAD OF A STRING OR BYTE
+    #TO FIX THIS, USE THIS CODE INSTEAD FOR THE GRAPH:
+        #plt.plot(weekday_average.index.get_level_values(0), weekday_average["Rating"])
+        #.get_level_values(0) ONLY USES THE WEEKDAY COLUMN, THAT WAY THERE IS NO TUPLE TO CONFUSE THE GRAPH
+    #TO ACCESS DIFFERENT TYPES OF GRAPHS, TYPE dir(plt), WHICH SHOULD SHOW YOU THE OTHER GRAPHS THAT YOU CAN USE FOR YOUR DATA
+    #NOTE: NOT ALL GRAPHS OR CHARTS ARE APPROPRIATE FOR SPECIFIC TYPES OF DATA, SO AT TIMES YOU MAY GET AN ERROR
+    #TO LEARN A BIT MORE ABOUT THE GRAPH OR CHART THAT YOU ARE USING, TYPE help(plt.plot) OR WHATEVER GRAPH/CHART METHOD YOU ARE USING
+
+
+#Need to test this out:
+#share = data.groupby(["Course Name"])["Rating"].count()
+#share
+#plt.pie(share, labels = share.index)
 
 
