@@ -4,3 +4,4 @@ __pycache__/
 #Test files
 test*.*
 *.*csv
+*.*env
