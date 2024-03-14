@@ -14,6 +14,8 @@ def hello_world():
 jp.justpy(hello_world)'''
 
 
+#Creating a webpage that uses a spline chart to show the average by day
+
 import justpy as jp
 import pandas
 from datetime import datetime
@@ -106,7 +108,7 @@ def app():
     #x = [3, 6, 8]
     #y = [4, 7, 9]
     #highchart.options.series[0].data = list(zip(x, y)) #changes the series
-
+    highchart.options.series[0].data = list(zip(day_average.index, day_average["Rating"]))
 
     return webpage
 
