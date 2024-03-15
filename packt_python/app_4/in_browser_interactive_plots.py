@@ -22,6 +22,8 @@ from datetime import datetime
 from pytz import utc
 import matplotlib.pyplot as plt
 data = pandas.read_csv("reviews2.csv", parse_dates = ["Timestamp"])
+data["Day"] = data["Timestamp"].dt.date
+day_average = data.drop(["Course Name", "Comment", "Timestamp"], axis=1)
 
 #to get the code for a specific graph from highcharts, follow these steps:
     #search up highcharts doc
@@ -36,18 +38,18 @@ chart_def = """
         inverted: true
     },
     title: {
-        text: 'Atmosphere Temperature by Altitude',
+        text: 'Average Rating by Day',
         align: 'center'
     },
     subtitle: {
-        text: 'According to the Standard Atmosphere Model',
+        text: 'According to Data',
         align: 'center'
     },
     xAxis: {
         reversed: false,
         title: {
             enabled: true,
-            text: 'Altitude'
+            text: 'Timestamp'
         },
         labels: {
             format: '{value} km'
@@ -60,7 +62,7 @@ chart_def = """
     },
     yAxis: {
         title: {
-            text: 'Temperature'
+            text: 'Rating'
         },
         labels: {
             format: '{value}°'
@@ -85,7 +87,7 @@ chart_def = """
         }
     },
     series: [{
-        name: 'Temperature',
+        name: 'Course Review',
         data: [[0, 15], [10, -50], [20, -56.5], [30, -46.5], [40, -22.1],
             [50, -2.5], [60, -27.7], [70, -55.7], [80, -76.5]]
 
@@ -104,7 +106,7 @@ def app():
     #in the line above, it takes the chart_def string and reads it as a dictionary instead because of the curly brackets.
     #print(type(highchart.options)) #shows what class highchart.options is, which is a dictionary that also allows you to access the keys of that dictionary
     #by accessing those keys, you can print out the different keys or change the names or data of those keys, like this:
-    highchart.options.title.text = "Average Rating by Day" #changes the title
+    #highchart.options.title.text = "Average Rating by Day" #changes the title
     #x = [3, 6, 8]
     #y = [4, 7, 9]
     #highchart.options.series[0].data = list(zip(x, y)) #changes the series

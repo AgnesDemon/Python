@@ -40,7 +40,7 @@ The Timestamp column can work as well, but the instructor only wanted the Rating
 You can drop more than one column by doing this: data.drop(["Column A", "Column B"], axis=1)
 
 
-132 is the line I left off of in reviews.csv
+233 is the line I left off of in reviews.csv
 
 I AM TYRPING THIS DOWN HERE BECAUSE I KNOW THAT IT WILL NOT WORK IN JUPYTER NOTEBOOK
 I WILL TRY TO MIMIC IT IN MY OWN WAY, EVEN IF IT TAKES LONGER
