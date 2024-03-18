@@ -23,7 +23,8 @@ from pytz import utc
 import matplotlib.pyplot as plt
 data = pandas.read_csv("reviews2.csv", parse_dates = ["Timestamp"])
 data["Day"] = data["Timestamp"].dt.date
-day_average = data.drop(["Course Name", "Comment", "Timestamp"], axis=1)
+data2 = data.drop(["Course Name", "Comment", "Timestamp"], axis=1)
+day_average = data2.groupby(["Day"]).mean()
 
 #to get the code for a specific graph from highcharts, follow these steps:
     #search up highcharts doc
@@ -35,7 +36,7 @@ chart_def = """
 {
     chart: {
         type: 'spline',
-        inverted: true
+        inverted: false
     },
     title: {
         text: 'Average Rating by Day',
@@ -49,10 +50,10 @@ chart_def = """
         reversed: false,
         title: {
             enabled: true,
-            text: 'Timestamp'
+            text: 'Date'
         },
         labels: {
-            format: '{value} km'
+            format: '{value}'
         },
         accessibility: {
             rangeDescription: 'Range: 0 to 80 km.'
@@ -62,10 +63,10 @@ chart_def = """
     },
     yAxis: {
         title: {
-            text: 'Rating'
+            text: 'Average Rating'
         },
         labels: {
-            format: '{value}°'
+            format: '{value}'
         },
         accessibility: {
             rangeDescription: 'Range: -90°C to 20°C.'
@@ -77,7 +78,7 @@ chart_def = """
     },
     tooltip: {
         headerFormat: '<b>{series.name}</b><br/>',
-        pointFormat: '{point.x} km: {point.y}°C'
+        pointFormat: '{point.x}: {point.y}'
     },
     plotOptions: {
         spline: {
@@ -87,7 +88,7 @@ chart_def = """
         }
     },
     series: [{
-        name: 'Course Review',
+        name: 'Average Rating',
         data: [[0, 15], [10, -50], [20, -56.5], [30, -46.5], [40, -22.1],
             [50, -2.5], [60, -27.7], [70, -55.7], [80, -76.5]]
 
@@ -110,11 +111,14 @@ def app():
     #x = [3, 6, 8]
     #y = [4, 7, 9]
     #highchart.options.series[0].data = list(zip(x, y)) #changes the series
-    highchart.options.series[0].data = list(zip(day_average.index, day_average["Rating"]))
+    highchart.options.xAxis.categories = list(day_average.index) #this allows the x-axis to show dates instead of numbers
+    highchart.options.series[0].data = list(day_average["Rating"])
+    #highchart.options.series[0].data = list(zip(day_average.index, day_average["Rating"]))
 
     return webpage
 
 jp.justpy(app) #calls app() function
 #justpy() is a function that takes care of calling other functions
 #when making updates to the code, you will have to stop it from running in the terminal by using Ctrl + C
+
 
