@@ -121,4 +121,11 @@ jp.justpy(app) #calls app() function
 #justpy() is a function that takes care of calling other functions
 #when making updates to the code, you will have to stop it from running in the terminal by using Ctrl + C
 
+#For Week Average:
+#Most of the code will be the same as Day Average
+#Change data["Day"] = data["Timestamp"].dt.date to data["Week"] = data["Timestamp"].dt.strftime("%m-%U")
+#%m stands for month, and %U stands for week
+#Change day_average = data2.groupby(["Day"]).mean() to week_average = data2.groupby(["Week"]).mean()
+#Change list(day_average.index) to list(week_average.index)
+#Change list(day_average["Rating"]) to list(week_averagge["Rating"])
 
