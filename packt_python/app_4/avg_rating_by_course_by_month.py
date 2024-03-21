@@ -3,10 +3,14 @@ import pandas
 from datetime import datetime
 from pytz import utc
 
-data = pandas.read_csv("reviews.csv", parse_dates=["Timestamp"])
+data = pandas.read_csv("reviews2.csv", parse_dates=["Timestamp"])
 data["Month"] = data["Timestamp"].dt.strftime("%Y-%m")
-month_average_crs = data.groupby(["Month", "Course Name"])["Rating"].count().unstack #can use count() or mean()
+data2 = data.drop(["Comment", "Timestamp"], axis=1)
+print(data2.values.tolist())
+month_average_crs = data2.groupby(["Month", "Course Name"])["Rating"].mean().unstack #can use count() or mean()
+print(type(month_average_crs))
 print(month_average_crs)
+#print(month_average_crs.values.tolist())
 
 chart_definition = """
 {
@@ -122,7 +126,7 @@ def app():
 
     highchart = jp.HighCharts(a=webpage, options=chart_definition)
     highchart.options.chart.type = "spline"
-    highchart.options.xAxis.categories = list(month_average_crs.index)
+    highchart.options.xAxis.categories = month_average_crs
 
     highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
 
