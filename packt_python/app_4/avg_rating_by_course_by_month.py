@@ -34,7 +34,7 @@ chart_definition = """
     floating: true,
     borderWidth: 1,
     backgroundColor:
-      Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+       || '#FFFFFF'
   },
   xAxis: {
     plotBands: [{ // Highlight the two last years
@@ -125,13 +125,21 @@ def app():
     paragraph1 = jp.QDiv(a=webpage, text="These graphs represent course review analysis")
 
     highchart = jp.HighCharts(a=webpage, options=chart_definition)
-    highchart.options.chart.type = "spline"
-    highchart.options.xAxis.categories = month_average_crs
+    #changing names and values in json code:
+    highchart.options.chart.type = "spline" #takes off the filled in/colored part of the chart
+    highchart.options.title.text = "Average Rating of Course Reviews"
+    highchart.options.title.align = "center"
+    highchart.options.subtitle.align = "center"
+    #highchart.options.xAxis.categories = month_average_crs
 
-    highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
+    #highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
 
-    highchart.options.series = highchart_data
+    #highchart.options.series = highchart_data
 
     return webpage
 
 jp.justpy(app)
+
+
+#Highcharts.defaultOptions.legend.backgroundColor
+#Remember to place this line in front of the two lines "||" before #FFFFFF
