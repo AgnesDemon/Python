@@ -3,13 +3,16 @@ import pandas
 from datetime import datetime
 from pytz import utc
 
-data = pandas.read_csv("reviews2.csv", parse_dates=["Timestamp"])
+data = pandas.read_csv("reviews.csv", parse_dates=["Timestamp"])
 data["Month"] = data["Timestamp"].dt.strftime("%Y-%m")
 data2 = data.drop(["Comment", "Timestamp"], axis=1)
-print(data2.values.tolist())
+#print(data2.values.tolist())
 month_average_crs = data2.groupby(["Month", "Course Name"])["Rating"].mean().unstack #can use count() or mean()
-print(type(month_average_crs))
+print(type(month_average_crs)) #reveals that month_average_crs is a class method
 print(month_average_crs)
+#seems that reviews.csv works and the other names in Column name don't cause a problem
+#seems that I can also use .groupby() and .mean() without a problem with reviews.csv
+
 #print(month_average_crs.values.tolist())
 
 chart_definition = """
@@ -130,10 +133,14 @@ def app():
     highchart.options.title.text = "Average Rating of Course Reviews"
     highchart.options.title.align = "center"
     highchart.options.subtitle.align = "center"
-    #highchart.options.xAxis.categories = month_average_crs
 
+    #highchart.options.xAxis.categories = list(month_average_crs.index) #problem starts here
+    #month_average_crs has no attribute to .index
     #highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
+    #highchart.options.series = highchart_data
 
+    #highchart.options.xAxis.categories = month_average_crs
+    #highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
     #highchart.options.series = highchart_data
 
     return webpage
