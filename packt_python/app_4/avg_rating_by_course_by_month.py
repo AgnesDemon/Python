@@ -7,7 +7,9 @@ data = pandas.read_csv("reviews.csv", parse_dates=["Timestamp"])
 data["Month"] = data["Timestamp"].dt.strftime("%Y-%m")
 data2 = data.drop(["Comment", "Timestamp"], axis=1)
 #print(data2.values.tolist())
+print(type(data2)) #reveals that data2 is a dataframe
 month_average_crs = data2.groupby(["Month", "Course Name"])["Rating"].mean().unstack #can use count() or mean()
+#For some reason, this is turning the dataframe into a class method
 print(type(month_average_crs)) #reveals that month_average_crs is a class method
 print(month_average_crs)
 #seems that reviews.csv works and the other names in Column name don't cause a problem
@@ -134,10 +136,12 @@ def app():
     highchart.options.title.align = "center"
     highchart.options.subtitle.align = "center"
 
+    highchart.options.xAxis.categories = month_average_crs
+    
     #highchart.options.xAxis.categories = list(month_average_crs.index) #problem starts here
     #month_average_crs has no attribute to .index
-    #highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
-    #highchart.options.series = highchart_data
+    highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs]
+    highchart.options.series = highchart_data
 
     #highchart.options.xAxis.categories = month_average_crs
     #highchart_data = [{"name": v1, "data":[v2 for v2 in month_average_crs[v1]]} for v1 in month_average_crs.columns]
