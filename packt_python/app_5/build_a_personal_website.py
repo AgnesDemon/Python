@@ -14,3 +14,20 @@ def about():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+#NOTE: you should always create a virtual environment first before building an application
+#need to pip install virtualenv
+#this will allow me to create a virtual environment and not have excess libraries not needed for flask apps
+#to create the virtual environment:
+    #create a folder to hold the folder containing the app files (in this case, app_5)
+    #in the terminal, type python -m venv virtual
+    #a virtual folder should be created, and in that folder should be a few other folders with files
+    #this will create the environment for us
+    #next, type in virtual\Scripts\python in the terminal
+    #this should open a python shell in the terminal
+    #just exit it
+    #you will need to install flask in your environment, so type virtual\Scripts\pip install flask
+    #this should install flask
+    #now, run the app by typing virtual\Scripts\python app_4\build_a_personal_website.py
+    #it should be able to run
