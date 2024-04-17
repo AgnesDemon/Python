@@ -14,9 +14,9 @@ header {
 }
 
 header h1.logo {
-    margin: 0;
+    margin: 1;
     font-size: 1.7em;
-    color: #fff;
+    color: #aa6bfd;
     text-transform: uppercase;
     float: left;
 }
@@ -65,7 +65,7 @@ h3 {
 
 .menu {
     float: right;
-    margin-top: 4px;
+    margin-top: 20px;
 }
 
 .menu li {
