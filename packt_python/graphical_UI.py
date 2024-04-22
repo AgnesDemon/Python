@@ -51,8 +51,14 @@ entry_value=StringVar()
 entry=Entry(window, textvariable=entry_value)
 entry.grid(row=0, column=1)
 
-label = Label(window, text="Kg") #this creates a label - you cannot interact with it
-label.grid(row=0, column=0)
+label1 = Label(window, text="Kg") #this creates a label - you cannot interact with it
+label1.grid(row=0, column=0)
+label2 = Label(window, text="Grams")
+label2.grid(row=2, column=0)
+label3 = Label(window, text="Pounds")
+label3.grid(row=2, column=1)
+label4 = Label(window, text="Ounces")
+label4.grid(row=2, column=2)
 
 text1 = Text(window, height=1, width=20)
 text1.grid(row=1, column=0)
