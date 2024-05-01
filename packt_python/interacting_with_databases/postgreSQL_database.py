@@ -12,3 +12,48 @@
         #pip install the wheel file you just moved into the folder
         #you can check if the wheel file installed properly in the python interactive shell
         #to find out what version it is, type psycopg2.__version__ in the python interactive shell
+
+import psycopg2
+
+def create_table():
+    connection = psycopg2.connect("dbname='database1' user='postgres' password='cooper10' host='localhost' port='5432'")
+    cursor = connection.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS store (item TEXT, quantity INTEGER, price REAL)")
+    connection.commit()
+    connection.close()
+
+def insert(item, quantity, price):
+    connection = psycopg2.connect("dbname='database1' user='postgres' password='cooper10' host='localhost' port='5432'")
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO store VALUES (%s,%s,%s)", (item, quantity, price))
+    connection.commit()
+    connection.close()
+
+def view():
+    connection = psycopg2.connect("dbname='database1' user='postgres' password='cooper10' host='localhost' port='5432'")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM store")
+    rows = cursor.fetchall()
+    connection.close()
+    return rows
+
+def delete(item):
+    connection = psycopg2.connect("dbname='database1' user='postgres' password='cooper10' host='localhost' port='5432'")
+    cursor = connection.cursor()
+    cursor.execute("DELETE FROM store WHERE item=%s", (item,))
+    connection.commit()
+    connection.close()
+
+def update(quantity, price, item):
+    connection = psycopg2.connect("dbname='database1' user='postgres' password='cooper10' host='localhost' port='5432'")
+    cursor = connection.cursor()
+    cursor.execute("UPDATE store SET quantity=%s, price=%s WHERE item=%s", (quantity, price, item))
+    connection.commit()
+    connection.close()
+
+create_table()
+update(20,15.0,'Apple')
+#insert("Apple",10,15)
+print(view())
+#delete("Orange")
+
