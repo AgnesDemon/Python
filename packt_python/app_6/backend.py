@@ -48,6 +48,6 @@ def update(id,title,author,year,isbn):
 connect()
 #update(3,"Little Women","Louisa May Alcott",1868,123456789)
 #delete(1)
-insert("Oliver Twist","Charles Dickens",1837,124124124)
-print(view())
+#insert("Oliver Twist","Charles Dickens",1837,124124124)
+#print(view())
 #print(search(year=1868))

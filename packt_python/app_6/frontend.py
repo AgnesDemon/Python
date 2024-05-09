@@ -1,13 +1,30 @@
 from tkinter import *
 import backend
 
+def view_command():
+    list.delete(0, END)
+    for row in backend.view():
+        list.insert(END, row)
+
+def search_command():
+    list.delete(0, END)
+    for row in backend.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+        list.insert(END, row)
+
+def add_command():
+    backend.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    list.delete(0, END)
+    list.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
+
+#def update_command():
+
 window = Tk()
 
-button1 = Button(window, text="View All", width=12)
+button1 = Button(window, text="View All", width=12, command=view_command)
 button1.grid(row=2, column=3)
-button2 = Button(window, text="Search Entry", width=12)
+button2 = Button(window, text="Search Entry", width=12, command=search_command)
 button2.grid(row=3, column=3)
-button3 = Button(window, text="Add Entry", width=12)
+button3 = Button(window, text="Add Entry", width=12, command=add_command)
 button3.grid(row=4, column=3)
 button4 = Button(window, text="Update Selected", width=12)
 button4.grid(row=5, column=3)
