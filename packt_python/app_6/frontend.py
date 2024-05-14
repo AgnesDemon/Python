@@ -88,3 +88,12 @@ scrollbar.configure(command=list.yview)
 list.bind('<<ListboxSelect>>', get_selected_row)
 
 window.mainloop()
+
+
+#to make an executable file:
+    #pip install pyinstaller
+    #in the terminal, type pyinstaller frontend.py
+    #this runs the called python file with pyinstaller
+    #to run just one file and not any excess files, type pyinstaller --onefile frontend.py
+    #if you want it to be windowed, add "--windowed" before frontend.py
+
