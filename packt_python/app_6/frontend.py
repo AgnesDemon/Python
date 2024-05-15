@@ -96,4 +96,12 @@ window.mainloop()
     #this runs the called python file with pyinstaller
     #to run just one file and not any excess files, type pyinstaller --onefile frontend.py
     #if you want it to be windowed, add "--windowed" before frontend.py
+    #NOTE: THIS CAUSED MY COMPUTER TO FREAK OUT ABOUT A VIRUS. I IMMEDIATELY DELETED THE FILE, BUT IF I HAVE TO MAKE A FILE LIKE THIS, LET DAD KNOW
 
+#to access the Resouces file in files:
+    #click on Downloads. The Resources file should be there
+#to access my Visual Studio Code files:
+    #click on This PC
+    #double click on OS(C:)
+    #double click on the Coding file
+    #now I should have access to all my coding files
