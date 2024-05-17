@@ -1,5 +1,8 @@
 from tkinter import *
-import backend
+#import backend
+from backend import Database #importing the class Database frm backend.py
+
+database = Database() #OPTIONAL! PART 2: You can insert "books.db" into the parenthesis to name the .db file/window
 
 def get_selected_row(event):
     global selected_tuple
@@ -18,24 +21,24 @@ def get_selected_row(event):
 
 def view_command(): #allows us to see the books
     list.delete(0, END) #makes sure the listbox is empty
-    for row in backend.view():
+    for row in Database.view():
         list.insert(END, row)
 
 def search_command(): #allows us to search for books by either their name, author, year, or isbn
     list.delete(0, END)
-    for row in backend.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+    for row in Database.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
         list.insert(END, row)
 
 def add_command(): #allows us to add more books
-    backend.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    Database.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     list.delete(0, END)
     list.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def delete_command(): #deletes selected book
-    backend.delete(selected_tuple[0])
+    Database.delete(selected_tuple[0])
 
 def update_command(): #updates selected book
-    backend.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())    
+    Database.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())    
 
 window = Tk()
 
