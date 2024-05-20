@@ -21,7 +21,7 @@ def get_selected_row(event):
 
 def view_command(): #allows us to see the books
     list.delete(0, END) #makes sure the listbox is empty
-    for row in database.view(): #ERROR OCCURS HERE "TypeError: Database.view() missing 1 required positional argument: 'self'"
+    for row in database.view():
         list.insert(END, row)
 
 def search_command(): #allows us to search for books by either their name, author, year, or isbn
