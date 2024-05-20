@@ -2,7 +2,7 @@ from tkinter import *
 #import backend
 from backend import Database #importing the class Database frm backend.py
 
-database = Database() #OPTIONAL! PART 2: You can insert "books.db" into the parenthesis to name the .db file/window
+database = Database("books.db") #OPTIONAL! PART 2: You can insert "books.db" into the parenthesis to name the .db file/window
 
 def get_selected_row(event):
     global selected_tuple
@@ -21,31 +21,31 @@ def get_selected_row(event):
 
 def view_command(): #allows us to see the books
     list.delete(0, END) #makes sure the listbox is empty
-    for row in Database.view():
+    for row in database.view(): #ERROR OCCURS HERE "TypeError: Database.view() missing 1 required positional argument: 'self'"
         list.insert(END, row)
 
 def search_command(): #allows us to search for books by either their name, author, year, or isbn
     list.delete(0, END)
-    for row in Database.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+    for row in database.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
         list.insert(END, row)
 
 def add_command(): #allows us to add more books
-    Database.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    database.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     list.delete(0, END)
     list.insert(END, (title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def delete_command(): #deletes selected book
-    Database.delete(selected_tuple[0])
+    database.delete(selected_tuple[0])
 
 def update_command(): #updates selected book
-    Database.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())    
+    database.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())    
 
-window = Tk()
+window = Tk() #creates window?
 
 window.wm_title("Bookstore") #gives the window a name
 
-button1 = Button(window, text="View All", width=12, command=view_command)
-button1.grid(row=2, column=3)
+button1 = Button(window, text="View All", width=12, command=view_command) #creates a button, adds text to the button, and sets button size
+button1.grid(row=2, column=3) #sets location of button
 button2 = Button(window, text="Search Entry", width=12, command=search_command)
 button2.grid(row=3, column=3)
 button3 = Button(window, text="Add Entry", width=12, command=add_command)
@@ -57,9 +57,9 @@ button5.grid(row=6, column=3)
 button6 = Button(window, text="Close", width=12, command=window.destroy)
 button6.grid(row=7, column=3)
 
-title_text = StringVar()
-entry1 = Entry(window, textvariable=title_text)
-entry1.grid(row=0, column=1)
+title_text = StringVar() #allows you to type text into the entry box
+entry1 = Entry(window, textvariable=title_text) #creates an entry
+entry1.grid(row=0, column=1) #sets location of entry box
 author_text = StringVar()
 entry2 = Entry(window, textvariable=author_text)
 entry2.grid(row=0, column=3)
@@ -70,8 +70,8 @@ isbn_text = StringVar()
 entry4 = Entry(window, textvariable=isbn_text)
 entry4.grid(row=1, column=3)
 
-label1 = Label(window, text="Title")
-label1.grid(row=0, column=0)
+label1 = Label(window, text="Title") #creates label
+label1.grid(row=0, column=0) #sets location of label
 label2 = Label(window, text="Author")
 label2.grid(row=0, column=2)
 label3 = Label(window, text="Year")
@@ -79,18 +79,18 @@ label3.grid(row=1, column=0)
 label4 = Label(window, text="ISBN")
 label4.grid(row=1, column=2)
 
-list = Listbox(window, height=6, width=35)
-list.grid(row=2, column=0, rowspan=6, columnspan=2)
+list = Listbox(window, height=6, width=35) #creates box to put text in
+list.grid(row=2, column=0, rowspan=6, columnspan=2) #sets location and size of listbox
 
-scrollbar = Scrollbar(window)
-scrollbar.grid(row=2, column=2, rowspan=6)
+scrollbar = Scrollbar(window) #creates scrollbar
+scrollbar.grid(row=2, column=2, rowspan=6) #sets location and size of scrollbar
 
 list.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=list.yview)
 
 list.bind('<<ListboxSelect>>', get_selected_row)
 
-window.mainloop()
+window.mainloop() #runs window?
 
 
 #to make an executable file:
