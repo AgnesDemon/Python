@@ -6,21 +6,22 @@
 #Should be able to see the files
 #Maybe delete files or manga
 #Make sure I cannot make duplicates. This means that the manga can have the same name, but not the same volume number
-
 from tkinter import *
+import MO_login
 
 window = Tk()
 
 window.wm_title("Manga Organizer")
+window.configure(bg="#9F9F9F") #sets background color
 
 #Labels
-label1 = Label(window, text="Manga Name")
+label1 = Label(window, text="Manga Name", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 10)) #fg is the text color
 label1.grid(row=0, column=0)
-label2 = Label(window, text="Volume Number")
+label2 = Label(window, text="Volume Number", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 10))
 label2.grid(row=0, column=2)
-label3 = Label(window, text="Author")
+label3 = Label(window, text="Author", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 10))
 label3.grid(row=1, column=2)
-label4 = Label(window, text="Your Manga")
+label4 = Label(window, text="Your Manga", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 15))
 label4.grid(row=2, column=0, columnspan=2)
 
 #Entries
@@ -48,15 +49,15 @@ scrollbar.configure(command=list_box.yview)
 #list_box.bind('<<ListboxSelect>>')
 
 #Buttons
-button1 = Button(window, text="View All Manga", width=15)
+button1 = Button(window, text="View All Manga", width=15, bg="#404040", fg="#FFFFFF")
 button1.grid(row=3, column=3)
-button2 = Button(window, text="Search Volume", width=15)
+button2 = Button(window, text="Search Volume", width=15, bg="#404040", fg="#FFFFFF")
 button2.grid(row=4, column=3)
-button3 = Button(window, text="Add New Volume", width=15)
+button3 = Button(window, text="Add New Volume", width=15, bg="#404040", fg="#FFFFFF")
 button3.grid(row=5, column=3)
-button4 = Button(window, text="Update Volume", width=15)
+button4 = Button(window, text="Update Volume", width=15, bg="#404040", fg="#FFFFFF")
 button4.grid(row=6, column=3)
-button5 = Button(window, text="Delete Volume", width=15)
+button5 = Button(window, text="Delete Volume", width=15, bg="#404040", fg="#FFFFFF")
 button5.grid(row=7, column=3)
 
 window.mainloop()
