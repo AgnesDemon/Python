@@ -8,10 +8,13 @@
 #Make sure I cannot make duplicates. This means that the manga can have the same name, but not the same volume number
 from tkinter import *
 import MO_login
+from MO_backend import Database
+
+database = Database("books.db")
 
 window = Tk()
 
-window.wm_title("Manga Organizer")
+window.wm_title("Manga Organizer") #name of window
 window.configure(bg="#9F9F9F") #sets background color
 
 #Labels

@@ -34,14 +34,17 @@ while logged_in == False:
 
 #GRAPHIC UI LOGIN
 
+
+
 import tkinter
 #from tkinter import messagebox
 
 window = tkinter.Tk()
 
-window.title("Login")
-window.configure(bg="#9F9F9F")
+window.title("Login") #name of window
+window.configure(bg="#9F9F9F") #sets background color
 
+#Labels
 label1 = tkinter.Label(window, text="Login", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 30))
 label1.grid(row=0, column=0, columnspan=2)
 label2 = tkinter.Label(window, text="Username", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 20))
@@ -49,11 +52,13 @@ label2.grid(row=1, column=0)
 label3 = tkinter.Label(window, text="Password", bg="#9F9F9F", fg="#FFFFFF", font=("Arial", 20))
 label3.grid(row=2, column=0)
 
+#Entries
 entry1 = tkinter.Entry(window)
 entry1.grid(row=1, column=1)
 entry2 = tkinter.Entry(window, show="*")
 entry2.grid(row=2, column=1)
 
+#Button
 button = tkinter.Button(window, text="Login", bg="#404040", fg="#FFFFFF")
 button.grid(row=3, column=0, columnspan=2)
 
