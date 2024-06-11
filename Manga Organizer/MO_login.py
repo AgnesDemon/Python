@@ -3,9 +3,9 @@
 import os
 clear = lambda: os.system('cls')
 
-users = {"AgnesDemon13" : "Agnes"}
+'''users = {"AgnesDemon13" : "Agnes"}
 
-'''def get_user (username):
+def get_user (username):
     name = users[username]
     return name
 

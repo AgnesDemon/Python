@@ -10,7 +10,30 @@ from tkinter import *
 import MO_login
 from MO_backend import Database
 
-database = Database("books.db")
+database = Database("personal_manga_library.db")
+
+def get_selected_row(event):
+    global selected_tuple
+    index = list_box.curselection()[0]
+    selected_tuple = list_box.get(index)
+
+    entry1.delete(0, END)
+    entry1.insert(END, selected_tuple[1])
+    entry2.delete(0, END)
+    entry2.insert(END, selected_tuple[2])
+    entry3.delete(0, END)
+    entry3.insert(END, selected_tuple[3])
+
+def view_command():
+    list_box.delete(0, END)
+    for row in database.view_all_manga():
+        list_box.insert(END, row)
+
+def search_command():
+    list_box.delete(0, END)
+    for row in database.search_volume(manga_name_text.get(), volume_number_text.get(), author_text.get()):
+        list_box.insert(END, row)
+
 
 window = Tk()
 
