@@ -10,7 +10,7 @@ from tkinter import *
 import MO_login
 from MO_backend import Database
 
-database = Database("personal_manga_library.db")
+database = Database("personal_manga_library.db") #name of .db file
 
 def get_selected_row(event):
     global selected_tuple
@@ -34,7 +34,18 @@ def search_command():
     for row in database.search_volume(manga_name_text.get(), volume_number_text.get(), author_text.get()):
         list_box.insert(END, row)
 
+def add_command():
+    database.insert(manga_name_text.get(), volume_number_text.get(), author_text.get())
+    list_box.delete(0, END)
+    list_box.insert(END, (manga_name_text.get(), volume_number_text.get(), author_text.get()))
 
+def update_command():
+    database.update(selected_tuple[0], manga_name_text.get(), volume_number_text.get(), author_text.get())
+
+def delete_command():
+    database.delete(selected_tuple[0])
+
+#Creating window
 window = Tk()
 
 window.wm_title("Manga Organizer") #name of window
@@ -75,15 +86,15 @@ scrollbar.configure(command=list_box.yview)
 #list_box.bind('<<ListboxSelect>>')
 
 #Buttons
-button1 = Button(window, text="View All Manga", width=15, bg="#404040", fg="#FFFFFF")
+button1 = Button(window, text="View All Manga", width=15, bg="#404040", fg="#FFFFFF", command=view_command)
 button1.grid(row=3, column=3)
-button2 = Button(window, text="Search Volume", width=15, bg="#404040", fg="#FFFFFF")
+button2 = Button(window, text="Search Volume", width=15, bg="#404040", fg="#FFFFFF", command=search_command)
 button2.grid(row=4, column=3)
-button3 = Button(window, text="Add New Volume", width=15, bg="#404040", fg="#FFFFFF")
+button3 = Button(window, text="Add New Volume", width=15, bg="#404040", fg="#FFFFFF", command=add_command)
 button3.grid(row=5, column=3)
-button4 = Button(window, text="Update Volume", width=15, bg="#404040", fg="#FFFFFF")
+button4 = Button(window, text="Update Volume", width=15, bg="#404040", fg="#FFFFFF", command=update_command)
 button4.grid(row=6, column=3)
-button5 = Button(window, text="Delete Volume", width=15, bg="#404040", fg="#FFFFFF")
+button5 = Button(window, text="Delete Volume", width=15, bg="#404040", fg="#FFFFFF", command=delete_command)
 button5.grid(row=7, column=3)
 
 window.mainloop()

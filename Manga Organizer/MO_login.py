@@ -59,7 +59,7 @@ entry2 = tkinter.Entry(window, show="*")
 entry2.grid(row=2, column=1)
 
 #Button
-button = tkinter.Button(window, text="Login", bg="#404040", fg="#FFFFFF")
+button = tkinter.Button(window, text="Login", bg="#404040", fg="#FFFFFF", command=window.destroy)
 button.grid(row=3, column=0, columnspan=2)
 
 window.mainloop()
