@@ -37,22 +37,24 @@ while logged_in == False:
 
 
 import tkinter
-#from tkinter import messagebox
+from tkinter import messagebox
 
 window = tkinter.Tk()
 
 window.title("Login") #name of window
-window.geometry('340x440')
+window.geometry('340x440') #sets width and height of window
 window.configure(bg="#9F9F9F") #sets background color
 
 def login():
     username = "AgnesDemon13"
     password = "11004488"
     if entry1.get() == username and entry2.get() == password:
-        print("Welcome, " + username)
+        #print("Welcome, " + username)
+        messagebox.showinfo(title="Login Success", message="You have successfully logged in") #popup that shows you have successfully logged in
         window.destroy()
     else:
-        print("Login failed. Please try again.")
+        #print("Login failed. Please try again.")
+        messagebox.showerror(title="Error", message="Login failed. Please try again.") #popup that shows an error with your login
 
 frame =tkinter.Frame(bg="#9F9F9F")
 

@@ -83,7 +83,8 @@ scrollbar.grid(row=3, column=2, rowspan=6)
 #Connecting Scrollbar and List Box
 list_box.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=list_box.yview)
-#list_box.bind('<<ListboxSelect>>')
+
+list_box.bind('<<ListboxSelect>>', get_selected_row)
 
 #Buttons
 button1 = Button(window, text="View All Manga", width=15, bg="#404040", fg="#FFFFFF", command=view_command)

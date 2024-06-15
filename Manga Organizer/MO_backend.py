@@ -18,7 +18,7 @@ class Database:
         return rows
     
     def search_volume(self,name="",volume="",author=""):
-        self.cursor.execute("SELECT * FROM personal_manga_library WHERE name=? OR volume=? or author=?", (name,volume,author))
+        self.cursor.execute("SELECT * FROM personal_manga_library WHERE name=? OR volume=? OR author=?", (name,volume,author))
         rows = self.cursor.fetchall()
         return rows
     
