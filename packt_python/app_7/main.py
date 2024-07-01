@@ -19,15 +19,15 @@ class SignUpScreen(Screen):
     #pass
     def add_user(self, username, password):
         #pass
-        #print(username, password)
-        with open("users.json") as file:
-            users = json.load(file)
+        print(username, password)
+        #with open("users.json") as file:
+            #users = json.load(file)
         #print(users)
-        users[username] = {"username": username, "password": password, 
-                "created": datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
+        #users[username] = {"username": username, "password": password, 
+                #"created": datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
         #print(users)
-        with open("users.json", "w") as file:
-            json.dump(users, file)
+        #with open("users.json", "w") as file:
+            #json.dump(users, file)
 
 class MainApp(App):
     def build(self):
