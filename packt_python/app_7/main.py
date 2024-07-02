@@ -19,15 +19,17 @@ class SignUpScreen(Screen):
     #pass
     def add_user(self, username, password):
         #pass
-        print(username, password)
-        #with open("users.json") as file:
-            #users = json.load(file)
+        #print(username, password)
+        with open("users.json") as file:
+            users = json.load(file)
         #print(users)
-        #users[username] = {"username": username, "password": password, 
-                #"created": datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
+        users[username] = {"username": username, "password": password, 
+                "created": datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
         #print(users)
-        #with open("users.json", "w") as file:
-            #json.dump(users, file)
+        with open("users.json", "w") as file:
+            json.dump(users, file)
+        #NOTE: when making a json file, if you keep bumping into a JSONDecodeError, try putting curly brackets in the json file
+        #NOTE: to switch into a more readable format in a json file, press Shift + Alt + F
 
 class MainApp(App):
     def build(self):
@@ -35,3 +37,7 @@ class MainApp(App):
 
 if __name__ == "__main__":
     MainApp().run()
+
+
+
+    
