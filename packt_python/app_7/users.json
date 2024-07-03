@@ -1,12 +1,1 @@
-{
-    "Username2": {
-        "username": "Username2",
-        "password": "Password2",
-        "created": "2024-07-02 12-38-55"
-    },
-    "Username3": {
-        "username": "Username3",
-        "password": "Password3",
-        "created": "2024-07-02 12-44-51"
-    }
-}
+{"Username2": {"username": "Username2", "password": "Password2", "created": "2024-07-02 12-38-55"}, "Username3": {"username": "Username3", "password": "Password3", "created": "2024-07-02 12-44-51"}, "Username4": {"username": "Username4", "password": "Password4", "created": "2024-07-03 12-39-44"}}

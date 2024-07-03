@@ -30,6 +30,10 @@ class SignUpScreen(Screen):
             json.dump(users, file)
         #NOTE: when making a json file, if you keep bumping into a JSONDecodeError, try putting curly brackets in the json file
         #NOTE: to switch into a more readable format in a json file, press Shift + Alt + F
+        self.manager.current = "sign_up_success_screen"
+
+class SignUpSuccessScreen(Screen):
+    pass
 
 class MainApp(App):
     def build(self):
