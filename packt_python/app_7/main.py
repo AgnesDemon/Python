@@ -33,7 +33,10 @@ class SignUpScreen(Screen):
         self.manager.current = "sign_up_success_screen"
 
 class SignUpSuccessScreen(Screen):
-    pass
+    #pass
+    def go_to_login(self):
+        self.manager.transition.direction = "right" #makes the screen swipe to the right when switching
+        self.manager.current = "login_screen"
 
 class MainApp(App):
     def build(self):
