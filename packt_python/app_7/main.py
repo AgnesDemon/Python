@@ -16,6 +16,8 @@ class LoginScreen(Screen):
             users = json.load(file)
         if username in users and users[username]["password"] == password:
             self.manager.current = "login_success_screen"
+        else:
+           self.ids.wrong_login.text = "Wrong username or password"
 
 class RootWidget(ScreenManager):
     pass
