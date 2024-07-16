@@ -1,8 +1,9 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
-import json
+import json, glob
 from datetime import datetime
+from pathlib import Path
 
 Builder.load_file("design.kv")
 
@@ -50,7 +51,16 @@ class LoginSuccessScreen(Screen):
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
     def get_quote(self, feeling):
-        print(feeling)
+        #print(feeling)
+        feeling = feeling.lower()
+        available_feelings = glob.glob("quotes/*txt")
+        #print(available_feelings)
+        available_feelings = [Path(filename).stem for filename in available_feelings]
+        #print(available_feelings)
+        if feeling in available_feelings:
+            with open(f"quotes/{feeling}.txt", 'r', encoding="utf-8") as file: #without the "utf-8", I kept getting a charmap codec error
+                quotes = file.readlines()
+            print(quotes)
 
 class MainApp(App):
     def build(self):
