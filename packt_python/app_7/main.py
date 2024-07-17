@@ -4,6 +4,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 import json, glob
 from datetime import datetime
 from pathlib import Path
+import random
 
 Builder.load_file("design.kv")
 
@@ -60,7 +61,10 @@ class LoginSuccessScreen(Screen):
         if feeling in available_feelings:
             with open(f"quotes/{feeling}.txt", 'r', encoding="utf-8") as file: #without the "utf-8", I kept getting a charmap codec error
                 quotes = file.readlines()
-            print(quotes)
+            #print(quotes)
+            self.ids.quote.text = random.choice(quotes)
+        else:
+            self.ids.quote.text = "Try another feeing"
 
 class MainApp(App):
     def build(self):
