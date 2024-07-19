@@ -6,6 +6,10 @@ from datetime import datetime
 from pathlib import Path
 import random
 
+#spacing is internal; padding is external
+#sp means space-independent pixels
+#size_hint makes widgets adjustable when you resize the screen
+
 Builder.load_file("design.kv")
 
 class LoginScreen(Screen):
