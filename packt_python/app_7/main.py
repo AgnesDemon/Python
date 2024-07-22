@@ -5,10 +5,20 @@ import json, glob
 from datetime import datetime
 from pathlib import Path
 import random
+from hoverable import HoverBehavior
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
 
 #spacing is internal; padding is external
+#padding is the space between the cell edges and cell content
+#spacing is the space between each cell
 #sp means space-independent pixels
 #size_hint makes widgets adjustable when you resize the screen
+#when you set password: to True, it'll make the text in the textbox show stars, so that no one can see what you type
+
+#USE LATER:
+    #source: "logout_hover.png" if self.hovered else "logout_nothover.png"
+    #NOTE: remove text: "Log out" from <LoginSuccessScreen> and replace with previous line beneath on_press
 
 Builder.load_file("design.kv")
 
@@ -69,6 +79,9 @@ class LoginSuccessScreen(Screen):
             self.ids.quote.text = random.choice(quotes)
         else:
             self.ids.quote.text = "Try another feeing"
+
+class ImageButton(ButtonBehavior, HoverBehavior, Image):
+    pass
 
 class MainApp(App):
     def build(self):
