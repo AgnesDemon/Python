@@ -15,6 +15,10 @@ from kivy.uix.behaviors import ButtonBehavior
 #sp means space-independent pixels
 #size_hint makes widgets adjustable when you resize the screen
 #when you set password: to True, it'll make the text in the textbox show stars, so that no one can see what you type
+#text_size: self.width, None allows the text to be resizable, but if text is too large, text will overlap widgets
+#setting height to a specific number in Label (ScrollView) will set the label itself to that specific height
+#texture_size[1] has two items: the width of the text and the height.
+#if it was [0] instead of [1], it would access the width instead of the height.
 
 #USE LATER:
     #source: "logout_hover.png" if self.hovered else "logout_nothover.png"
