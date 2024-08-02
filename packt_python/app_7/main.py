@@ -98,5 +98,13 @@ if __name__ == "__main__":
     MainApp().run()
 
 
+#APK files are files that can be installed in Android phones as usable apps
+#in order to create an APK file and store all files from app_7, I need to use the Buildozer library.
+#Buildozer is a Python library that can easily be installed with pip
+#it is a little tricky to make an APK file on Windows, but possible
+#however, it is easier to do it with a Linux operating system, which I do not have
+#I can install VirtualBox, which is a virtual computer, by going to virtualbox.org and clicking the download button
+#
+
 
     
