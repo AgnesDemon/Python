@@ -104,7 +104,24 @@ if __name__ == "__main__":
 #it is a little tricky to make an APK file on Windows, but possible
 #however, it is easier to do it with a Linux operating system, which I do not have
 #I can install VirtualBox, which is a virtual computer, by going to virtualbox.org and clicking the download button
-#
+#once VirtualBox is installed, go to ubuntu.com and download Ubuntu
+#to download, go to the website, click on download and then click on the green button for Ubuntu Desktop
+#once downloaded, go back to VirtualBox and click on New
+#add "Ubuntu" to the name section, select Linux in the dropdown list in the type section, and make sure the version is Ubuntu (64-bit)
+#adjust RAM and GB storage depending on how much you have on your PC (may need help with this one)
+#create a virtual hard disk; file type to be VDI (VirtualBox Disk Image); dynamically allocated is fine
+#adjust file location and size depending on how much your PC can handle and click on "Create"
+#click on "Start" and it will ask you to select a start-up disk
+#click on the folder icon and select the ISO file that you downloaded from ubunto.com
+#once you have that set up, click "Start". The screen may be a bit small, so you may need to go to settings and adjust the display to your liking
+#click on "Install Ubuntu", select English(US) for keyboard layout, select "Normal installation" and "Download updates while installing Ubuntu", select "Erase disk and install Ubuntu"
+#you shouldn't have to worry about it actually erasing anything because you don't have any programs or files in this operating system yet
+#click on "Install Now", "Continue", select your timezone, and set up your account
+#at some point it will ask you to restart, so restart it
+#now it should be completely installed
+
+
+
 
 
     
