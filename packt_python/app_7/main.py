@@ -103,6 +103,7 @@ if __name__ == "__main__":
 #Buildozer is a Python library that can easily be installed with pip
 #it is a little tricky to make an APK file on Windows, but possible
 #however, it is easier to do it with a Linux operating system, which I do not have
+#NOTE: before doing anything, make sure I have kivy-buildozer-installer.sh saved in my app_7 folder
 #I can install VirtualBox, which is a virtual computer, by going to virtualbox.org and clicking the download button
 #once VirtualBox is installed, go to ubuntu.com and download Ubuntu
 #to download, go to the website, click on download and then click on the green button for Ubuntu Desktop
@@ -119,7 +120,17 @@ if __name__ == "__main__":
 #click on "Install Now", "Continue", select your timezone, and set up your account
 #at some point it will ask you to restart, so restart it
 #now it should be completely installed
-
+#go to VirtualBox, click on "Machine" and go to settings
+#next, go to "General" and click on "Advanced", then set the Shared Clipboard and Drag'n'Drop to Bidirectional
+#this will allow you to copy files from your host's operating system (if it works)
+#if it doesn't work, you are going to have to upload your files into bitly.com on your host computer (my Windows computer)
+#once uploaded, go to bitly.com in your virtual computer and download the files
+#you can now find the files in Downloads
+#select the folder and extract to Desktop
+#click on the new folder button and name it
+#it should now appear on your desktop in your virtual computer
+#while you are in files and in the folder of your downloaded files, right click and select "Open in Terminal"
+#
 
 
 
