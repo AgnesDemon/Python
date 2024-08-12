@@ -105,33 +105,15 @@ if __name__ == "__main__":
 #however, it is easier to do it with a Linux operating system, which I do not have
 #NOTE: before doing anything, make sure I have kivy-buildozer-installer.sh saved in my app_7 folder
 #I can install VirtualBox, which is a virtual computer, by going to virtualbox.org and clicking the download button
-#once VirtualBox is installed, go to ubuntu.com and download Ubuntu
-#to download, go to the website, click on download and then click on the green button for Ubuntu Desktop
-#once downloaded, go back to VirtualBox and click on New
-#add "Ubuntu" to the name section, select Linux in the dropdown list in the type section, and make sure the version is Ubuntu (64-bit)
-#adjust RAM and GB storage depending on how much you have on your PC (may need help with this one)
-#create a virtual hard disk; file type to be VDI (VirtualBox Disk Image); dynamically allocated is fine
-#adjust file location and size depending on how much your PC can handle and click on "Create"
-#click on "Start" and it will ask you to select a start-up disk
-#click on the folder icon and select the ISO file that you downloaded from ubunto.com
-#once you have that set up, click "Start". The screen may be a bit small, so you may need to go to settings and adjust the display to your liking
-#click on "Install Ubuntu", select English(US) for keyboard layout, select "Normal installation" and "Download updates while installing Ubuntu", select "Erase disk and install Ubuntu"
-#you shouldn't have to worry about it actually erasing anything because you don't have any programs or files in this operating system yet
-#click on "Install Now", "Continue", select your timezone, and set up your account
-#at some point it will ask you to restart, so restart it
-#now it should be completely installed
-#go to VirtualBox, click on "Machine" and go to settings
-#next, go to "General" and click on "Advanced", then set the Shared Clipboard and Drag'n'Drop to Bidirectional
-#this will allow you to copy files from your host's operating system (if it works)
-#if it doesn't work, you are going to have to upload your files into bitly.com on your host computer (my Windows computer)
-#once uploaded, go to bitly.com in your virtual computer and download the files
-#you can now find the files in Downloads
-#select the folder and extract to Desktop
-#click on the new folder button and name it
-#it should now appear on your desktop in your virtual computer
-#while you are in files and in the folder of your downloaded files, right click and select "Open in Terminal"
-#
 
+#INSTALLING KIVY, GIT AND BUILDOZER FOR ANDROID APP
+    #install Git with "sudo apt install git"
+    #install Buildozer with "git clone https://github.com/kivy/buildozer.git"
+    #change directory to Buildozer with "cd buildozer/" (Idk if accurate at this time or not)
+    #install setup.py with "sudo python3 setup.py install"
+    #type "ls" to see what is included in a file
+    #to make your project a Buildozer project, use "buildozer init"
+    
 
 
 
