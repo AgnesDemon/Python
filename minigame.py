@@ -21,21 +21,48 @@ import os
 import time
 clear = lambda: os.system("cls")
 
-print("Welcome to my minigame! Enjoy!")
-time.sleep(3)
+print("Welcome to my minigame!\nControls are simple: press Enter/Return to continue and type 'yes' or 'no' for answers.\nEnjoy!!")
+time.sleep(7)
 clear()
 
 class Minigame():
-    marbles = []
+    inventory = []
 
     def first_choice(this):
         choice1 = input("Your friends want to take a spontaneous trip to Japan. Do you want to go?\n")
-        if choice1 == "yes" or "Yes":
-            clear()
-            print("Congrats! You're going on a trip!") #need to change this to next phase
-        else:
+        if choice1 == "no":
             clear()
             print("ENDING 1:\nYou decide not to go on the trip. Your friends are disappointed, but at least you survived.")
+        elif choice1 == "yes":
+            clear()
+            #print("Congrats! You're going on a trip!") #need to change this to next phase
+            this.second_choice()
+
+    def second_choice(this):
+        input("You decide to go on the trip. This is a once in a lifetime thing, so why not? Two days later, you boarded on a plane to Kyoto, Japan.")
+        clear()
+        input("Upon arrival, you take in the scenery before you: (insert scene here)") #need to do research on Nagasaki, Japan
+        clear()
+        input("However, despite your surroundings, you and your friends are exhausted, so you all take a taxi to your hotel and get some rest for the next day.")
+        clear()
+        input("The next day, you and your friends explore the city. Along the way, you meet a vendor, who is selling bags of marbles.")
+        clear()
+        choice2 = input("Do you want to buy the marbles?\n")
+        if choice2 == "yes":
+            for marbles in Minigame.inventory:
+                Minigame.inventory.append(marbles) #list is showing up empty. Need to figure out why
+            clear()
+            input("You happily pay for the marbles.")
+            print(Minigame.inventory)
+        elif choice2 == "no":
+            clear()
+            input("You decide not to buy the marbles and walk away. You think that it would be best to save your money for a better souvenir.")
+            print(Minigame.inventory)
+        #this.third_choice()
+    
+    def third_choice(this):
+        input()
+
     
     def run(this):
         this.first_choice()
