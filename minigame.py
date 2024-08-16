@@ -49,8 +49,8 @@ class Minigame():
         clear()
         choice2 = input("Do you want to buy the marbles?\n")
         if choice2 == "yes":
-            for marbles in Minigame.inventory:
-                Minigame.inventory.append(marbles) #list is showing up empty. Need to figure out why
+            for items in Minigame.inventory:
+                Minigame.inventory.append(items) #list is showing up empty. Need to figure out why
             clear()
             input("You happily pay for the marbles.")
             print(Minigame.inventory)
