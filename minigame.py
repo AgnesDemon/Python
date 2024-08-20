@@ -26,7 +26,7 @@ time.sleep(7)
 clear()
 
 class Minigame():
-    inventory = []
+    inventory = [0]
 
     def first_choice(this):
         choice1 = input("Your friends want to take a spontaneous trip to Japan. Do you want to go?\n")
@@ -45,12 +45,13 @@ class Minigame():
         clear()
         input("However, despite your surroundings, you and your friends are exhausted, so you all take a taxi to your hotel and get some rest for the next day.")
         clear()
-        input("The next day, you and your friends explore the city. Along the way, you meet a vendor, who is selling bags of marbles.")
+        input("The following day arrives, and you and your friends explore the city. Along the way, you meet a vendor, who is selling bags of marbles.")
         clear()
         choice2 = input("Do you want to buy the marbles?\n")
         if choice2 == "yes":
             for items in Minigame.inventory:
-                Minigame.inventory.append(items) #list is showing up empty. Need to figure out why
+                #Minigame.inventory.append(items) #list is showing up empty. Need to figure out why
+                Minigame.inventory.append(items + 1) #error is occuring here
             clear()
             input("You happily pay for the marbles.")
             print(Minigame.inventory)
