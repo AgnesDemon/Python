@@ -26,7 +26,8 @@ time.sleep(7)
 clear()
 
 class Minigame():
-    inventory = [0]
+    #inventory = []
+    inventory = 0
 
     def first_choice(this):
         choice1 = input("Your friends want to take a spontaneous trip to Japan. Do you want to go?\n")
@@ -49,19 +50,33 @@ class Minigame():
         clear()
         choice2 = input("Do you want to buy the marbles?\n")
         if choice2 == "yes":
-            for items in Minigame.inventory:
+            #for items in Minigame.inventory:
                 #Minigame.inventory.append(items) #list is showing up empty. Need to figure out why
-                Minigame.inventory.append(items + 1) #error is occuring here
+                #Minigame.inventory.append(items + 1) #error is occuring here
+            marbles = Minigame.inventory + 1
             clear()
             input("You happily pay for the marbles.")
-            print(Minigame.inventory)
+            #print(marbles)
         elif choice2 == "no":
             clear()
             input("You decide not to buy the marbles and walk away. You think that it would be best to save your money for a better souvenir.")
-            print(Minigame.inventory)
-        #this.third_choice()
+            #print(Minigame.inventory)
+        this.third_choice()
     
     def third_choice(this):
+        input("After leaving the vendor, your friends get into an argument about where they should go next.")
+        input("Your first friend suggests that they should visit the temples. Cherry Blossoms are in season right, so seeing the temples now would be perfect timing.")
+        input("Your other friend suggests visting the Hashima Island. This is a once in a lifetime trip, and he figures that it would be best to see it first.")
+        choice3 = input("Should you visit the temples or the Hashima Island?\ntype 'temples' or 'island' as your answer")
+        if choice3 == "temples":
+            this.temples_route()
+        elif choice3 == "island":
+            this.island_route()
+    
+    def temples_route(this):
+        input()
+    
+    def island_route(this):
         input()
 
     
