@@ -27,8 +27,16 @@ header h1.logo {
 }
 
 div.home {
+    padding: 20px 0 40px 0;
+    background-color: purple;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.geocoder {
     padding: 10px 0 30px 0;
-    background-color: brown;
+    background-color: purple;
     -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
             border-radius: 6px;
@@ -39,15 +47,6 @@ h2 {
     margin-top: 40px;
     text-align: center;
     letter-spacing: -2px;
-}
-
-h3 {
-    font-size: 1.7em;
-    font-weight: 100;
-    margin-top: 30px;
-    text-align: center;
-    letter-spacing: -1px;
-    color: crimson;
 }
 
 .menu {
