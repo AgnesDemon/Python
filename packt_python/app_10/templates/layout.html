@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Flask File App</title>
-        <link rel="stylesheet" href="{{url_for('css', filename='main.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     </head>
     <body>
         <header>
@@ -11,6 +11,7 @@
                 <strong><nav>
                     <ul class="menu">
                         <li><a href="{{url_for('home') }}">Home</a></li>
+                        <li><a href="{{url_for('geocoder') }}">Super Geocoder</a></li>
                     </ul>
                 </nav></strong>
             </div>
