@@ -54,12 +54,14 @@ class Minigame():
             #for items in Minigame.inventory:
                 #Minigame.inventory.append(items) #list is showing up empty. Need to figure out why
                 #Minigame.inventory.append(items + 1) #error is occuring here
-            marbles = Minigame.inventory + 1
+            #input(Minigame.inventory)
+            #marbles = Minigame.inventory + 1
+            Minigame.inventory += 1 #this works!!
             #input(marbles)
             clear()
             input("You happily pay for the marbles.")
-            #input(marbles)
-            #return marbles
+            #input(Minigame.inventory)
+            #return marbles - this makes the game stop running
         elif choice2 == "no":
             clear()
             input("You decide not to buy the marbles and walk away. You think that it would be best to save your money for a better souvenir.")
@@ -67,6 +69,7 @@ class Minigame():
         self.third_choice()
     
     def third_choice(self):
+        #input(Minigame.inventory) #inventory has already been emptied for some reason
         clear()
         input("After leaving the vendor, your friends get into an argument about where they should go next.")
         clear()
@@ -89,12 +92,31 @@ class Minigame():
         input("You and your friends spend some time at the temples taking pictures of everything before you all agree to get something to eat.")
         clear()
         input("After eating, you and your friends walk some more until the sun started setting. Then you headed back into the hotel to relax and rest your aching feet.")
+        #input(Minigame.inventory)
         self.ending_2()
     
     def island_route(self):
         clear()
         input("You agree with your other friend to visit the Hashima Island.")
         clear()
+        input("You book a ride on a boat to travel to the Hashima Island.")
+        clear()
+        input("Once you arrive, you get off the boat and explore the area with the other tourists and tourist guide.")
+        clear()
+        input("However, at some point in time, you get separated from your friends.")
+        clear()
+        input("You search for them everywhere, but can't seem to find them. While you weren't looking, you accidentally bump into a woman.")
+        clear()
+        input("'Oh! I'm sorry, ma'am!' You say quickly and bow your head.")
+        clear()
+        input("The lady looks at you, but you can't tell what her facial expression is because she is wearing a mask. She had long black hair and wore a pretty white dress.")
+        clear()
+        input("'Do you think I'm pretty?' She asks suddenly.")
+        clear()
+        input("'Pardon?' You ask, not sure if you heard her right.")
+        clear()
+        input("'Do you think I'm pretty?' She repeated.")
+        self.fourth_choice()
 
     def ending_2(self):
         clear()
@@ -107,6 +129,23 @@ class Minigame():
             clear()
             print("Ending 2: You enjoyed your trip.")
             #keep getting this ending, even though I asked for the marbles
+            #UPDATE: this ending keeps occuring because the inventory becomes empty at some point in the code
+            #UPDATE2: fixed!! Now plays first ending when you ask for the marbles
+
+    def fourth_choice(self):
+        clear()
+        choice_four = input("What should you say? Type 'yes', 'no', or 'so so' for your answer:\n")
+        if choice_four == "yes":
+            clear()
+            input("'I think you're pretty, yeah.'")
+            self.fifth_choice()
+        elif choice_four == 'so so':
+            clear()
+            input("It was difficult to tell because of the mask, but the woman seemed to be disappointed in your answer. She turned around and walked away, leaving you alone.")
+    
+    def fifth_choice(self):
+        clear()
+        input("It was difficult to tell because of the mask, but she seemed to gleam at the complement. Slowly, she removed her mask. 'How about now?'")
 
     def run(self):
         self.first_choice()
