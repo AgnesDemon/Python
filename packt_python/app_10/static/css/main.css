@@ -2,11 +2,13 @@ body {
     margin: 0;
     padding: 0;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    color: aqua;
+    color: black;
+    text-align: center;
+    background-color: rgb(216, 161, 255);
 }
 
 header {
-    background-color: blue;
+    background-color: indigo;
     height: 55px;
     width: 100%;
     opacity: .9;
@@ -16,7 +18,7 @@ header {
 header h1.logo {
     margin: 1;
     font-size: 1.7em;
-    color: darkgreen;
+    color: black;
     text-transform: uppercase;
     float: left;
 }
@@ -28,7 +30,7 @@ header h1.logo {
 
 div.home {
     padding: 20px 0 40px 0;
-    background-color: purple;
+    background-color: rgb(216, 161, 255);
     -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
             border-radius: 6px;
@@ -36,7 +38,7 @@ div.home {
 
 div.geocoder {
     padding: 10px 0 30px 0;
-    background-color: purple;
+    background-color: rgb(216, 161, 255);
     -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
             border-radius: 6px;
@@ -64,5 +66,10 @@ h2 {
 
 .menu li a {
     color: black;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    color: white;
     text-decoration: none;
 }

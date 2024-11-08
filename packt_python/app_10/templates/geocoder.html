@@ -3,7 +3,11 @@
 {%block content%}
 <div class="geocoder">
     <h1>Super Geocoder</h1>
-    <p>Please upload your CSV file here</p>
+    <p>Please upload your CSV file. The values containing addresses should be in a column named "address" or "Address"</p>
+    <form action="{{url_for('success_table')}}" method="POST" enctype="multipart/form-data">
+        <input type="file" accept=".csv" name="file">
+        <button type="submit" style="background-color: indigo;">Submit</button>
+    </form>
 </div>
 {%endblock%}
 
