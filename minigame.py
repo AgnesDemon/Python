@@ -138,14 +138,43 @@ class Minigame():
         if choice_four == "yes":
             clear()
             input("'I think you're pretty, yeah.'")
-            self.fifth_choice()
+            self.pretty_route()
         elif choice_four == 'so so':
             clear()
             input("It was difficult to tell because of the mask, but the woman seemed to be disappointed in your answer. She turned around and walked away, leaving you alone.")
+        elif choice_four == "no":
+            clear()
+            input("It was difficult to tell because of the mask, but the woman seemed to be angry at your answer. From her pocket, she pulled out a pair of scissors that were stained with a suspicious red substance.")
     
-    def fifth_choice(self):
+    def pretty_route(self):
         clear()
         input("It was difficult to tell because of the mask, but she seemed to gleam at the complement. Slowly, she removed her mask. 'How about now?'")
+        clear()
+        input("You were horrified at the sight before you. The area around her mouth was disfigured with a long gash, giving her a horrifying grin.")
+        clear()
+        input("Slowly, she pulled out a pair of red stained scissors from her pocket, then started walking towards you. You freeze in fear.")
+        if Minigame.inventory == 1:
+            self.fifth_choice_a()
+        elif Minigame.inventory == 0:
+            self.fifth_choice_b()
+    
+    def fifth_choice_a(self):
+        clear()
+        input("What should do you? Suddenly you remember the marbles in your pocket.")
+        clear()
+        throw_marbles = input("Should you throw the marbles?\n")
+        if throw_marbles == "yes":
+            clear()
+            input("You throw the marbles at her, distracting her. The you run as fast as you can away from the disfigured woman.")
+            self.trauma_ending()
+    
+    def fifth_choice_b(self):
+        clear()
+        input("")
+    
+    def trauma_ending(self):
+        clear()
+        input("")
 
     def run(self):
         self.first_choice()
