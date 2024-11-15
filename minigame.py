@@ -39,6 +39,9 @@ class Minigame():
             clear()
             #print("Congrats! You're going on a trip!") #need to change this to next phase
             self.second_choice()
+        else:
+            clear()
+            input("That is not a valid answer. Please try again.")
 
     def second_choice(self):
         input("You decide to go on the trip. This is a once in a lifetime thing, so why not? Two days later, you boarded on a plane to Kyoto, Japan.")
@@ -134,15 +137,15 @@ class Minigame():
 
     def fourth_choice(self):
         clear()
-        choice_four = input("What should you say? Type 'yes', 'no', or 'so so' for your answer:\n")
-        if choice_four == "yes":
+        choice4 = input("What should you say? Type 'yes', 'no', or 'so so' for your answer:\n")
+        if choice4 == "yes":
             clear()
             input("'I think you're pretty, yeah.'")
             self.pretty_route()
-        elif choice_four == 'so so':
+        elif choice4 == 'so so':
             clear()
             input("It was difficult to tell because of the mask, but the woman seemed to be disappointed in your answer. She turned around and walked away, leaving you alone.")
-        elif choice_four == "no":
+        elif choice4 == "no":
             clear()
             input("It was difficult to tell because of the mask, but the woman seemed to be angry at your answer. From her pocket, she pulled out a pair of scissors that were stained with a suspicious red substance.")
     

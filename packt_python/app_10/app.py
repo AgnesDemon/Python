@@ -17,5 +17,9 @@ def geocoder():
 def success_table():
     return render_template
 
+@app.route("/download_file/")
+def download():
+    return send_file()
+
 if __name__ == "__main__":
     app.run(debug=True)
