@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import pandas
+#from geopy.geocoders import Nominatim
 
 app = Flask(__name__)
 
@@ -15,11 +16,19 @@ def geocoder():
 
 @app.route("/success_table", methods=["POST"])
 def success_table():
-    return render_template
+    if request.method == "POST":
+        file = request.files["file"]
+        dataframe = pandas.read_csv(file)
+        dataframe.to_csv("CSV_files/test_file.csv", index=None)
+    return render_template("geocoder.html", text=dataframe.to_html(), btn="download.html") #WHAT IS BTN?!?!?!
 
 @app.route("/download_file/")
 def download():
-    return send_file()
+    return send_file("CSV_files/test_file.csv", attachment_filename="yourfile.csv", as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+

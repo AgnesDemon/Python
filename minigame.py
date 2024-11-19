@@ -42,6 +42,8 @@ class Minigame():
         else:
             clear()
             input("That is not a valid answer. Please try again.")
+            clear()
+            self.first_choice()
 
     def second_choice(self):
         input("You decide to go on the trip. This is a once in a lifetime thing, so why not? Two days later, you boarded on a plane to Kyoto, Japan.")
@@ -168,16 +170,28 @@ class Minigame():
         throw_marbles = input("Should you throw the marbles?\n")
         if throw_marbles == "yes":
             clear()
+            Minigame.inventory - 1
+            print(Minigame.inventory)
             input("You throw the marbles at her, distracting her. The you run as fast as you can away from the disfigured woman.")
             self.trauma_ending()
+        elif throw_marbles == "no":
+            self.death_ending()
     
     def fifth_choice_b(self):
         clear()
-        input("")
+        input("You are too afraid to even move. You watch in horror as she gets closer to you.")
+        clear()
+        input("You hear a slash, and then everything goes black.")
+        self.death_ending()
+
     
     def trauma_ending(self):
         clear()
         input("")
+    
+    def death_ending(self):
+        clear()
+        print("Ending 4: Your friends and family grieve your death.")
 
     def run(self):
         self.first_choice()

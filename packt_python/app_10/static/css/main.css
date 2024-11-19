@@ -28,6 +28,19 @@ header h1.logo {
     margin: 0 auto;
 }
 
+.container form {
+    margin: 20px;
+}
+
+.container input {
+    width: 200px;
+    height: 15px;
+    font-size: 15px;
+    margin: 2px;
+    padding: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
 div.home {
     padding: 20px 0 40px 0;
     background-color: rgb(216, 161, 255);

@@ -8,6 +8,10 @@
         <input type="file" accept=".csv" name="file">
         <button type="submit" style="background-color: indigo;">Submit</button>
     </form>
+    <div class="output">
+        {{text|safe}}
+        {% include [btn] ignore missing %}
+    </div>
 </div>
 {%endblock%}
 
