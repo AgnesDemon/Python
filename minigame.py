@@ -34,7 +34,7 @@ class Minigame():
         choice1 = input("Your friends want to take a spontaneous trip to Japan. Do you want to go?\n")
         if choice1 == "no":
             clear()
-            print("ENDING 1:\nYou decide not to go on the trip. Your friends are disappointed, but at least you survived.")
+            print("ENDING:\nYou decide not to go on the trip. Your friends are disappointed, but at least you survived.")
         elif choice1 == "yes":
             clear()
             #print("Congrats! You're going on a trip!") #need to change this to next phase
@@ -128,11 +128,11 @@ class Minigame():
         if Minigame.inventory == 1:
             input("The rest of the trip goes off without a hitch. You have a bag of marbles as your souvenir and you got to see some beautiful sights.")
             clear()
-            print("Ending 2: You enjoyed your trip.")
+            print("ENDING:\nYou enjoyed your trip.")
         elif Minigame.inventory == 0:
             input("The rest of the trip goes off without a hitch. You got a souvenir and you got to see some beautiful sights.")
             clear()
-            print("Ending 2: You enjoyed your trip.")
+            print("ENDING:\nYou enjoyed your trip.")
             #keep getting this ending, even though I asked for the marbles
             #UPDATE: this ending keeps occuring because the inventory becomes empty at some point in the code
             #UPDATE2: fixed!! Now plays first ending when you ask for the marbles
@@ -147,10 +147,26 @@ class Minigame():
         elif choice4 == 'so so':
             clear()
             input("It was difficult to tell because of the mask, but the woman seemed to be disappointed in your answer. She turned around and walked away, leaving you alone.")
+            clear()
+            input("Finally, after some more searching, you find your friends again. You all agree to make sure to stay together so that this doesn't happen again. You don't mention the woman to them.")
+            clear()
+            print("ENDING: You enjoy the rest of your trip and make it home safe.")
         elif choice4 == "no":
             clear()
             input("It was difficult to tell because of the mask, but the woman seemed to be angry at your answer. From her pocket, she pulled out a pair of scissors that were stained with a suspicious red substance.")
-    
+            clear()
+            input("Suddenly, the woman lunged at you with the scissors in an attempt to stab you.")
+            if Minigame.inventory == 1:
+                self.fifth_choice_a()
+            elif Minigame.inventory == 0:
+                clear()
+                input("You are too afraid to even move. You watch in horror as she gets closer to you.")
+                clear()
+                input("You hear a slash, and then everything goes black.")
+                clear()
+                self.death_ending()
+                
+            
     def pretty_route(self):
         clear()
         input("It was difficult to tell because of the mask, but she seemed to gleam at the complement. Slowly, she removed her mask. 'How about now?'")
@@ -182,16 +198,37 @@ class Minigame():
         input("You are too afraid to even move. You watch in horror as she gets closer to you.")
         clear()
         input("You hear a slash, and then everything goes black.")
-        self.death_ending()
+        self.disfigured_ending()
 
+    def disfigured_ending(self):
+        clear()
+        input(".............")
+        clear()
+        input("It has been a few weeks since you came home from your trip.")
+        clear()
+        input("You don't go outside much anymore, and even if you do, you always wear a mask to cover your face.")
+        clear()
+        input("Why? Because under the mask lies a horrible scar. A scar that matches the scar the woman had. A scar that will haunt you for life.")
+        clear()
+        print("ENDING:\nYou are scarred (literally and figuratively) for life.")
     
     def trauma_ending(self):
         clear()
-        input("")
+        input(".............")
+        clear()
+        input("It has been a few weeks since you returned from your trip. Your friends are worried about you because you refuse to leave the house.")
+        clear()
+        input("However, you don't feel like going anywhere. Ever since the encounter with that woman, you have been terrified ever since.")
+        clear()
+        input("Sure, she's all the way in Japan, but who knows if you might encounter someone just like her in the future just by walking down the street?")
+        clear()
+        input("For you, it isn't worth the risk.")
+        clear()
+        print("ENDING:\nYou are too traumatized to go out now.")
     
     def death_ending(self):
         clear()
-        print("Ending 4: Your friends and family grieve your death.")
+        print("ENDING:\nYour friends and family grieve your death.")
 
     def run(self):
         self.first_choice()
