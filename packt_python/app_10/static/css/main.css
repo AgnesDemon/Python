@@ -41,6 +41,10 @@ header h1.logo {
     transition: all 0.2s ease-in-out;
 }
 
+.output {
+    display: inline-block;
+}
+
 div.home {
     padding: 20px 0 40px 0;
     background-color: rgb(216, 161, 255);
