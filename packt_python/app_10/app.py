@@ -18,9 +18,12 @@ def geocoder():
 def success_table():
     if request.method == "POST":
         file = request.files["file"]
-        dataframe = pandas.read_csv(file)
-        dataframe.to_csv("CSV_files/test_file.csv", index=None)
-    return render_template("geocoder.html", text=dataframe.to_html(), btn="download.html") #WHAT IS BTN?!?!?!
+        try:
+            dataframe = pandas.read_csv(file)
+            dataframe.to_csv("CSV_files/test_file.csv", index=None)
+            return render_template("geocoder.html", text=dataframe.to_html(), btn="download.html")
+        except:
+            return render_template("geocoder.html", text="Please make sure you have an Address column in your .csv file")
 
 @app.route("/download_file/")
 def download():
