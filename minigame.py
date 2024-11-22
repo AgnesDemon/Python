@@ -159,11 +159,6 @@ class Minigame():
             if Minigame.inventory == 1:
                 self.fifth_choice_a()
             elif Minigame.inventory == 0:
-                clear()
-                input("You are too afraid to even move. You watch in horror as she gets closer to you.")
-                clear()
-                input("You hear a slash, and then everything goes black.")
-                clear()
                 self.death_ending()
                 
             
@@ -187,7 +182,7 @@ class Minigame():
         if throw_marbles == "yes":
             clear()
             Minigame.inventory - 1
-            print(Minigame.inventory)
+            #print(Minigame.inventory)
             input("You throw the marbles at her, distracting her. The you run as fast as you can away from the disfigured woman.")
             self.trauma_ending()
         elif throw_marbles == "no":
@@ -227,6 +222,8 @@ class Minigame():
         print("ENDING:\nYou are too traumatized to go out now.")
     
     def death_ending(self):
+        clear()
+        input("You're too scared to even move. There's a sound of a slash, and then everything goes dark.")
         clear()
         print("ENDING:\nYour friends and family grieve your death.")
 
