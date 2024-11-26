@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import pandas
-#from geopy.geocoders import Nominatim
+from geopy.geocoders import Nominatim
 
 app = Flask(__name__)
 
@@ -20,6 +20,11 @@ def success_table():
         file = request.files["file"]
         try:
             dataframe = pandas.read_csv(file)
+            #gc = Nominatim()
+            #dataframe["coordinates"] = dataframe['Address'].apply(gc.geocode)
+            #dataframe['Latitude'] = dataframe['coordinates'].apply(lambda x: x.latitude if x != None else None)
+            #dataframe['Longitude'] = dataframe['coordinates'].apply(lambda x: x.longitude if x != None else None)
+            #dataframe = dataframe.drop('coordinates',1)
             dataframe.to_csv("CSV_files/test_file.csv", index=None)
             return render_template("geocoder.html", text=dataframe.to_html(), btn="download.html")
         except:
