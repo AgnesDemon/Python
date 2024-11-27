@@ -20,11 +20,14 @@ def success_table():
         file = request.files["file"]
         try:
             dataframe = pandas.read_csv(file)
-            #gc = Nominatim()
-            #dataframe["coordinates"] = dataframe['Address'].apply(gc.geocode)
-            #dataframe['Latitude'] = dataframe['coordinates'].apply(lambda x: x.latitude if x != None else None)
-            #dataframe['Longitude'] = dataframe['coordinates'].apply(lambda x: x.longitude if x != None else None)
-            #dataframe = dataframe.drop('coordinates',1)
+            nom = Nominatim(user_agent="ca_explorer")
+            #dataframe["Address"] = dataframe["Address"]+", "+dataframe["City"]+", "+dataframe["State"]+", "+dataframe["Country"]
+            #^ this line was used to make the "proper" Address column. Code won't work otherwise
+            dataframe["Coordinates"] = dataframe['Address'].apply(nom.geocode)
+            dataframe['Latitude'] = dataframe['Coordinates'].apply(lambda x: x.latitude if x != None else None)
+            dataframe['Longitude'] = dataframe['Coordinates'].apply(lambda x: x.longitude if x != None else None)
+            #dataframe = dataframe.drop('Coordinates',1)
+            dataframe.drop('Coordinates', axis=1, inplace=True)
             dataframe.to_csv("CSV_files/test_file.csv", index=None)
             return render_template("geocoder.html", text=dataframe.to_html(), btn="download.html")
         except:
