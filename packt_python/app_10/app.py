@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, send_file
 import pandas
 from geopy.geocoders import Nominatim
+import datetime
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ def geocoder():
 
 @app.route("/success_table", methods=["POST"])
 def success_table():
+    global filename #allows filename to work in both functions (success_table and download)
     if request.method == "POST":
         file = request.files["file"]
         try:
@@ -28,14 +30,18 @@ def success_table():
             dataframe['Longitude'] = dataframe['Coordinates'].apply(lambda x: x.longitude if x != None else None)
             #dataframe = dataframe.drop('Coordinates',1)
             dataframe.drop('Coordinates', axis=1, inplace=True)
-            dataframe.to_csv("CSV_files/test_file.csv", index=None)
+            filename = datetime.datetime.now().strftime("sample_files/%Y-%m-%d-%H-%M-%S"+".csv")
+            #dataframe.to_csv("CSV_files/test_file.csv", index=None)
+            dataframe.to_csv(filename, index=None)
             return render_template("geocoder.html", text=dataframe.to_html(), btn="download.html")
         except:
             return render_template("geocoder.html", text="Please make sure you have an Address column in your .csv file")
 
 @app.route("/download_file/")
 def download():
-    return send_file("CSV_files/test_file.csv", attachment_filename="yourfile.csv", as_attachment=True)
+    #return send_file("CSV_files/test_file.csv", attachment_filename="yourfile.csv", as_attachment=True)
+    #"attachment_filename=" does not work anymore; use "download_name"
+    return send_file(filename, download_name="yourfile.csv", as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
