@@ -10,8 +10,13 @@ app.config['UPLOAD_FOLDER'] = image_folder
 
 @app.route('/')
 def pageone():
-    img_1 = os.path.join(app.config['UPLOAD_FOLDER'], 'sample_image1.png')
+    img_1 = os.path.join(app.config['UPLOAD_FOLDER'], 'img.png')
     return render_template("pageone.html", user_image = img_1)
+
+@app.route('/secondpage/')
+def pagetwo():
+    img_2 = os.path.join(app.config['UPLOAD_FOLDER'], 'img2.png')
+    return render_template("pagetwo.html", user_image = img_2)
 
 if __name__ == "__main__":
     app.run(debug=True)
