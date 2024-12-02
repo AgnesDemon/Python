@@ -130,7 +130,7 @@ class Minigame():
             clear()
             print("ENDING:\nYou enjoyed your trip.")
         elif Minigame.inventory == 0:
-            input("The rest of the trip goes off without a hitch. You got a souvenir and you got to see some beautiful sights.")
+            input("The rest of the trip goes off without a hitch. You got a nicer souvenir and you got to see some beautiful sights.")
             clear()
             print("ENDING:\nYou enjoyed your trip.")
             #keep getting this ending, even though I asked for the marbles
