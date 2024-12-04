@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: rgb(216, 161, 255);
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+div.textboxone {
+    padding: 10px 0 30px 0;
+    background-color: blueviolet;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.textboxtwo {
+    padding: 10px 0 30px 0;
+    background-color: blueviolet;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}

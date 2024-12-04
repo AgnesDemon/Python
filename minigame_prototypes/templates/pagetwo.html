@@ -6,6 +6,10 @@
     </head>
     <body>
         <h1>Image Two</h1>
-        <center><img src="{{ user_image }}"></center>
+        <img src="{{url_for('static',filename='images/img2.png')}}" width="1200">
+        <div class="textboxtwo">
+            <h4>Prototype Textbox</h4>
+            <p>This is where the text will be shown.</p>
+        </div>
     </body>
 {%endblock%}
