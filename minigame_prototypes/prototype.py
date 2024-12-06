@@ -15,7 +15,7 @@ for line in file:
     print("Line {}: {}".format(count, line.strip()))
 file.close()'''
 
-#CAN PRINT LINES ONE AT A TIME, THIS ONE MAY WORK
+#CAN PRINT LINES ONE AT A TIME AND CLEARS TERMINAL BEFORE EACH SENTENCE, THIS ONE MAY WORK
 with open('sampletext.txt', 'r') as file:
     line = file.readline()
     while line:
