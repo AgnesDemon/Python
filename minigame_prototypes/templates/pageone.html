@@ -5,11 +5,11 @@
         <title>Image One sample</title>
     </head>
     <body>
-        <h1>Image One</h1>
-        <center><img src="{{ user_image }}" width="1880" height="700"></center>
+        <center><img src="{{url_for('static',filename='images/img.png')}}" width="1880" height="760"></center>
         <div class="textboxone">
             <h4>Prototype Textbox</h4>
-            <p>This is where the text will be shown.</p>
+            <p> {{ content }}</p>
+            <p><input type="text"></p>
         </div>
     </body>
 {%endblock%}
