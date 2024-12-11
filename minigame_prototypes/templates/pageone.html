@@ -9,7 +9,9 @@
         <div class="textboxone">
             <h4>Prototype Textbox</h4>
             <p> {{ content }}</p>
-            <p><input type="text"></p>
+            <form method="post">
+                <p><input name="input"><button type="submit" style="background-color: blueviolet;">Submit</button></p>
+            </form>
         </div>
     </body>
 {%endblock%}
