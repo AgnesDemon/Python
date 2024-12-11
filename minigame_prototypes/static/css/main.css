@@ -1,5 +1,9 @@
 body {
     margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
     color: black;
@@ -7,12 +11,12 @@ body {
 }
 
 .container {
-    width: 1880px;
+    width: 1888px;
     margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 div.textboxone {
@@ -29,4 +33,20 @@ div.textboxtwo {
     -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
             border-radius: 6px;
+}
+
+div.textboxone h4 {
+    margin-left: 10px;
+}
+
+div.textboxone p {
+    margin-left: 25px;
+}
+
+div.textboxtwo h4 {
+    margin-left: 10px;
+}
+
+div.textboxtwo p {
+    margin-left: 25px;
 }
