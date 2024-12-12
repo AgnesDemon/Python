@@ -24,6 +24,7 @@ def pageone():
         print("You typed 'no'.")
     else:
         print("Sorry, that is not a valid response.")
+        return render_template("pageone.html", content=filename, text="Sorry, that is not a valid response.")
     #print(input)
     return render_template("pageone.html", content=filename)
 
