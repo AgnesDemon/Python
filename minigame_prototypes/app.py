@@ -28,7 +28,7 @@ def pageone():
     #print(input)
     return render_template("pageone.html", content=filename)
 
-@app.route('/secondpage/')
+@app.route('/secondpage/', methods=['GET', 'POST'])
 def pagetwo():
     #img_2 = os.path.join(app.config['UPLOAD_FOLDER'], 'img2.png')
     #return render_template("pagetwo.html", user_image = img_2)
