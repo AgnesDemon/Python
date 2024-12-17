@@ -34,10 +34,9 @@ def pagetwo():
     #return render_template("pagetwo.html", user_image = img_2)
     with open('sampletext.txt', 'r') as file:
         line = file.readline() #reads only the first line of text file
-        #while line:
-            #if request.method == "POST":
-                #print("Button has been pressed")
-                #return render_template("pagetwo.html", content=line)
+        if request.method == "POST":
+            print("Button has been pressed")
+            return render_template("pagetwo.html", content=line)
     return render_template("pagetwo.html", content=line)
 
 if __name__ == "__main__":
