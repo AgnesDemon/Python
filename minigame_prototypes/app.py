@@ -36,7 +36,10 @@ def pagetwo():
         line = file.readline() #reads only the first line of text file
         if request.method == "POST":
             print("Button has been pressed")
-            return render_template("pagetwo.html", content=line)
+            while line:
+                line = line.strip()
+                line = file.readline()
+                return render_template("pagetwo.html", content=line)
     return render_template("pagetwo.html", content=line)
 
 if __name__ == "__main__":
