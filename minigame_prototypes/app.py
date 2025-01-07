@@ -3,13 +3,13 @@ import pandas
 import os
 clear = lambda: os.system('cls')
 
-app = Flask(__name__)
+app = Flask(__name__) #creates app?
 
-image_folder = os.path.join('static','images')
+#image_folder = os.path.join('static','images')
 
-app.config['UPLOAD_FOLDER'] = image_folder
+#app.config['UPLOAD_FOLDER'] = image_folder
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST']) #creates page
 def pageone():
     #img_1 = os.path.join(app.config['UPLOAD_FOLDER'], 'img.png')
     with open('sampletext.txt', 'r') as file:
@@ -28,19 +28,19 @@ def pageone():
     #print(input)
     return render_template("pageone.html", content=filename)
 
-@app.route('/secondpage/', methods=['GET', 'POST'])
+@app.route('/secondpage/', methods=['GET', 'POST']) #creates page
 def pagetwo():
     #img_2 = os.path.join(app.config['UPLOAD_FOLDER'], 'img2.png')
     #return render_template("pagetwo.html", user_image = img_2)
     with open('sampletext.txt', 'r') as file:
         line = file.readline() #reads only the first line of text file
-        if request.method == "POST":
+        if request.method == "POST": #button has been pressed
             print("Button has been pressed")
             while line:
                 line = line.strip()
                 line = file.readline()
-                return render_template("pagetwo.html", content=line)
-    return render_template("pagetwo.html", content=line)
+                return render_template("pagetwo.html", content=line) #if this line isn't here, clicking submit will make text disappear
+    return render_template("pagetwo.html", content=line) #this needs to be here, otherwise error will occur
 
-if __name__ == "__main__":
+if __name__ == "__main__": #runs app
     app.run(debug=True)
