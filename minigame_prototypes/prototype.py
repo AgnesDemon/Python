@@ -23,3 +23,33 @@ with open('sampletext.txt', 'r') as file:
         clear()
         input(line.strip())
         line = file.readline()
+
+'''file = open("sampletext.txt", 'r')
+dictionary = {}
+for line in file:
+    key, value = line.strip().split('=')
+    dictionary[key.strip()] = value.strip()
+file.close()'''
+
+#EXAMPLE
+'''my_dictionary = {}
+index = 0
+with open("sampletext.txt", 'r') as file:
+    for line in file:
+        index = index + 1
+        my_dictionary[index] = line.strip()
+print(my_dictionary)
+print(index)'''
+
+dictionary = {}
+index = 0
+with open("sampletext.txt", 'r') as file:
+    for line in file:
+        index = index + 1
+        dictionary[index] = line.strip()
+for key in dictionary:
+    print(f"{key} : {dictionary[key]}")
+    #input(f"{key} : {dictionary[key]}")
+
+
+
