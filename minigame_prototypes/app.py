@@ -38,9 +38,28 @@ def pagetwo():
             print("Button has been pressed")
             while line:
                 line = line.strip()
-                line = file.readline()
+                line = file.readline() #can't do .readlines() because it will read all sentences at once
                 return render_template("pagetwo.html", content=line) #if this line isn't here, clicking submit will make text disappear
     return render_template("pagetwo.html", content=line) #this needs to be here, otherwise error will occur
+    '''if request.method == "POST":
+        with open('sampletext.txt', 'r') as file:
+            print("Button has been pressed")
+            line = file.readline()
+            while line:
+                line = line.strip()
+                line = file.readline()
+            return render_template("pagetwo.html", content=line)
+    return render_template("pagetwo.html")'''
+    '''with open('sampletext.txt', 'r') as file:
+        line = file.readline()
+        while line:
+            if request.method == "POST":
+                print("Button has been pressed")
+                line = line.strip()
+                line = file.readline()
+                return render_template("pagetwo.html", content=line)
+    return render_template("pagetwo.html", content=line)'''
+                
 
 if __name__ == "__main__": #runs app
     app.run(debug=True)
