@@ -40,6 +40,14 @@ div.textboxtwo {
             border-radius: 6px;
 }
 
+div.resume {
+    padding: 10px 0 30px 0;
+    background-color: blueviolet;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
 div.textboxone h4 {
     margin-left: 10px;
 }
@@ -53,5 +61,13 @@ div.textboxtwo h4 {
 }
 
 div.textboxtwo p {
+    margin-left: 25px;
+}
+
+div.resume h4 {
+    margin-left: 10px;
+}
+
+div.resume p {
     margin-left: 25px;
 }

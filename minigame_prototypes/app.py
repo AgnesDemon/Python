@@ -44,12 +44,10 @@ def pagetwo():
         #linecount = len(file.readlines())
         #print(linecount)
         #line = file.readline() #reads only the first line of text file
-        
         for line in file:
             index = index + 1
             text_dictionary[index] = line.strip()
-    print(text_dictionary)
-        
+    #print(text_dictionary)
     if request.method == "POST": #button has been pressed
         #print(request.form)
         line_num = request.form.get('current_line')
@@ -61,8 +59,6 @@ def pagetwo():
             #line = line.strip()
             #line = file.readline() #can't do .readlines() because it will read all sentences at once
         return render_template("pagetwo.html", content= text_dictionary[num], line_number = num) #if this line isn't here, clicking submit will make text disappear
-    
-    
     return render_template("pagetwo.html", content=text_dictionary[1], line_number = 1) #this needs to be here, otherwise error will occur
     '''if request.method == "POST":
         with open('sampletext.txt', 'r') as file:
@@ -82,7 +78,12 @@ def pagetwo():
                 line = file.readline()
                 return render_template("pagetwo.html", content=line)
     return render_template("pagetwo.html", content=line)'''
-                
+
+@app.route("/resume/", methods = ["GET", "POST"])
+def resume():
+   if request.method == "GET":
+       return render_template("resume.html") 
+
 
 if __name__ == "__main__": #runs app
     app.run(debug=True)
