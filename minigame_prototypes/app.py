@@ -50,15 +50,20 @@ def pagetwo():
     #print(text_dictionary)
     if request.method == "POST": #button has been pressed
         #print(request.form)
-        line_num = request.form.get('current_line')
-        num = int(line_num) + 1
+        try:
+            line_num = request.form.get('current_line')
+            num = int(line_num) + 1
         #print(line_num)
         #print("Button has been pressed")
 
         #while line:
             #line = line.strip()
             #line = file.readline() #can't do .readlines() because it will read all sentences at once
-        return render_template("pagetwo.html", content= text_dictionary[num], line_number = num) #if this line isn't here, clicking submit will make text disappear
+            return render_template("pagetwo.html", content= text_dictionary[num], line_number = num) #if this line isn't here, clicking submit will make text disappear
+        except:
+            #print("Out of text")
+            text = "Out of lines!"
+            return render_template("pagetwo.html", content = text)
     return render_template("pagetwo.html", content=text_dictionary[1], line_number = 1) #this needs to be here, otherwise error will occur
     '''if request.method == "POST":
         with open('sampletext.txt', 'r') as file:
@@ -79,10 +84,11 @@ def pagetwo():
                 return render_template("pagetwo.html", content=line)
     return render_template("pagetwo.html", content=line)'''
 
-@app.route("/resume/", methods = ["GET", "POST"])
+#Keep this inactive for now
+'''@app.route("/resume/", methods = ["GET", "POST"])
 def resume():
    if request.method == "GET":
-       return render_template("resume.html") 
+       return render_template("resume.html")'''
 
 
 if __name__ == "__main__": #runs app

@@ -5,13 +5,16 @@
         <title>Image Two sample</title>
     </head>
     <body>
-        <center><img src="{{url_for('static',filename='images/img2.png')}}" width="1888" height="756"></center>
+        <center><img src="{{url_for('static',filename='images/img2.png')}}" width="1887" height="740"></center>
         <div class="textboxtwo">
             <h4>Prototype Textbox</h4>
             <form method="post">
                 <input type="hidden" id="current_line" name="current_line" value={{line_number}}>
                 <p>{{ content }} <button type="submit" style="background-color: blueviolet;">Submit</button></p>
             </form>
+            <div class="output">
+                {{text|safe}}
+            </div>
         </div>
     </body>
 {%endblock%}
