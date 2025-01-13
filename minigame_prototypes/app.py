@@ -55,15 +55,27 @@ def pagetwo():
             num = int(line_num) + 1
         #print(line_num)
         #print("Button has been pressed")
-
         #while line:
             #line = line.strip()
             #line = file.readline() #can't do .readlines() because it will read all sentences at once
             return render_template("pagetwo.html", content= text_dictionary[num], line_number = num) #if this line isn't here, clicking submit will make text disappear
         except:
             #print("Out of text")
-            text = "Out of lines!"
-            return render_template("pagetwo.html", content = text)
+            text = "Do you want to read the lines again? Type 'yes' or 'no'."
+            #return render_template("pageone.html", content = text) #can't put it here because then everything else doesn't work
+            if request.method == "GET":
+                return render_template("pageone.html", content = text)
+            input = request.form.get('input')
+            if input == "yes":
+                #return render_template("pageone.html", content = text, text = "So you have chosen yes.")
+                return render_template("pagetwo.html", content=text_dictionary[1], line_number = 1)
+            elif input == 'no':
+                return render_template("pageone.html", content = text, text = "So you have chosen no.")
+            #elif input == "":
+                #return render_template("pageone.html", content = text) #This was pointless. Bottom message still appears
+            else:
+                return render_template("pageone.html", content = text, text = "Please type in a valid response.")
+            #return render_template("pageone.html", content = text) #this won't work because of code before it
     return render_template("pagetwo.html", content=text_dictionary[1], line_number = 1) #this needs to be here, otherwise error will occur
     '''if request.method == "POST":
         with open('sampletext.txt', 'r') as file:
