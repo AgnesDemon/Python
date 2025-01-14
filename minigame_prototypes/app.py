@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pandas
 import os
+import signal
 clear = lambda: os.system('cls')
 
 app = Flask(__name__) #creates app?
@@ -70,7 +71,9 @@ def pagetwo():
                 #return render_template("pageone.html", content = text, text = "So you have chosen yes.")
                 return render_template("pagetwo.html", content=text_dictionary[1], line_number = 1)
             elif input == 'no':
-                return render_template("pageone.html", content = text, text = "So you have chosen no.")
+                #shutdown()
+                handle_shutdown()
+                #return render_template("pageone.html", content = text, text = "So you have chosen no.")
             #elif input == "":
                 #return render_template("pageone.html", content = text) #This was pointless. Bottom message still appears
             else:
@@ -96,12 +99,19 @@ def pagetwo():
                 return render_template("pagetwo.html", content=line)
     return render_template("pagetwo.html", content=line)'''
 
-#Keep this inactive for now
-'''@app.route("/resume/", methods = ["GET", "POST"])
-def resume():
-   if request.method == "GET":
-       return render_template("resume.html")'''
+'''@app.route('/shutdown', methods = ['POST'])
+def shutdown():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+    return "Shutting down..."'''
 
+def handle_shutdown():
+    print("Shutting down Flask app")
+    os._exit(0)
+
+signal.signal(signal.SIGINT, handle_shutdown)
 
 if __name__ == "__main__": #runs app
     app.run(debug=True)
