@@ -1,0 +1,12 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<body>
+    <div class="first_textbox">
+        <form method="post">
+            <input type="hidden" id="current_line" name="current_line" value={{line_number}}>
+            <p> {{ content }} <button type="submit">Submit</button></p>
+        </form>
+    </div>
+</body>
+{%endblock%}
