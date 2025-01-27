@@ -6,13 +6,11 @@ clear = lambda: os.system('cls')
 app = Flask(__name__)
 
 inventory = 0
-print(inventory)
-
-inventory += 1
-print(inventory)
-
-lose_item = inventory - 1
-print(lose_item)
+#print(inventory)
+#inventory += 1
+#print(inventory)
+#lose_item = inventory - 1
+#print(lose_item)
 
 @app.route("/", methods = ["GET", "POST"])
 def start():
@@ -29,7 +27,17 @@ def start():
             return render_template("start.html", content = text[num], line_number = num)
         except:
             text = "Should you go on the trip? Type 'yes' or 'no' for your answer."
-            return render_template("start.html", content = text)
+            if request.method == "GET":
+                return render_template("question_page.html", content = text)
+            input = request.form.get('input')
+            if input == "yes":
+                new_line = "Next part of story continues here."
+                return render_template("start.html", content = new_line)
+            elif input == "no":
+                ending_line = "You decide that it's not the best idea. Your friends are disappointed, but they understand. \nEnding: You don't go on the trip."
+                return render_template("start.html", content = ending_line)
+            else:
+                return render_template("question_page.html", content = text, text = "Please type in a valid response.")
     return render_template("start.html", content = text[1], line_number = 1)
 
 
