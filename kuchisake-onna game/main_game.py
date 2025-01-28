@@ -31,14 +31,37 @@ def start():
                 return render_template("question_page.html", content = text)
             input = request.form.get('input')
             if input == "yes":
-                new_line = "Next part of story continues here."
-                return render_template("start.html", content = new_line)
+                #new_line = "Hell, why not? This is a once in a lifetime trip. You may not get to have this chance ever again."
+                secondpart()
+                return render_template("second_part.html")
             elif input == "no":
                 ending_line = "You decide that it's not the best idea. Your friends are disappointed, but they understand. \nEnding: You don't go on the trip."
                 return render_template("start.html", content = ending_line)
             else:
                 return render_template("question_page.html", content = text, text = "Please type in a valid response.")
     return render_template("start.html", content = text[1], line_number = 1)
+
+@app.route("/secondpart", methods = ["GET", "POST"])
+def secondpart():
+    #print("It is reaching the next part.")
+    #random_msg = "Random message to see if this works."
+    texttwo = {}
+    indextwo = 0
+    with open("text_set_two.txt") as file:
+        for line in file:
+            indextwo = indextwo + 1
+            texttwo[indextwo] = line.strip()
+    if request.method == "POST":
+        try:
+            line_num = request.form.get('current_line')
+            num = int(line_num) + 1
+            return render_template("second_part.html", content = texttwo[num], line_number = num)
+        except:
+            text = "Should you buy the candy? Type 'yes' or 'no' for your answer."
+            if request.method == "GET":
+                return render_template("question_page.html", content = text)
+            input = request.form.get('input')
+    return render_template("second_part.html", content = texttwo[1], line_number = 1)
 
 
 '''def handle_shutdown():
