@@ -31,7 +31,6 @@ def start():
                 return render_template("question_page.html", content = text)
             input = request.form.get('input')
             if input == "yes":
-                #new_line = "Hell, why not? This is a once in a lifetime trip. You may not get to have this chance ever again."
                 secondpart()
                 return render_template("second_part.html")
             elif input == "no":
@@ -43,25 +42,28 @@ def start():
 
 @app.route("/secondpart", methods = ["GET", "POST"])
 def secondpart():
-    #print("It is reaching the next part.")
-    #random_msg = "Random message to see if this works."
-    texttwo = {}
-    indextwo = 0
+    text = {}
+    index = 0
     with open("text_set_two.txt") as file:
         for line in file:
-            indextwo = indextwo + 1
-            texttwo[indextwo] = line.strip()
+            index = index + 1
+            text[index] = line.strip()
     if request.method == "POST":
         try:
             line_num = request.form.get('current_line')
             num = int(line_num) + 1
-            return render_template("second_part.html", content = texttwo[num], line_number = num)
+            return render_template("second_part.html", content = text[num], line_number = num)
         except:
             text = "Should you buy the candy? Type 'yes' or 'no' for your answer."
             if request.method == "GET":
                 return render_template("question_page.html", content = text)
-            input = request.form.get('input')
-    return render_template("second_part.html", content = texttwo[1], line_number = 1)
+            #input = request.form.get('input')
+            #if input == 'yes':
+                #inventory += 1
+                #print(inventory)
+                #marbles = "You bought the marbles"
+                #return render_template("question_page.html", content = marbles, text = "You bought the marbles." )
+    return render_template("second_part.html", content = text[1], line_number = 1)
 
 
 '''def handle_shutdown():
