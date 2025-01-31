@@ -31,7 +31,8 @@ def start():
                 return render_template("question_page.html", content = text)
             input = request.form.get('input')
             if input == "yes":
-                secondpart()
+                file.close()
+                #secondpart()
                 #return render_template("second_part.html")
             elif input == "no":
                 ending_line = "You decide that it's not the best idea. Your friends are disappointed, but they understand. \nEnding: You don't go on the trip."
@@ -44,7 +45,6 @@ def start():
 def secondpart():
     text2 = {}
     index2 = 0
-    print("It is reaching this part.")
     with open("text_set_two.txt", 'r') as file:
         for line in file:
             index2 = index2 + 1
@@ -56,17 +56,16 @@ def secondpart():
             print("It is reaching the try method.")
             return render_template("second_part.html", content = text2[num2], line_number = num2)
         except:
-            #print("It is reaching this line.")
-            text = "Should you buy the candy? Type 'yes' or 'no' for your answer."
-            print("It is reaching the except method.")
+            candy_question = "Should you buy the candy? Type 'yes' or 'no' for your answer."
             if request.method == "GET":
-                return render_template("question_page.html", content = text)
+                print("It is reaching the except method.")
+                return render_template("question_page.html", content = candy_question)
             input = request.form.get('input')
             if input == 'yes':
                 #inventory += 1
                 #print(inventory)
                 marbles = "You bought the marbles"
-                return render_template("secondpage.html", content = marbles, text = "You bought the marbles." )
+                return render_template("second_part.html", content = marbles, text = "You bought the marbles." )
     return render_template("second_part.html", content = text2[1], line_number = 1)
 
 
