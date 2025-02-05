@@ -16,7 +16,7 @@ inventory = 0
 def start():
     text = {}
     index = 0
-    with open("text_set_one.txt", 'r') as file:
+    with open("text_set_1.txt", 'r') as file:
         for line in file:
             index = index + 1
             text[index] = line.strip()
@@ -45,7 +45,7 @@ def start():
 def secondpart():
     text2 = {}
     index2 = 0
-    with open("text_set_two.txt", 'r') as file:
+    with open("text_set_2.txt", 'r') as file:
         for line in file:
             index2 = index2 + 1
             text2[index2] = line.strip()
