@@ -8,6 +8,9 @@ class KuchisakeOnna:
     app = Flask(__name__)
 
     inventory = 0
+
+    text2 = {}
+    index2 = 0
 #print(inventory)
 #inventory += 1
 #print(inventory)
@@ -35,7 +38,7 @@ class KuchisakeOnna:
                 if input == "yes":
                     file.close()
                     KuchisakeOnna.secondpart()
-                    #return render_template("second_part.html")
+                    return render_template("second_part.html")
                 elif input == "no":
                     ending_line = "You decide that it's not the best idea. Your friends are disappointed, but they understand. \nEnding: You don't go on the trip."
                     return render_template("start.html", content = ending_line)
@@ -45,18 +48,17 @@ class KuchisakeOnna:
 
     @app.route("/secondpart", methods = ["GET", "POST"])
     def secondpart():
-        text2 = {}
-        index2 = 0
+
         with open("text_set_2.txt", 'r') as file:
             for line in file:
-                index2 = index2 + 1
-                text2[index2] = line.strip()
+                index2 = KuchisakeOnna.index2 + 1
+                KuchisakeOnna.text2[index2] = line.strip()
         if request.method == "POST":
             try:
                 line_num2 = request.form.get('current_line')
                 num2 = int(line_num2) + 1
                 print("It is reaching the try method.")
-                return render_template("second_part.html", content = text2[num2], line_number = num2)
+                return render_template("second_part.html", content = KuchisakeOnna.text2[num2], line_number = num2)
             except:
                 candy_question = "Should you buy the candy? Type 'yes' or 'no' for your answer."
                 if request.method == "GET":
@@ -68,14 +70,14 @@ class KuchisakeOnna:
                     #print(inventory)
                     marbles = "You bought the marbles"
                     return render_template("second_part.html", content = marbles, text = "You bought the marbles." )
-        return render_template("second_part.html", content = text2[1], line_number = 1)
+        return render_template("second_part.html", content = KuchisakeOnna.text2[1], line_number = 1)
 
 
-'''def handle_shutdown():
-    print("Shutting down Flask app")
-    os._exit(0)
+    '''def handle_shutdown():
+        print("Shutting down Flask app")
+        os._exit(0)
 
-signal.signal(signal.SIGINT, handle_shutdown)'''
+    signal.signal(signal.SIGINT, handle_shutdown)'''
 
 if __name__ == "__main__": #runs app
     KuchisakeOnna.app.run(debug=True)
