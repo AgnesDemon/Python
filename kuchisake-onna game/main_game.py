@@ -123,10 +123,10 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = geatext[num], line_number = num)
+                return render_template("black_background.html", content = geatext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = geatext[1], line_number = 1)        
+        return render_template("black_background.html", content = geatext[1], line_number = 1)        
 
     @app.route("/goodendingb", methods = ["GET", "POST"])
     def goodendingb():
@@ -141,10 +141,10 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = gebtext[num], line_number = num)
+                return render_template("black_background.html", content = gebtext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = gebtext[1], line_number = 1)
+        return render_template("black_background.html", content = gebtext[1], line_number = 1)
 
     @app.route("/hashimaisland", methods = ["GET", "POST"])
     def hashimaisland():
@@ -236,140 +236,149 @@ class KuchisakeOnna:
                 print("Something")
         return render_template("second_part.html", content = tctext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/dontthrowcandy", methods = ["GET", "POST"])
     def dontthrowcandy():
+        #bloody background
         dtctext = {}
         dtcindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("dont_throw_candy.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                dtcindex = dtcindex + 1
+                dtctext[dtcindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("start.html", content = dtctext[num], line_number = num)
             except:
                 print("Something")
+        return render_template("second_part.html", content = dtctext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/nocandy", methods = ["GET", "POST"])
     def nocandy():
+        #bloody background
         nctext = {}
         ncindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("no_candy.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                ncindex = ncindex + 1
+                nctext[ncindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("start.html", content = nctext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("second_part.html", content = nctext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/soso", methods = ["GET", "POST"])
     def soso():
+        #hashima island background, disappointed woman
         sstext = {}
         ssindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("so_so.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                ssindex = ssindex + 1
+                sstext[ssindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("start.html", content = sstext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("second_part.html", content = sstext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/neutralending", methods = ["GET", "POST"])
     def neutralending():
+        #black background
         netext = {}
         neindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("neutral_ending.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                neindex = neindex + 1
+                netext[neindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("black_background.html", content = netext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("black_background.html", content = netext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/notpretty", methods = ["GET", "POST"])
     def notpretty():
+        #hashima island background, angry woman with scissors
         nptext = {}
         npindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("not_pretty.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                npindex = npindex + 1
+                nptext[npindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("start.html", content = nptext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("second_part.html", content = nptext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/traumaending", methods = ["GET", "POST"])
     def traumaending():
+        #black background
         tetext = {}
         teindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("trauma_ending.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                teindex = teindex + 1
+                tetext[teindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("black_background.html", content = tetext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("black_background.html", content = tetext[1], line_number = 1)
 
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/disfiguredending", methods = ["GET", "POST"])
     def disfiguredending():
+        #black background
         detext = {}
         deindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("disfigured_ending.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                deindex = deindex + 1
+                detext[deindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("black_background.html", content = detext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("black_background.html", content = detext[1], line_number = 1)
     
-    @app.route("/", methods = ["GET", "POST"])
+    @app.route("/deathending", methods = ["GET", "POST"])
     def deathending():
+        #black background
         deathtext = {}
         deathindex = 0
-        with open("text_set_1.txt", 'r') as file:
+        with open("death_ending.txt", 'r') as file:
             for line in file:
-                index = index + 1
-                text[index] = line.strip()
+                deathindex = deathindex + 1
+                deathtext[deathindex] = line.strip()
         if request.method == "POST":
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text[num], line_number = num)
+                return render_template("black_background.html", content = deathtext[num], line_number = num)
             except:
                 print("Something")
-        return render_template("second_part.html", content = hitext[1], line_number = 1)
+        return render_template("black_background.html", content = deathtext[1], line_number = 1)
 
 
     '''def handle_shutdown():
