@@ -18,6 +18,7 @@ class KuchisakeOnna:
 
     @app.route("/", methods = ["GET", "POST"])
     def start():
+        #bedroom background
         text = {}
         index = 0
         with open("text_set_1.txt", 'r') as file:
@@ -47,6 +48,7 @@ class KuchisakeOnna:
 
     @app.route("/secondpart", methods = ["GET", "POST"])
     def secondpart():
+        #still working on what background I should put
         text2 = {}
         index2 = 0
         with open("text_set_2.txt", 'r') as file:
@@ -71,6 +73,303 @@ class KuchisakeOnna:
                     print("You bought the marbles")
                     return render_template("second_part.html")
         return render_template("second_part.html", content = text2[1], line_number = 1)
+    
+    @app.route("/thirdpart", methods = ["GET", "POST"])
+    def thirdpart():
+        #vendors background
+        text3 = {}
+        index3 = 0
+        with open("text_set_3.txt", 'r') as file:
+            for line in file:
+                index3 = index3 + 1
+                text3[index3] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text3[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = text3[1], line_number = 1)
+
+    @app.route("/omurapark", methods = ["GET", "POST"])
+    def omurapark():
+        #omura park background
+        optext = {}
+        opindex = 0
+        with open("omura_park.txt", 'r') as file:
+            for line in file:
+                opindex = opindex + 1
+                optext[opindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = optext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = optext[1], line_number = 1)
+    
+    @app.route("/goodendinga", methods = ["GET", "POST"])
+    def goodendinga():
+        #black background
+        geatext = {}
+        geaindex = 0
+        with open("good_ending_a.txt", 'r') as file:
+            for line in file:
+                geaindex = geaindex + 1
+                geatext[geaindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = geatext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = geatext[1], line_number = 1)        
+
+    @app.route("/goodendingb", methods = ["GET", "POST"])
+    def goodendingb():
+        #black background
+        gebtext = {}
+        gebindex = 0
+        with open("good_ending_b.txt", 'r') as file:
+            for line in file:
+                gebindex = gebindex + 1
+                gebtext[gebindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = gebtext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = gebtext[1], line_number = 1)
+
+    @app.route("/hashimaisland", methods = ["GET", "POST"])
+    def hashimaisland():
+        #hashima island background, woman in background
+        hitext = {}
+        hiindex = 0
+        with open("hashima_island.txt", 'r') as file:
+            for line in file:
+                hiindex = hiindex + 1
+                hitext[hiindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = hitext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+
+    @app.route("/pretty", methods = ["GET", "POST"])
+    def pretty():
+        #hashima island background with happy woman
+        ptext = {}
+        pindex = 0
+        with open("pretty_1.txt", 'r') as file:
+            for line in file:
+                pindex = pindex + 1
+                ptext[pindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = ptext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = ptext[1], line_number = 1)
+
+    @app.route("/pretty2", methods = ["GET", "POST"])
+    def pretty2():
+        #hashima island background, disfigured face woman
+        p2text = {}
+        p2index = 0
+        with open("pretty_2.txt", 'r') as file:
+            for line in file:
+                p2index = p2index + 1
+                p2text[p2index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = p2text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = p2text[1], line_number = 1)
+
+    @app.route("/candy", methods = ["GET", "POST"])
+    def candy():
+        #hashima island background, disfigured face woman with scissors
+        ctext = {}
+        cindex = 0
+        with open("candy.txt", 'r') as file:
+            for line in file:
+                cindex = cindex + 1
+                ctext[cindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = ctext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = ctext[1], line_number = 1)
+    
+    @app.route("/throwcandy", methods = ["GET", "POST"])
+    def throwcandy():
+        #hashima island background, candy thrown at woman
+        tctext = {}
+        tcindex = 0
+        with open("throw_candy.txt", 'r') as file:
+            for line in file:
+                tcindex = tcindex + 1
+                tctext[tcindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = tctext[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = tctext[1], line_number = 1)
+
+    @app.route("/", methods = ["GET", "POST"])
+    def dontthrowcandy():
+        dtctext = {}
+        dtcindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+
+    @app.route("/", methods = ["GET", "POST"])
+    def nocandy():
+        nctext = {}
+        ncindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+
+    @app.route("/", methods = ["GET", "POST"])
+    def soso():
+        sstext = {}
+        ssindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+
+    @app.route("/", methods = ["GET", "POST"])
+    def neutralending():
+        netext = {}
+        neindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+
+    @app.route("/", methods = ["GET", "POST"])
+    def notpretty():
+        nptext = {}
+        npindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+
+    @app.route("/", methods = ["GET", "POST"])
+    def traumaending():
+        tetext = {}
+        teindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+
+    @app.route("/", methods = ["GET", "POST"])
+    def disfiguredending():
+        detext = {}
+        deindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
+    
+    @app.route("/", methods = ["GET", "POST"])
+    def deathending():
+        deathtext = {}
+        deathindex = 0
+        with open("text_set_1.txt", 'r') as file:
+            for line in file:
+                index = index + 1
+                text[index] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("start.html", content = text[num], line_number = num)
+            except:
+                print("Something")
+        return render_template("second_part.html", content = hitext[1], line_number = 1)
 
 
     '''def handle_shutdown():
