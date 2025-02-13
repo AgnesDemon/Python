@@ -58,3 +58,11 @@ div.black_background_textbox {
 div.black_background_textbox p {
     margin-left: 10px;
 }
+
+div.choice_one {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}

@@ -1,0 +1,14 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<body>
+    <div class="choice_one">
+        <p> {{content}} </p>
+        <strong><nav>
+            <ul class="menu">
+                <li><a href="{{url_for('secondpart') }}">Yes</a></li>
+            </ul>
+        </nav></strong>
+    </div>
+</body>
+{%endblock%}
