@@ -66,3 +66,61 @@ div.choice_one {
         -moz-border-radius: 6px;
             border-radius: 6px;
 }
+
+div.choice_one p {
+    margin-left: 10px;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu li + li {
+    margin-left: 35px;
+}
+
+.menu li a {
+    color: black;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+div.back_to_beginning {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.back_to_beginning p {
+    margin-left: 10px;
+}
+
+div.candy_choice {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.candy_choice p {
+    margin-left: 10px;
+}
+
+div.place_choice {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.place_choice p {
+    margin-left: 10px;
+}

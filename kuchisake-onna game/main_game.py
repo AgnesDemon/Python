@@ -16,7 +16,9 @@ class KuchisakeOnna:
 #lose_item = inventory - 1
 #print(lose_item)
 
-    @app.route("/", methods = ["GET", "POST"])
+    #need to create a main page for '/' so that it doesn't show the 'not found' page
+
+    @app.route("/start", methods = ["GET", "POST"])
     def start():
         #bedroom background
         text = {}
@@ -31,21 +33,29 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("start.html", content = text[num], line_number = num)
             except:
-                text = "Should you go on the trip? Type 'yes' or 'no' for your answer."
-                return render_template("first_choice.html")
-                '''if request.method == "GET":
-                    return render_template("question_page.html", content = text)
-                input = request.form.get('input')
-                if input == "yes":
-                    file.close()
-                    KuchisakeOnna.secondpart()
-                    return render_template("second_part.html", content = KuchisakeOnna.secondpart.text2[1], line_number = 1)
-                elif input == "no":
-                    ending_line = "You decide that it's not the best idea. Your friends are disappointed, but they understand. \nEnding: You don't go on the trip."
-                    return render_template("start.html", content = ending_line)
-                else:
-                    return render_template("question_page.html", content = text, text = "Please type in a valid response.")'''
+                text = "Should you go on the trip?"
+                return render_template("first_choice.html", content = text)        
         return render_template("start.html", content = text[1], line_number = 1)
+
+    @app.route("/firstending", methods = ["GET", "POST"])
+    def firstending():
+        #black background
+        #should suggest to go back to the beginning to try again.
+        fetext = {}
+        feindex = 0
+        with open("first_ending.txt", 'r') as file:
+            for line in file:
+                feindex = feindex + 1
+                fetext[feindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("black_background.html", content = fetext[num], line_number = num)
+            except:
+                text = "Do you want to play again?"
+                return render_template("back_to_beginning.html", content = text)
+        return render_template("black_background.html", content = fetext[1], line_number = 1)
 
     @app.route("/secondpart", methods = ["GET", "POST"])
     def secondpart():
@@ -58,21 +68,15 @@ class KuchisakeOnna:
                 text2[index2] = line.strip()
         if request.method == "POST":
             try:
-                line_num2 = request.form.get('current_line')
-                num2 = int(line_num2) + 1
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
                 print("It is reaching the try method.")
-                return render_template("second_part.html", content = text2[num2], line_number = num2)
+                return render_template("second_part.html", content = text2[num], line_number = num)
             except:
-                candy_question = "Should you buy the candy? Type 'yes' or 'no' for your answer."
-                if request.method == "GET":
-                    print("It is reaching the except method.")
-                    return render_template("question_page.html", content = candy_question)
-                input = request.form.get('input')
-                if input == 'yes':
-                    KuchisakeOnna.inventory += 1
-                    #print(inventory)
-                    print("You bought the marbles")
-                    return render_template("second_part.html")
+                candy_question = "Should you buy the candy?"
+                #KuchisakeOnna.inventory += 1
+                #print(inventory)
+                return render_template("candy_choice.html", content = candy_question)
         return render_template("second_part.html", content = text2[1], line_number = 1)
     
     @app.route("/thirdpart", methods = ["GET", "POST"])
@@ -88,9 +92,10 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = text3[num], line_number = num)
+                return render_template("second_part.html", content = text3[num], line_number = num)
             except:
-                print("Something")
+                placechoice = "Which place should you go visit?"
+                return render_template("place_choice.html", content = placechoice)
         return render_template("second_part.html", content = text3[1], line_number = 1)
 
     @app.route("/omurapark", methods = ["GET", "POST"])
@@ -114,6 +119,7 @@ class KuchisakeOnna:
     @app.route("/goodendinga", methods = ["GET", "POST"])
     def goodendinga():
         #black background
+        #should suggest to go back to beginning or to go back to previous choice
         geatext = {}
         geaindex = 0
         with open("good_ending_a.txt", 'r') as file:
@@ -132,6 +138,7 @@ class KuchisakeOnna:
     @app.route("/goodendingb", methods = ["GET", "POST"])
     def goodendingb():
         #black background
+        #should suggest to go back to beginning or to go back to previous choice
         gebtext = {}
         gebindex = 0
         with open("good_ending_b.txt", 'r') as file:
@@ -294,6 +301,7 @@ class KuchisakeOnna:
     @app.route("/neutralending", methods = ["GET", "POST"])
     def neutralending():
         #black background
+        #should suggest going back to beginning or to previous choice
         netext = {}
         neindex = 0
         with open("neutral_ending.txt", 'r') as file:
@@ -330,6 +338,7 @@ class KuchisakeOnna:
     @app.route("/traumaending", methods = ["GET", "POST"])
     def traumaending():
         #black background
+        #should suggest going back to beginning or to previous choice
         tetext = {}
         teindex = 0
         with open("trauma_ending.txt", 'r') as file:
@@ -348,6 +357,7 @@ class KuchisakeOnna:
     @app.route("/disfiguredending", methods = ["GET", "POST"])
     def disfiguredending():
         #black background
+        #should suggest going back to beginning or to previous choice
         detext = {}
         deindex = 0
         with open("disfigured_ending.txt", 'r') as file:
@@ -366,6 +376,7 @@ class KuchisakeOnna:
     @app.route("/deathending", methods = ["GET", "POST"])
     def deathending():
         #black background
+        #should suggest going back to beginning or to previous choice
         deathtext = {}
         deathindex = 0
         with open("death_ending.txt", 'r') as file:
@@ -390,3 +401,18 @@ class KuchisakeOnna:
 
 if __name__ == "__main__": #runs app
     KuchisakeOnna.app.run(debug=True)
+
+
+
+'''if request.method == "GET":
+                    return render_template("question_page.html", content = text)
+                input = request.form.get('input')
+                if input == "yes":
+                    file.close()
+                    KuchisakeOnna.secondpart()
+                    return render_template("second_part.html", content = KuchisakeOnna.secondpart.text2[1], line_number = 1)
+                elif input == "no":
+                    ending_line = "You decide that it's not the best idea. Your friends are disappointed, but they understand. \nEnding: You don't go on the trip."
+                    return render_template("start.html", content = ending_line)
+                else:
+                    return render_template("question_page.html", content = text, text = "Please type in a valid response.")'''
