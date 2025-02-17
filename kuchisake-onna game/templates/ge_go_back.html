@@ -1,0 +1,15 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<body>
+    <div class="three_choices">
+        <p> {{content}} </p>
+        <strong><nav>
+            <ul class="menu">
+                <li><a href="{{url_for('start') }}">Replay</a></li>
+                <li><a href="{{url_for('omurapark') }}">Back to previous choice</a></li>
+            </ul>
+        </nav></strong>
+    </div>
+</body>
+{%endblock%}

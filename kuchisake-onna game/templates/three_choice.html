@@ -1,0 +1,16 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<body>
+    <div class="three_choices">
+        <p> {{content}} </p>
+        <strong><nav>
+            <ul class="menu">
+                <li><a href="{{url_for('pretty') }}">She is pretty</a></li>
+                <li><a href="{{url_for('soso') }}">She is average</a></li>
+                <li><a href="{{url_for('notpretty') }}">She is not pretty</a></li>
+            </ul>
+        </nav></strong>
+    </div>
+</body>
+{%endblock%}

@@ -9,7 +9,6 @@ class KuchisakeOnna:
 
     inventory = 0
 
-
 #print(inventory)
 #inventory += 1
 #print(inventory)
@@ -116,7 +115,7 @@ class KuchisakeOnna:
                 print("Something")
         return render_template("second_part.html", content = optext[1], line_number = 1)
     
-    @app.route("/goodendinga", methods = ["GET", "POST"])
+    @app.route("/goodendinga", methods = ["GET", "POST"]) #complete
     def goodendinga():
         #black background
         #should suggest to go back to beginning or to go back to previous choice
@@ -132,10 +131,11 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = geatext[num], line_number = num)
             except:
-                print("Something")
+                back_question = "Would you like to play again? Or go back to the previous choice?"
+                return render_template("ge_go_back.html", content = back_question)
         return render_template("black_background.html", content = geatext[1], line_number = 1)        
 
-    @app.route("/goodendingb", methods = ["GET", "POST"])
+    @app.route("/goodendingb", methods = ["GET", "POST"]) #complete
     def goodendingb():
         #black background
         #should suggest to go back to beginning or to go back to previous choice
@@ -151,7 +151,8 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = gebtext[num], line_number = num)
             except:
-                print("Something")
+                back_question = "Would you like to play again? Or go back to the previous choice?"
+                return render_template("ge_go_back.html", content = back_question)
         return render_template("black_background.html", content = gebtext[1], line_number = 1)
 
     @app.route("/hashimaisland", methods = ["GET", "POST"])
@@ -167,9 +168,10 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = hitext[num], line_number = num)
+                return render_template("second_part.html", content = hitext[num], line_number = num)
             except:
-                print("Something")
+                pretty_question = "What should you say? Is she pretty? Is she not pretty? Is she average?"
+                return render_template("three_choice.html", content = pretty_question)
         return render_template("second_part.html", content = hitext[1], line_number = 1)
 
     @app.route("/pretty", methods = ["GET", "POST"])
@@ -185,9 +187,10 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = ptext[num], line_number = num)
+                return render_template("second_part.html", content = ptext[num], line_number = num)
             except:
-                print("Something")
+                print("something")
+                #KuchisakeOnna.pretty2()
         return render_template("second_part.html", content = ptext[1], line_number = 1)
 
     @app.route("/pretty2", methods = ["GET", "POST"])
@@ -203,7 +206,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = p2text[num], line_number = num)
+                return render_template("second_part.html", content = p2text[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = p2text[1], line_number = 1)
@@ -221,7 +224,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = ctext[num], line_number = num)
+                return render_template("second_part.html", content = ctext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = ctext[1], line_number = 1)
@@ -239,7 +242,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = tctext[num], line_number = num)
+                return render_template("second_part.html", content = tctext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = tctext[1], line_number = 1)
@@ -257,7 +260,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = dtctext[num], line_number = num)
+                return render_template("second_part.html", content = dtctext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = dtctext[1], line_number = 1)
@@ -275,7 +278,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = nctext[num], line_number = num)
+                return render_template("second_part.html", content = nctext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = nctext[1], line_number = 1)
@@ -293,7 +296,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = sstext[num], line_number = num)
+                return render_template("second_part.html", content = sstext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = sstext[1], line_number = 1)
@@ -330,7 +333,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = nptext[num], line_number = num)
+                return render_template("second_part.html", content = nptext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = nptext[1], line_number = 1)
