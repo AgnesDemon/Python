@@ -110,7 +110,7 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("start.html", content = optext[num], line_number = num)
+                return render_template("second_part.html", content = optext[num], line_number = num)
             except:
                 print("Something")
         return render_template("second_part.html", content = optext[1], line_number = 1)
@@ -226,7 +226,8 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = ctext[num], line_number = num)
             except:
-                print("Something")
+                candy_choice = "Should you throw the candy?"
+                return render_template("throw_candy_choice.html", content = candy_choice)
         return render_template("second_part.html", content = ctext[1], line_number = 1)
     
     @app.route("/throwcandy", methods = ["GET", "POST"])
