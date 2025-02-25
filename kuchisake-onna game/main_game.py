@@ -78,8 +78,29 @@ class KuchisakeOnna:
                 return render_template("candy_choice.html", content = candy_question)
         return render_template("second_part.html", content = text2[1], line_number = 1)
     
-    @app.route("/thirdpart", methods = ["GET", "POST"])
-    def thirdpart():
+    @app.route("/thirdpartcandy", methods = ["GET", "POST"])
+    def thirdpartcandy():
+        #vendors background
+        KuchisakeOnna.inventory += 1
+        print(KuchisakeOnna.inventory)
+        text3 = {}
+        index3 = 0
+        with open("text_set_3.txt", 'r') as file:
+            for line in file:
+                index3 = index3 + 1
+                text3[index3] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("second_part.html", content = text3[num], line_number = num)
+            except:
+                placechoice = "Which place should you go visit?"
+                return render_template("place_choice.html", content = placechoice)
+        return render_template("second_part.html", content = text3[1], line_number = 1)
+    
+    @app.route("/thirdpartnocandy", methods = ["GET", "POST"])
+    def thirdpartnocandy():
         #vendors background
         text3 = {}
         index3 = 0
@@ -196,6 +217,7 @@ class KuchisakeOnna:
     @app.route("/pretty2", methods = ["GET", "POST"])
     def pretty2():
         #hashima island background, disfigured face woman
+        print(KuchisakeOnna.inventory)
         p2text = {}
         p2index = 0
         with open("pretty_2.txt", 'r') as file:
@@ -208,7 +230,12 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = p2text[num], line_number = num)
             except:
-                print("Something")
+                if KuchisakeOnna.inventory == 1:
+                    candy = "You have candy."
+                    return render_template("start.html", content = candy)
+                else:
+                    no_candy = "You do not have candy."
+                    return render_template("second_part.html", content = no_candy)
         return render_template("second_part.html", content = p2text[1], line_number = 1)
 
     @app.route("/candy", methods = ["GET", "POST"])
