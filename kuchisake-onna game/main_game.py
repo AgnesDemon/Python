@@ -69,7 +69,6 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                print("It is reaching the try method.")
                 return render_template("second_part.html", content = text2[num], line_number = num)
             except:
                 candy_question = "Should you buy the candy?"
@@ -81,8 +80,6 @@ class KuchisakeOnna:
     @app.route("/thirdpartcandy", methods = ["GET", "POST"])
     def thirdpartcandy():
         #vendors background
-        KuchisakeOnna.inventory += 1
-        print(KuchisakeOnna.inventory)
         text3 = {}
         index3 = 0
         with open("text_set_3.txt", 'r') as file:
@@ -95,6 +92,8 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = text3[num], line_number = num)
             except:
+                KuchisakeOnna.inventory += 1
+                print(KuchisakeOnna.inventory)
                 placechoice = "Which place should you go visit?"
                 return render_template("place_choice.html", content = placechoice)
         return render_template("second_part.html", content = text3[1], line_number = 1)
@@ -121,6 +120,7 @@ class KuchisakeOnna:
     @app.route("/omurapark", methods = ["GET", "POST"])
     def omurapark():
         #omura park background
+        print(KuchisakeOnna.inventory)
         optext = {}
         opindex = 0
         with open("omura_park.txt", 'r') as file:
@@ -133,13 +133,19 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = optext[num], line_number = num)
             except:
-                print("Something")
+                if KuchisakeOnna.inventory == 1:
+                    print("You have candy")
+                    return render_template("good_ending_a.html")
+                else:
+                    print("You do not have candy")
+                    return render_template("good_ending_b.html")
         return render_template("second_part.html", content = optext[1], line_number = 1)
     
     @app.route("/goodendinga", methods = ["GET", "POST"]) #complete
     def goodendinga():
         #black background
         #should suggest to go back to beginning or to go back to previous choice
+        print(KuchisakeOnna.inventory)
         geatext = {}
         geaindex = 0
         with open("good_ending_a.txt", 'r') as file:
@@ -160,6 +166,7 @@ class KuchisakeOnna:
     def goodendingb():
         #black background
         #should suggest to go back to beginning or to go back to previous choice
+        print(KuchisakeOnna.inventory)
         gebtext = {}
         gebindex = 0
         with open("good_ending_b.txt", 'r') as file:
@@ -210,8 +217,7 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = ptext[num], line_number = num)
             except:
-                print("something")
-                #KuchisakeOnna.pretty2()
+                return render_template("pretty_2.html")
         return render_template("second_part.html", content = ptext[1], line_number = 1)
 
     @app.route("/pretty2", methods = ["GET", "POST"])
@@ -231,8 +237,8 @@ class KuchisakeOnna:
                 return render_template("second_part.html", content = p2text[num], line_number = num)
             except:
                 if KuchisakeOnna.inventory == 1:
-                    candy = "You have candy."
-                    return render_template("start.html", content = candy)
+                    candy = "Throw the candy?"
+                    return render_template("throw_candy_choice.html", content = candy)
                 else:
                     no_candy = "You do not have candy."
                     return render_template("second_part.html", content = no_candy)

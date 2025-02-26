@@ -148,3 +148,51 @@ div.throw_candy_choice {
 div.throw_candy_choice p {
     margin-left: 10px;
 }
+
+div.good_ending_a {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.good_ending_a p {
+    margin-left: 10px;
+}
+
+div.good_ending_b {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.good_ending_b p {
+    margin-left: 10px;
+}
+
+div.pretty_2 {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.pretty_2 p {
+    margin-left: 10px;
+}
+
+div.disfigured_ending {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.disfigured_ending p {
+    margin-left: 10px;
+}
