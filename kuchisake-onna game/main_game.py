@@ -17,7 +17,7 @@ class KuchisakeOnna:
 
     #need to create a main page for '/' so that it doesn't show the 'not found' page
 
-    @app.route("/start", methods = ["GET", "POST"])
+    @app.route("/start", methods = ["GET", "POST"]) #need background, otherwise complete
     def start():
         #bedroom background
         text = {}
@@ -36,7 +36,7 @@ class KuchisakeOnna:
                 return render_template("first_choice.html", content = text)        
         return render_template("start.html", content = text[1], line_number = 1)
 
-    @app.route("/firstending", methods = ["GET", "POST"])
+    @app.route("/firstending", methods = ["GET", "POST"]) #complete
     def firstending():
         #black background
         #should suggest to go back to the beginning to try again.
@@ -56,7 +56,7 @@ class KuchisakeOnna:
                 return render_template("back_to_beginning.html", content = text)
         return render_template("black_background.html", content = fetext[1], line_number = 1)
 
-    @app.route("/secondpart", methods = ["GET", "POST"])
+    @app.route("/secondpart", methods = ["GET", "POST"]) #needs background, otherwise complete
     def secondpart():
         #still working on what background I should put
         text2 = {}
@@ -77,7 +77,7 @@ class KuchisakeOnna:
                 return render_template("candy_choice.html", content = candy_question)
         return render_template("second_part.html", content = text2[1], line_number = 1)
     
-    @app.route("/thirdpartcandy", methods = ["GET", "POST"])
+    @app.route("/thirdpartcandy", methods = ["GET", "POST"]) #needs background, otherwise complete
     def thirdpartcandy():
         #vendors background
         text3 = {}
@@ -98,7 +98,7 @@ class KuchisakeOnna:
                 return render_template("place_choice.html", content = placechoice)
         return render_template("second_part.html", content = text3[1], line_number = 1)
     
-    @app.route("/thirdpartnocandy", methods = ["GET", "POST"])
+    @app.route("/thirdpartnocandy", methods = ["GET", "POST"]) #needs background, otherwise complete
     def thirdpartnocandy():
         #vendors background
         text3 = {}
@@ -117,7 +117,7 @@ class KuchisakeOnna:
                 return render_template("place_choice.html", content = placechoice)
         return render_template("second_part.html", content = text3[1], line_number = 1)
 
-    @app.route("/omurapark", methods = ["GET", "POST"])
+    @app.route("/omurapark", methods = ["GET", "POST"]) #needs background, otherwise complete
     def omurapark():
         #omura park background
         print(KuchisakeOnna.inventory)
@@ -183,7 +183,7 @@ class KuchisakeOnna:
                 return render_template("ge_go_back.html", content = back_question)
         return render_template("black_background.html", content = gebtext[1], line_number = 1)
 
-    @app.route("/hashimaisland", methods = ["GET", "POST"])
+    @app.route("/hashimaisland", methods = ["GET", "POST"]) #needs background, otherwise complete
     def hashimaisland():
         #hashima island background, woman in background
         hitext = {}
@@ -202,7 +202,7 @@ class KuchisakeOnna:
                 return render_template("three_choice.html", content = pretty_question)
         return render_template("second_part.html", content = hitext[1], line_number = 1)
 
-    @app.route("/pretty", methods = ["GET", "POST"])
+    @app.route("/pretty", methods = ["GET", "POST"]) #needs background, otherwise complete
     def pretty():
         #hashima island background with happy woman
         ptext = {}
@@ -220,7 +220,7 @@ class KuchisakeOnna:
                 return render_template("pretty_2.html")
         return render_template("second_part.html", content = ptext[1], line_number = 1)
 
-    @app.route("/pretty2", methods = ["GET", "POST"])
+    @app.route("/pretty2", methods = ["GET", "POST"]) #needs background, otherwise complete
     def pretty2():
         #hashima island background, disfigured face woman
         print(KuchisakeOnna.inventory)
@@ -237,14 +237,12 @@ class KuchisakeOnna:
                 return render_template("second_part.html", content = p2text[num], line_number = num)
             except:
                 if KuchisakeOnna.inventory == 1:
-                    candy = "Throw the candy?"
-                    return render_template("throw_candy_choice.html", content = candy)
+                    return render_template("candy.html")
                 else:
-                    no_candy = "You do not have candy."
-                    return render_template("second_part.html", content = no_candy)
+                    return render_template("no_candy.html")
         return render_template("second_part.html", content = p2text[1], line_number = 1)
 
-    @app.route("/candy", methods = ["GET", "POST"])
+    @app.route("/candy", methods = ["GET", "POST"]) #needs background, otherwise complete
     def candy():
         #hashima island background, disfigured face woman with scissors
         ctext = {}
@@ -263,7 +261,7 @@ class KuchisakeOnna:
                 return render_template("throw_candy_choice.html", content = candy_choice)
         return render_template("second_part.html", content = ctext[1], line_number = 1)
     
-    @app.route("/throwcandy", methods = ["GET", "POST"])
+    @app.route("/throwcandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is trauma ending.
     def throwcandy():
         #hashima island background, candy thrown at woman
         tctext = {}
@@ -281,7 +279,7 @@ class KuchisakeOnna:
                 print("Something")
         return render_template("second_part.html", content = tctext[1], line_number = 1)
 
-    @app.route("/dontthrowcandy", methods = ["GET", "POST"])
+    @app.route("/dontthrowcandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is either death or disfigured ending.
     def dontthrowcandy():
         #bloody background
         dtctext = {}
@@ -299,7 +297,7 @@ class KuchisakeOnna:
                 print("Something")
         return render_template("second_part.html", content = dtctext[1], line_number = 1)
 
-    @app.route("/nocandy", methods = ["GET", "POST"])
+    @app.route("/nocandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is either death or disfigured ending.
     def nocandy():
         #bloody background
         nctext = {}
@@ -314,10 +312,10 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = nctext[num], line_number = num)
             except:
-                print("Something")
+                return render_template("disfigured_ending.html")
         return render_template("second_part.html", content = nctext[1], line_number = 1)
 
-    @app.route("/soso", methods = ["GET", "POST"])
+    @app.route("/soso", methods = ["GET", "POST"]) #needs background and next sequence set up, which is neutral ending.
     def soso():
         #hashima island background, disappointed woman
         sstext = {}
@@ -335,7 +333,7 @@ class KuchisakeOnna:
                 print("Something")
         return render_template("second_part.html", content = sstext[1], line_number = 1)
 
-    @app.route("/neutralending", methods = ["GET", "POST"])
+    @app.route("/neutralending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
     def neutralending():
         #black background
         #should suggest going back to beginning or to previous choice
@@ -351,10 +349,10 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = netext[num], line_number = num)
             except:
-                print("Something")
+                replay = "Would you like to play again? Or go back to the previous choice?"
         return render_template("black_background.html", content = netext[1], line_number = 1)
 
-    @app.route("/notpretty", methods = ["GET", "POST"])
+    @app.route("/notpretty", methods = ["GET", "POST"]) #needs background and next sequence set up, which is def candy() or def nocandy().
     def notpretty():
         #hashima island background, angry woman with scissors
         nptext = {}
@@ -372,7 +370,7 @@ class KuchisakeOnna:
                 print("Something")
         return render_template("second_part.html", content = nptext[1], line_number = 1)
 
-    @app.route("/traumaending", methods = ["GET", "POST"])
+    @app.route("/traumaending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
     def traumaending():
         #black background
         #should suggest going back to beginning or to previous choice
@@ -388,10 +386,10 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = tetext[num], line_number = num)
             except:
-                print("Something")
+                replay = "Would you like to play again? Or go back to the previous choice?"
         return render_template("black_background.html", content = tetext[1], line_number = 1)
 
-    @app.route("/disfiguredending", methods = ["GET", "POST"])
+    @app.route("/disfiguredending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
     def disfiguredending():
         #black background
         #should suggest going back to beginning or to previous choice
@@ -407,10 +405,10 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = detext[num], line_number = num)
             except:
-                print("Something")
+                replay = "Would you like to play again? Or go back to the previous choice?"
         return render_template("black_background.html", content = detext[1], line_number = 1)
     
-    @app.route("/deathending", methods = ["GET", "POST"])
+    @app.route("/deathending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
     def deathending():
         #black background
         #should suggest going back to beginning or to previous choice
@@ -426,7 +424,7 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = deathtext[num], line_number = num)
             except:
-                print("Something")
+                replay = "Would you like to play again? Or go back to the previous choice?"
         return render_template("black_background.html", content = deathtext[1], line_number = 1)
 
 

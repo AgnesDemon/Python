@@ -196,3 +196,27 @@ div.disfigured_ending {
 div.disfigured_ending p {
     margin-left: 10px;
 }
+
+div.no_candy {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.no_candy p {
+    margin-left: 10px;
+}
+
+div.candy {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.candy p {
+    margin-left: 10px;
+}
