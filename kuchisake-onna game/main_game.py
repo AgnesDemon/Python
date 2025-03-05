@@ -243,7 +243,7 @@ class KuchisakeOnna:
         return render_template("second_part.html", content = p2text[1], line_number = 1)
 
     @app.route("/candy", methods = ["GET", "POST"]) #needs background, otherwise complete
-    def candy():
+    def candy(): #this will be for pretty route to disfigured ending
         #hashima island background, disfigured face woman with scissors
         ctext = {}
         cindex = 0
@@ -261,7 +261,26 @@ class KuchisakeOnna:
                 return render_template("throw_candy_choice.html", content = candy_choice)
         return render_template("second_part.html", content = ctext[1], line_number = 1)
     
-    @app.route("/throwcandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is trauma ending.
+    @app.route("/candy2", methods = ["GET", "POST"]) #needs background, otherwise complete
+    def candy2(): #this will be for not pretty route to death ending
+        #hashima island background, disfigured face woman with scissors
+        ctext = {}
+        cindex = 0
+        with open("candy.txt", 'r') as file:
+            for line in file:
+                cindex = cindex + 1
+                ctext[cindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("second_part.html", content = ctext[num], line_number = num)
+            except:
+                candy_choice = "Should you throw the candy?"
+                return render_template("throw_candy_choice2.html", content = candy_choice)
+        return render_template("second_part.html", content = ctext[1], line_number = 1)
+    
+    @app.route("/throwcandy", methods = ["GET", "POST"]) #needs background, otherwise complete
     def throwcandy():
         #hashima island background, candy thrown at woman
         tctext = {}
@@ -276,11 +295,11 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = tctext[num], line_number = num)
             except:
-                print("Something")
+                return render_template("trauma_ending.html")
         return render_template("second_part.html", content = tctext[1], line_number = 1)
 
-    @app.route("/dontthrowcandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is either death or disfigured ending.
-    def dontthrowcandy():
+    @app.route("/dontthrowcandy", methods = ["GET", "POST"]) #needs background, otherwise complete
+    def dontthrowcandy(): #leads to disfigured ending
         #bloody background
         dtctext = {}
         dtcindex = 0
@@ -294,11 +313,29 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = dtctext[num], line_number = num)
             except:
-                print("Something")
+                return render_template("disfigured_ending.html")
+        return render_template("second_part.html", content = dtctext[1], line_number = 1)
+    
+    @app.route("/dontthrowcandy2", methods = ["GET", "POST"]) #needs background, otherwise complete
+    def dontthrowcandy2(): #leads to death ending
+        #bloody background
+        dtctext = {}
+        dtcindex = 0
+        with open("dont_throw_candy.txt", 'r') as file:
+            for line in file:
+                dtcindex = dtcindex + 1
+                dtctext[dtcindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("second_part.html", content = dtctext[num], line_number = num)
+            except:
+                return render_template("death_ending.html")
         return render_template("second_part.html", content = dtctext[1], line_number = 1)
 
     @app.route("/nocandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is either death or disfigured ending.
-    def nocandy():
+    def nocandy(): #may need to create separate version of this for not pretty route
         #bloody background
         nctext = {}
         ncindex = 0
@@ -312,10 +349,10 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = nctext[num], line_number = num)
             except:
-                return render_template("disfigured_ending.html")
+                print("Something")
         return render_template("second_part.html", content = nctext[1], line_number = 1)
 
-    @app.route("/soso", methods = ["GET", "POST"]) #needs background and next sequence set up, which is neutral ending.
+    @app.route("/soso", methods = ["GET", "POST"]) #needs background, otherwise complete
     def soso():
         #hashima island background, disappointed woman
         sstext = {}
@@ -330,7 +367,7 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = sstext[num], line_number = num)
             except:
-                print("Something")
+                return render_template("neutral_ending.html")
         return render_template("second_part.html", content = sstext[1], line_number = 1)
 
     @app.route("/neutralending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
@@ -367,7 +404,10 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = nptext[num], line_number = num)
             except:
-                print("Something")
+                if KuchisakeOnna.inventory == 1:
+                    return render_template("candy2.html")
+                else:
+                    return render_template("no_candy.html")
         return render_template("second_part.html", content = nptext[1], line_number = 1)
 
     @app.route("/traumaending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
