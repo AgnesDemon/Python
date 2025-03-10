@@ -1,0 +1,14 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<body>
+    <div class="candy">
+        <p> {{content}} </p>
+        <strong><nav>
+            <ul class="menu">
+                <li><a href="{{url_for('candy2') }}">...</a></li>
+            </ul>
+        </nav></strong>
+    </div>
+</body>
+{%endblock%}

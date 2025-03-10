@@ -158,8 +158,8 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = geatext[num], line_number = num)
             except:
-                back_question = "Would you like to play again? Or go back to the previous choice?"
-                return render_template("ge_go_back.html", content = back_question)
+                back_question = "Would you like to play again?"
+                return render_template("back_to_beginning.html", content = back_question)
         return render_template("black_background.html", content = geatext[1], line_number = 1)        
 
     @app.route("/goodendingb", methods = ["GET", "POST"]) #complete
@@ -179,8 +179,8 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = gebtext[num], line_number = num)
             except:
-                back_question = "Would you like to play again? Or go back to the previous choice?"
-                return render_template("ge_go_back.html", content = back_question)
+                back_question = "Would you like to play again?"
+                return render_template("back_to_beginning.html", content = back_question)
         return render_template("black_background.html", content = gebtext[1], line_number = 1)
 
     @app.route("/hashimaisland", methods = ["GET", "POST"]) #needs background, otherwise complete
@@ -334,8 +334,8 @@ class KuchisakeOnna:
                 return render_template("death_ending.html")
         return render_template("second_part.html", content = dtctext[1], line_number = 1)
 
-    @app.route("/nocandy", methods = ["GET", "POST"]) #needs background and next sequence set up, which is either death or disfigured ending.
-    def nocandy(): #may need to create separate version of this for not pretty route
+    @app.route("/nocandy", methods = ["GET", "POST"]) #needs background, otherwise complete
+    def nocandy(): #pretty route, disfigured ending
         #bloody background
         nctext = {}
         ncindex = 0
@@ -349,7 +349,25 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("second_part.html", content = nctext[num], line_number = num)
             except:
-                print("Something")
+                return render_template("disfigured_ending.html")
+        return render_template("second_part.html", content = nctext[1], line_number = 1)
+    
+    @app.route("/nocandy2", methods = ["GET", "POST"]) #needs background, otherwise complete
+    def nocandy2(): #not pretty route, death ending
+        #bloody background
+        nctext = {}
+        ncindex = 0
+        with open("no_candy.txt", 'r') as file:
+            for line in file:
+                ncindex = ncindex + 1
+                nctext[ncindex] = line.strip()
+        if request.method == "POST":
+            try:
+                line_num = request.form.get('current_line')
+                num = int(line_num) + 1
+                return render_template("second_part.html", content = nctext[num], line_number = num)
+            except:
+                return render_template("death_ending.html")
         return render_template("second_part.html", content = nctext[1], line_number = 1)
 
     @app.route("/soso", methods = ["GET", "POST"]) #needs background, otherwise complete
@@ -370,10 +388,9 @@ class KuchisakeOnna:
                 return render_template("neutral_ending.html")
         return render_template("second_part.html", content = sstext[1], line_number = 1)
 
-    @app.route("/neutralending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
+    @app.route("/neutralending", methods = ["GET", "POST"]) #complete
     def neutralending():
         #black background
-        #should suggest going back to beginning or to previous choice
         netext = {}
         neindex = 0
         with open("neutral_ending.txt", 'r') as file:
@@ -386,10 +403,11 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = netext[num], line_number = num)
             except:
-                replay = "Would you like to play again? Or go back to the previous choice?"
+                replay = "Would you like to play again?"
+                return render_template("back_to_beginning.html", content = replay)
         return render_template("black_background.html", content = netext[1], line_number = 1)
 
-    @app.route("/notpretty", methods = ["GET", "POST"]) #needs background and next sequence set up, which is def candy() or def nocandy().
+    @app.route("/notpretty", methods = ["GET", "POST"]) #needs background, otherwise complete
     def notpretty():
         #hashima island background, angry woman with scissors
         nptext = {}
@@ -407,10 +425,10 @@ class KuchisakeOnna:
                 if KuchisakeOnna.inventory == 1:
                     return render_template("candy2.html")
                 else:
-                    return render_template("no_candy.html")
+                    return render_template("no_candy2.html")
         return render_template("second_part.html", content = nptext[1], line_number = 1)
 
-    @app.route("/traumaending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
+    @app.route("/traumaending", methods = ["GET", "POST"]) #complete
     def traumaending():
         #black background
         #should suggest going back to beginning or to previous choice
@@ -426,13 +444,13 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = tetext[num], line_number = num)
             except:
-                replay = "Would you like to play again? Or go back to the previous choice?"
+                replay = "Would you like to play again?"
+                return render_template("back_to_beginning.html", content = replay)
         return render_template("black_background.html", content = tetext[1], line_number = 1)
 
-    @app.route("/disfiguredending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
+    @app.route("/disfiguredending", methods = ["GET", "POST"]) #complete
     def disfiguredending():
         #black background
-        #should suggest going back to beginning or to previous choice
         detext = {}
         deindex = 0
         with open("disfigured_ending.txt", 'r') as file:
@@ -445,13 +463,13 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = detext[num], line_number = num)
             except:
-                replay = "Would you like to play again? Or go back to the previous choice?"
+                replay = "Would you like to play again?"
+                return render_template("back_to_beginning.html", content = replay)
         return render_template("black_background.html", content = detext[1], line_number = 1)
     
-    @app.route("/deathending", methods = ["GET", "POST"]) #needs next sequence set up, which is replay.
+    @app.route("/deathending", methods = ["GET", "POST"]) #complete
     def deathending():
         #black background
-        #should suggest going back to beginning or to previous choice
         deathtext = {}
         deathindex = 0
         with open("death_ending.txt", 'r') as file:
@@ -464,7 +482,8 @@ class KuchisakeOnna:
                 num = int(line_num) + 1
                 return render_template("black_background.html", content = deathtext[num], line_number = num)
             except:
-                replay = "Would you like to play again? Or go back to the previous choice?"
+                replay = "Would you like to play again?"
+                return render_template("back_to_beginning.html", content = replay)
         return render_template("black_background.html", content = deathtext[1], line_number = 1)
 
 
