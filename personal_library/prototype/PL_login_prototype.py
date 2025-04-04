@@ -9,12 +9,14 @@ class PL_Login:
     
     def login():
         clear()
-        input("Welcome to your personal library! Please sign in: ")
+        input("Welcome to your personal library! To sign in, press enter to continue")
+        clear()
         username = input("Username: ")
+        clear()
         password = input("Password: ")
         if username == PL_Login.password_info["username"] and password == PL_Login.password_info["password"]:
-            print("Welcome, " + PL_Login.password_info["username"] + "! Please enjoy your personal library!")
-            time.sleep(2)
+            input("Welcome, " + PL_Login.password_info["username"] + "! Please enjoy your personal library!\nPress Enter to continue")
+            #time.sleep(2)
             clear()
             PL_prototype.Personal_Library.opening()
         else:
