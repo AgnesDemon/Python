@@ -3,10 +3,16 @@ import os
 clear = lambda: os.system("cls")
 #import PL_login_prototype
 
+#to create a folder using python:
+    #make sure os is imported
+    #directory = "new_folder"
+    #os.makedirs(directory, exist_ok = True)
+    #to make sure it worked, "print(f"Directory '{directory}' created successfully!")"
+
 class Personal_Library:
     #may need to make option in beginning where if you have no shelves, Browse Shelves option should not appear
     def opening():
-        choice = input("Welcome to your personal library! What would you like to do today?\n1: Browse Shelves\n2: Create new Shelf\n3: Exit Personal Library\n")
+        choice = input("What would you like to do today?\n1: Browse Shelves\n2: Create new Shelf\n3: Exit Personal Library\n")
         if choice == "1":
             print("Browsing library...")
         elif choice == "2":
@@ -26,4 +32,8 @@ class Personal_Library:
         elif y_or_n == "n":
             Personal_Library.opening()
 
-    
+
+#this works
+'''directory = "AgnesDemon_library"
+os.makedirs(directory, exist_ok=True)
+print(f"Directory '{directory}' created successfully!")'''
