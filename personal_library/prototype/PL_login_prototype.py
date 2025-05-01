@@ -9,19 +9,65 @@ import hashlib
 #ERROR: missing 3 required positional arguments: 'self', 'username', and 'password'. Need to figure out the problem
 
 class PL_Login:
-    accounts = {"AgnesDemon":"Cooper10"}
-    input(accounts)
+    def read_user_logins():
+        with open('users.txt', 'r') as f:
+            contents = f.readlines()
+            #print(contents)
+            #['AgnesDemon,Cooper10\n', 'DummyUsername,DummyPassword'] - this is what it prints out
+
+            new_contents = []
+            for line in contents:
+                fields = line.split(',')
+                fields[1] = fields[1].rstrip() #.rstrip - removes last character in a string. This helps get rid of \n at end of line
+                new_contents.append(fields)
+            return new_contents
     
+    logins = read_user_logins()
+    
+    def login():
+        clear()
+        typed_username = str(input("Username: "))
+        clear()
+        typed_password = str(getpass.getpass("Password: "))
+        logged_in = False
+        for line in PL_Login.logins:
+            if line[0] == typed_username and logged_in == False:
+                if line[1] == typed_password:
+                    logged_in = True
+        if logged_in == True:
+            clear()
+            input("Welcome, " + typed_username + "! Please enjoy your personal library!")
+            clear()
+            PL_prototype.Personal_Library.opening()
+        else:
+            print("Sorry, the username or password is incorrect. Please try again.")
+            PL_Login.login()
+    
+    def create_new_account():
+        print("Signing up....")
+
+    def exit():
+        clear()
+        y_or_n= input("Are you sure you want to exit? y/n\n")
+        if y_or_n == "y":
+            clear()
+            print("Exiting...")
+        elif y_or_n == "n":
+            PL_Login.main()
+        else:
+            clear()
+            input("I'm sorry, I didn't understand your answer. Please type in your answer again.")
+            PL_Login.exit()
+
     def main():
         clear()
-        sign_in_or_up = input("Welcome to your personal library!\nTo sign in, press 1\nIf you want to sign up, press 2\n")
+        sign_in_or_up = input("Welcome to your personal library!\nIf you already have an account, press 1 to log in.\nIf you want to create a new account, press 2.\nIf you wish to exit, press 3.\n")
         if sign_in_or_up == "1":
-            clear()
-            print("Signing in....")
+            PL_Login.login()
         elif sign_in_or_up == "2":
-            clear()
-            print("Creating a new account...")
-        
+            PL_Login.create_new_account()
+        elif sign_in_or_up == "3":
+            PL_Login.exit()
 
 
 run_function = PL_Login

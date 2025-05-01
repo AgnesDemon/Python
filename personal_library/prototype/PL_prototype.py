@@ -31,6 +31,10 @@ class Personal_Library:
             print("Exiting library...")
         elif y_or_n == "n":
             Personal_Library.opening()
+        else:
+            clear()
+            input("I'm sorry, I didn't understand your answer. Please type in your answer again.")
+            Personal_Library.exit()
 
 
 #this works
