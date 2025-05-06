@@ -6,8 +6,6 @@ import PL_prototype
 import getpass
 import hashlib
 
-#ERROR: missing 3 required positional arguments: 'self', 'username', and 'password'. Need to figure out the problem
-
 class PL_Login:
     def read_user_logins():
         with open('users.txt', 'r') as f:
@@ -40,11 +38,17 @@ class PL_Login:
             clear()
             PL_prototype.Personal_Library.opening()
         else:
-            print("Sorry, the username or password is incorrect. Please try again.")
+            input("Sorry, the username or password is incorrect. Please try again.\nPress Enter to retry.")
             PL_Login.login()
     
     def create_new_account():
-        print("Signing up....")
+        clear()
+        new_username = input("Type in your username: ")
+        new_password = input("Type in your password: ")
+        f = open("users.txt", 'a')
+        f.write('\n' + new_username + ',' + new_password)
+        f.close()
+        PL_Login.main()
 
     def exit():
         clear()
