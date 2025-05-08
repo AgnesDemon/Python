@@ -1,10 +1,8 @@
 import pandas
 import os
-import time
 clear = lambda: os.system("cls")
 import PL_prototype
 import getpass
-import hashlib
 
 class PL_Login:
     def read_user_logins():
@@ -48,7 +46,12 @@ class PL_Login:
         f = open("users.txt", 'a')
         f.write('\n' + new_username + ',' + new_password)
         f.close()
-        PL_Login.main()
+        directory = new_username + "_library"
+        os.makedirs(directory, exist_ok=True)
+        #input(f"Folder '{directory} created successfully!")
+        clear()
+        input("Welcome, " + new_username + "! Please enjoy your personal library!")
+        PL_prototype.Personal_Library.opening()
 
     def exit():
         clear()
@@ -77,7 +80,10 @@ class PL_Login:
 run_function = PL_Login
 run_function.main()
 
-
+#this works
+'''directory = "AgnesDemon_library"C
+os.makedirs(directory, exist_ok=True)
+print(f"Directory '{directory}' created successfully!")'''
 
     
 '''def login(self, username, password):

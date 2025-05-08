@@ -1,6 +1,8 @@
 import pandas
 import os
 clear = lambda: os.system("cls")
+import PL_login_prototype
+from PL_login_prototype import PL_Login
 #import PL_login_prototype
 
 #to create a folder using python:
@@ -22,6 +24,10 @@ class Personal_Library:
 
     def browse():
         browse_choice = input("Which shelf would you like to browse?")
+
+    def create_new_shelf():
+        shelf_name = input("What would you like to name your shelf?\n")
+        
     
     def exit():
         clear()
@@ -38,6 +44,24 @@ class Personal_Library:
 
 
 #this works
-'''directory = "AgnesDemon_library"
+'''directory = "AgnesDemon_library"C
 os.makedirs(directory, exist_ok=True)
 print(f"Directory '{directory}' created successfully!")'''
+
+#DIFFERENT WAYS TO ACCESS FILES IN SEPARATE FOLDERS:
+'''import os
+
+folder = "folder"
+filename = "filename.txt"
+file_path = os.path.join(folder, filename)
+
+with open(file_path, 'r') as file:
+    content = file.read()
+    print(content)'''
+
+'''file_path = "../folder/filename.txt"  # Adjust the path as needed
+
+with open(file_path, 'r') as file:
+    content = file.read()
+    print(content)'''
+
