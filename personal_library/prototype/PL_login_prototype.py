@@ -1,8 +1,14 @@
 import pandas
 import os
 clear = lambda: os.system("cls")
-import PL_prototype
 import getpass
+
+#Notes:
+    #need to make sure after logging in or creating a new password, it go into the user's directory folder, or their "library"
+    #need to allow user to open whichever folder (or "shelf") they want to open in their library and be able to view it in the terminal
+    #need to allow user to create new folders, or "shelves"
+    #may need to either change directory so that user can access their "library"
+    #can also call something from their library without having to change directory ("personal_library\prototype\AgnesDemon_library\books.txt")
 
 class PL_Login:
     def read_user_logins():
@@ -34,7 +40,8 @@ class PL_Login:
             clear()
             input("Welcome, " + typed_username + "! Please enjoy your personal library!")
             clear()
-            PL_prototype.Personal_Library.opening()
+            #need to change directory here?
+            Personal_Library.opening()
         else:
             input("Sorry, the username or password is incorrect. Please try again.\nPress Enter to retry.")
             PL_Login.login()
@@ -51,7 +58,8 @@ class PL_Login:
         #input(f"Folder '{directory} created successfully!")
         clear()
         input("Welcome, " + new_username + "! Please enjoy your personal library!")
-        PL_prototype.Personal_Library.opening()
+        #need to change directory here?
+        Personal_Library.opening()
 
     def exit():
         clear()
@@ -76,6 +84,37 @@ class PL_Login:
         elif sign_in_or_up == "3":
             PL_Login.exit()
 
+#at the moment this is in a loop. Need to fix this
+
+class Personal_Library:
+    def opening():
+        choice = input("What would you like to do today?\n1: Browse Shelves\n2: Create new Shelf\n3: Exit Personal Library\n")
+        if choice == "1":
+            print("Browsing library...")
+        elif choice == "2":
+            print("Creating new shelf...")
+        elif choice == "3":
+            Personal_Library.exit()
+
+    def browse():
+        browse_choice = input("Which shelf would you like to browse?")
+
+    def create_new_shelf():
+        shelf_name = input("What would you like to name your shelf?\n")
+        
+    def exit():
+        clear()
+        y_or_n= input("Are you sure you want to exit? y/n\n")
+        if y_or_n == "y":
+            clear()
+            print("Exiting library...")
+        elif y_or_n == "n":
+            Personal_Library.opening()
+        else:
+            clear()
+            input("I'm sorry, I didn't understand your answer. Please type in your answer again.")
+            Personal_Library.exit()
+
 
 run_function = PL_Login
 run_function.main()
@@ -84,6 +123,36 @@ run_function.main()
 '''directory = "AgnesDemon_library"C
 os.makedirs(directory, exist_ok=True)
 print(f"Directory '{directory}' created successfully!")'''
+
+#to create a folder using python:
+    #make sure os is imported
+    #directory = "new_folder"
+    #os.makedirs(directory, exist_ok = True)
+    #to make sure it worked, "print(f"Directory '{directory}' created successfully!")"
+
+
+#this works
+'''directory = "AgnesDemon_library"C
+os.makedirs(directory, exist_ok=True)
+print(f"Directory '{directory}' created successfully!")'''
+
+#DIFFERENT WAYS TO ACCESS FILES IN SEPARATE FOLDERS:
+'''import os
+
+folder = "folder"
+filename = "filename.txt"
+file_path = os.path.join(folder, filename)
+
+with open(file_path, 'r') as file:
+    content = file.read()
+    print(content)'''
+
+'''file_path = "../folder/filename.txt"  # Adjust the path as needed
+
+with open(file_path, 'r') as file:
+    content = file.read()
+    print(content)'''
+
 
     
 '''def login(self, username, password):
