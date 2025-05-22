@@ -1,7 +1,8 @@
 import pandas
 import os
 clear = lambda: os.system("cls")
-import getpass
+#import getpass
+import pwinput
 
 #Notes:
     #need to make sure after logging in or creating a new password, it go into the user's directory folder, or their "library"
@@ -30,7 +31,8 @@ class PL_Login:
         clear()
         typed_username = str(input("Username: "))
         clear()
-        typed_password = str(getpass.getpass("Password: "))
+        #typed_password = str(getpass.getpass("Password: "))
+        typed_password = str(pwinput.pwinput(prompt="Password: ", mask="*")) #when password is typed, asterisks are shown instead for security reasons
         logged_in = False
         for line in PL_Login.logins:
             if line[0] == typed_username and logged_in == False:
