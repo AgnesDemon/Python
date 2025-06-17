@@ -5,11 +5,12 @@ clear = lambda: os.system("cls")
 import pwinput
 
 #Notes:
-    #need to make sure after logging in or creating a new password, it go into the user's directory folder, or their "library"
+    #need to make sure after logging in or creating a new password, it goes into the user's directory folder, or their "library"
     #need to allow user to open whichever folder (or "shelf") they want to open in their library and be able to view it in the terminal
     #need to allow user to create new folders, or "shelves"
     #may need to either change directory so that user can access their "library"
     #can also call something from their library without having to change directory ("personal_library\prototype\AgnesDemon_library\books.txt")
+    #I may be able to put a class within a class to help with changing directory
 
 class PL_Login:
     def read_user_logins():
@@ -52,11 +53,11 @@ class PL_Login:
         clear()
         new_username = input("Type in your username: ")
         new_password = input("Type in your password: ")
-        f = open("users.txt", 'a')
-        f.write('\n' + new_username + ',' + new_password)
+        f = open("users.txt", 'a') #opens users.txt file
+        f.write('\n' + new_username + ',' + new_password) #adds new username and password to users.txt
         f.close()
-        directory = new_username + "_library"
-        os.makedirs(directory, exist_ok=True)
+        directory = new_username + "_library" 
+        os.makedirs(directory, exist_ok=True) #creates directory, or "library"
         #input(f"Folder '{directory} created successfully!")
         clear()
         input("Welcome, " + new_username + "! Please enjoy your personal library!")
@@ -86,7 +87,7 @@ class PL_Login:
         elif sign_in_or_up == "3":
             PL_Login.exit()
 
-#at the moment this is in a loop. Need to fix this
+#at the moment this is in a loop. Need to fix this  -- PERSONAL NOTE: can't find said loop, maybe I fixed it?
 
 class Personal_Library:
     def opening():
