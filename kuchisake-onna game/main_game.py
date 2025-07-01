@@ -298,7 +298,7 @@ class KuchisakeOnna:
                 return render_template("trauma_ending.html")
         return render_template("second_part.html", content = tctext[1], line_number = 1)
 
-    @app.route("/dontthrowcandy", methods = ["GET", "POST"]) #needs background, otherwise complete
+    @app.route("/dontthrowcandy", methods = ["GET", "POST"]) #completed
     def dontthrowcandy(): #leads to disfigured ending
         #bloody background
         dtctext = {}
@@ -311,12 +311,14 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("second_part.html", content = dtctext[num], line_number = num)
+                #return render_template("second_part.html", content = dtctext[num], line_number = num)
+                return render_template("bloody_background.html", content = dtctext[num], line_number = num)
             except:
                 return render_template("disfigured_ending.html")
-        return render_template("second_part.html", content = dtctext[1], line_number = 1)
+        #return render_template("second_part.html", content = dtctext[1], line_number = 1)
+        return render_template("bloody_background.html", content = dtctext[1], line_number = 1)
     
-    @app.route("/dontthrowcandy2", methods = ["GET", "POST"]) #needs background, otherwise complete
+    @app.route("/dontthrowcandy2", methods = ["GET", "POST"]) #completed
     def dontthrowcandy2(): #leads to death ending
         #bloody background
         dtctext = {}
@@ -329,12 +331,12 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("second_part.html", content = dtctext[num], line_number = num)
+                return render_template("bloody_background.html", content = dtctext[num], line_number = num)
             except:
                 return render_template("death_ending.html")
-        return render_template("second_part.html", content = dtctext[1], line_number = 1)
+        return render_template("bloody_background.html", content = dtctext[1], line_number = 1)
 
-    @app.route("/nocandy", methods = ["GET", "POST"]) #needs background, otherwise complete
+    @app.route("/nocandy", methods = ["GET", "POST"]) #completed
     def nocandy(): #pretty route, disfigured ending
         #bloody background
         nctext = {}
@@ -347,12 +349,12 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("second_part.html", content = nctext[num], line_number = num)
+                return render_template("bloody_background.html", content = nctext[num], line_number = num)
             except:
                 return render_template("disfigured_ending.html")
-        return render_template("second_part.html", content = nctext[1], line_number = 1)
+        return render_template("bloody_background.html", content = nctext[1], line_number = 1)
     
-    @app.route("/nocandy2", methods = ["GET", "POST"]) #needs background, otherwise complete
+    @app.route("/nocandy2", methods = ["GET", "POST"]) #completed
     def nocandy2(): #not pretty route, death ending
         #bloody background
         nctext = {}
@@ -365,10 +367,10 @@ class KuchisakeOnna:
             try:
                 line_num = request.form.get('current_line')
                 num = int(line_num) + 1
-                return render_template("second_part.html", content = nctext[num], line_number = num)
+                return render_template("bloody_background.html", content = nctext[num], line_number = num)
             except:
                 return render_template("death_ending.html")
-        return render_template("second_part.html", content = nctext[1], line_number = 1)
+        return render_template("bloody_background.html", content = nctext[1], line_number = 1)
 
     @app.route("/soso", methods = ["GET", "POST"]) #needs background, otherwise complete
     def soso():

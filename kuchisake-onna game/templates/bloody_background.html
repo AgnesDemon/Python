@@ -1,0 +1,13 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<body>
+    <center><img src="{{url_for('static',filename='images/bloody_background.png')}}" width="1888" height="706"></center>
+    <div class="bloody_background_textbox">
+        <form method="post">
+            <input type="hidden" id="current_line" name="current_line" value={{line_number}}>
+            <p> {{ content }} <button type="submit">Submit</button></p>
+        </form>
+    </div>
+</body>
+{%endblock%}

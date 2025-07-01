@@ -65,6 +65,18 @@ div.black_background_textbox p {
     margin-left: 10px;
 }
 
+div.bloody_background_textbox {
+    padding: 10px 0 30px 0;
+    background-color: gray;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+div.bloody_background_textbox p {
+    margin-left: 10px;
+}
+
 div.candy_choice {
     padding: 10px 0 30px 0;
     background-color: gray;
